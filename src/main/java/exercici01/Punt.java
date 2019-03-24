@@ -32,10 +32,10 @@ public class Punt {
 
     @Override
     public String toString() {
-        return "Punt{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return "(" +
+                x +
+                "," + y
+                + ")";
     }
 
     public double distancia(Punt p){
