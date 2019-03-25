@@ -31,7 +31,7 @@ public class Poligon {
         return punts.toString();
     }
 
-    public double perimetre(ArrayList<Punt>punts){
+    public double perimetre(){
         double perimetro = 0;
         perimetro = puntsPoligon.get(0).distancia(puntsPoligon.get(puntsPoligon.size()-1));
         for (int i=0; i<puntsPoligon.size()-1; i++){

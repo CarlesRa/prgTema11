@@ -16,13 +16,13 @@ public class Exercici02 {
         System.out.println("Els punts del polígon son: \n");
         System.out.println(p1.toString());
         System.out.println("Te un total de: " + p1.numVertex() + " vertex.");
-        System.out.println("El seu perímetre es: " + p1.perimetre(puntsPoligon) + "\n");
+        System.out.println("El seu perímetre es: " + p1.perimetre() + "\n");
         System.out.println("Traslladem el polígon +4 en 'x' i -3 en 'y': ");
         p1.trasllada(4,-3);
         System.out.println("Els punts del polígon son: \n");
         p1.toString();
         System.out.println("Te un total de: " + p1.numVertex() + " vertex.");
-        System.out.println("El seu perímetre es: " + p1.perimetre(puntsPoligon));
+        System.out.println("El seu perímetre es: " + p1.perimetre());
 
     }
 }
