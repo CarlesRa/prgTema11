@@ -24,24 +24,20 @@ public class Poligon {
 
     @Override
     public String toString() {
-        for (Punt punt: puntsPoligon){
-            System.out.println(punt.toString());
+        StringBuilder punts = new StringBuilder();
+        for (int i=0; i<puntsPoligon.size(); i++){
+            punts.append(puntsPoligon.get(i)).append("\n");
         }
-        return puntsPoligon.toString();
+        return punts.toString();
     }
 
     public double perimetre(ArrayList<Punt>punts){
         double perimetro = 0;
-        perimetro = distanciaEntrePunts(punts.get(0),punts.get(punts.size()-1));
+        perimetro = puntsPoligon.get(0).distancia(puntsPoligon.get(puntsPoligon.size()-1));
         for (int i=0; i<puntsPoligon.size()-1; i++){
-            perimetro += distanciaEntrePunts(punts.get(i),punts.get(i+1));
+            perimetro += puntsPoligon.get(i).distancia(puntsPoligon.get(i+1));
         }
         return perimetro;
     }
 
-    public double distanciaEntrePunts(Punt p1, Punt p2){
-        double distancia = Math.sqrt(Math.pow((p2.getX() - p1.getX()),2)
-        + Math.pow((p2.getY() - p1.getY()),2));
-        return distancia;
-    }
 }

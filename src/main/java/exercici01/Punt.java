@@ -38,9 +38,9 @@ public class Punt {
                 + ")";
     }
 
-    public double distancia(Punt p){
-        double distancia;
-        distancia = Math.sqrt((Math.pow(p.getX(),2) + Math.pow(p.getY(),2)));
-        return  distancia;
+    public double distancia(Punt p2){
+        double distancia = Math.sqrt(Math.pow((p2.getX() - this.x),2)
+                + Math.pow((p2.getY() - this.y),2));
+        return distancia;
     }
 }
