@@ -8,13 +8,13 @@ public abstract class Cotxe {
     public Cotxe(String matricula) {
         this.matricula = matricula;
         velocitat = 0;
-        marxa=Marxa.PUNTO_MUERTO;
+        marxa=Marxa.PUNT_MORT;
     }
 
     public Cotxe() {
         matricula = "";
         velocitat = 0;
-        marxa = Marxa.PUNTO_MUERTO;
+        marxa = Marxa.PUNT_MORT;
     }
 
     public double getVelocitat() {

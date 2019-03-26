@@ -5,7 +5,7 @@ public class CotxeCanviAutimatic extends Cotxe{
     public CotxeCanviAutimatic(String matricula){
         this.matricula = matricula;
         velocitat = 0;
-        marxa = Marxa.PUNTO_MUERTO;
+        marxa = Marxa.PUNT_MORT;
     }
 
     @Override
