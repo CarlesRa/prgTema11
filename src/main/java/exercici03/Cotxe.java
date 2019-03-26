@@ -11,7 +11,29 @@ public abstract class Cotxe {
         marxa=Marxa.PUNTO_MUERTO;
     }
 
-    protected void acelerar(double acceleracio){
+    public Cotxe() {
+        matricula = "";
+        velocitat = 0;
+        marxa = Marxa.PUNTO_MUERTO;
+    }
+
+    public double getVelocitat() {
+        return velocitat;
+    }
+
+    public void setVelocitat(double velocitat) {
+        this.velocitat = velocitat;
+    }
+
+    public Marxa getMarxa() {
+        return marxa;
+    }
+
+    public void setMarxa(Marxa marxa) {
+        this.marxa = marxa;
+    }
+
+    protected void accelerar(double acceleracio){
         if (acceleracio>=0){
             this.velocitat += acceleracio;
         }
@@ -25,11 +47,13 @@ public abstract class Cotxe {
             this.velocitat -= frenar;
         }
         else{
-            System.out.println("No se puedde frenar a menos de 0.");
+            System.out.println("No se puede frenar a menos de 0.");
         }
     }
 
-    protected abstract void canviarMarxa(Marxa marxa);
+    void canviarMarxa(Marxa marxa){
+        this.marxa = marxa;
+    }
 
     @Override
     public String toString() {
@@ -39,6 +63,4 @@ public abstract class Cotxe {
                 ", marxa=" + marxa +
                 '}';
     }
-
-
 }
