@@ -21,16 +21,8 @@ public abstract class Cotxe {
         return velocitat;
     }
 
-    public void setVelocitat(double velocitat) {
-        this.velocitat = velocitat;
-    }
-
     public Marxa getMarxa() {
         return marxa;
-    }
-
-    public void setMarxa(Marxa marxa) {
-        this.marxa = marxa;
     }
 
     protected void accelerar(double acceleracio){

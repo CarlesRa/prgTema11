@@ -50,11 +50,13 @@ public class Exercici03 {
                 esCorrecte = false;
             }
         }while (!esCorrecte);
-        if (eleccio == 1){
-            cotxe = new CotxeCanviAutimatic(matricula);
-        }
-        else if (eleccio == 2){
-            cotxe = new CotxeCanviManual(matricula);
+        switch (eleccio) {
+            case 1:
+                cotxe = new CotxeCanviAutimatic(matricula);
+                break;
+            case 2:
+                cotxe = new CotxeCanviManual(matricula);
+                break;
         }
 
         System.out.println(cotxe.toString());
