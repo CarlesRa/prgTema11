@@ -16,21 +16,7 @@ public class CotxeCanviAutimatic extends Cotxe{
         else{
             System.out.println("No se puede acelerar en negativo");
         }
-        if (this.velocitat >0 && this.velocitat <= 20){
-            marxa = Marxa.PRIMERA;
-        }
-        else if (this.velocitat > 20 && this.velocitat <=40){
-            marxa = Marxa.SEGONA;
-        }
-        else if (this.velocitat > 40 && this.velocitat <=80){
-            marxa = Marxa.TERCERA;
-        }
-        else if (this.velocitat > 80 && this.velocitat <=100){
-            marxa = Marxa.CUARTA;
-        }
-        else if (this.velocitat > 100){
-            marxa = Marxa.QUINTA;
-        }
+        marxaAuto(velocitat);
     }
 
     @Override
@@ -41,6 +27,10 @@ public class CotxeCanviAutimatic extends Cotxe{
         else{
             System.out.println("No se puede frenar a menos de 0.");
         }
+        marxaAuto(velocitat);
+    }
+
+    public void marxaAuto(double velocitat){
         if (this.velocitat >0 && this.velocitat <= 20){
             marxa = Marxa.PRIMERA;
         }
