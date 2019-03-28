@@ -11,7 +11,7 @@ public class Television extends Electrodomestico{
     public static final boolean SMART_POR_DEFECTO = false;
 
     public Television() {
-        this(PESO_PREDETERMINADO,COLOR_POR_DEFECTO,LETRA_POR_DEFECTO
+        this(PRECIO_BASE,COLOR_POR_DEFECTO,LETRA_POR_DEFECTO
         ,PESO_PREDETERMINADO,RESOLUCION_POR_DEFECTO,SMART_POR_DEFECTO);
     }
 

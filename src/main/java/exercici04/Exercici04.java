@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Exercici04{
     private ArrayList <Electrodomestico> electrodomesticos;
+    private double totalLavadoras;
+    private double totaTelevisores;
     public Exercici04(){
         electrodomesticos = new ArrayList<>();
         electrodomesticos.add(new Television(100,45));
@@ -19,16 +21,20 @@ public class Exercici04{
 
         for (int i=0; i<electrodomesticos.size(); i++){
             if (electrodomesticos.get(i) instanceof Lavadora){
+                totalLavadoras += electrodomesticos.get(i).getPrecio();
                 System.out.println("Lavadora: " + electrodomesticos.get(i).precioFinal() + "Eu");
                 //System.out.println("Lavadora: " + electrodomesticos.get(i).toString());
                 //System.out.println(electrodomesticos.get(i).getConsumo());
             }
             else if (electrodomesticos.get(i) instanceof Television){
                 System.out.println("Television: " + electrodomesticos.get(i).precioFinal() + "Eu");
+                totaTelevisores += electrodomesticos.get(i).getPrecio();
                 //System.out.println("television: " + electrodomesticos.get(i).toString());
                 //System.out.println(electrodomesticos.get(i).getConsumo());
             }
         }
 
+        System.out.println("El precio de todas las lavadoras es: " + totalLavadoras);
+        System.out.println("El precio de todas las Televisores es: " + totaTelevisores);
     }
 }
