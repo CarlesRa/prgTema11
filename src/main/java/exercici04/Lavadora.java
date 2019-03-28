@@ -5,17 +5,15 @@
 package exercici04;
 
 public class Lavadora extends Electrodomestico {
-    private static final float cargaPorDefecto = 5;
+    private static final float CARGA_POR_DEFECTO = 5;
     private float carga;
 
     public Lavadora() {
-        super();
-        this.carga = cargaPorDefecto;
+        this(PRECIO_BASE,COLOR_POR_DEFECTO,LETRA_POR_DEFECTO,PESO_PREDETERMINADO, CARGA_POR_DEFECTO);
     }
 
     public Lavadora(double precio, float peso) {
-        super(precio, peso);
-        this.carga = cargaPorDefecto;
+        this(precio,COLOR_POR_DEFECTO,LETRA_POR_DEFECTO,peso, CARGA_POR_DEFECTO);
 
     }
 

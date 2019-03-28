@@ -7,18 +7,19 @@ package exercici04;
 public class Television extends Electrodomestico{
     private float resolucion;
     private boolean esSmart;
+    public static final float RESOLUCION_POR_DEFECTO = 20;
+    public static final boolean SMART_POR_DEFECTO = false;
 
     public Television() {
-        super();
-        this.resolucion = 20;
-        this.esSmart = false;
+        this(PESO_PREDETERMINADO,COLOR_POR_DEFECTO,LETRA_POR_DEFECTO
+        ,PESO_PREDETERMINADO,RESOLUCION_POR_DEFECTO,SMART_POR_DEFECTO);
     }
 
     public Television(double precio, float peso) {
-        super(precio,peso);
-        this.resolucion = 20;
-        this.esSmart = false;
+        this(precio,COLOR_POR_DEFECTO,LETRA_POR_DEFECTO
+                ,peso,RESOLUCION_POR_DEFECTO,SMART_POR_DEFECTO);
     }
+
 
     public Television(double precio, String color, char consumo, float peso, float resolucion, boolean esSmart) {
         super(precio, color, consumo, peso);

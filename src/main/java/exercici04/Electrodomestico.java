@@ -3,21 +3,17 @@ package exercici04;
 import java.util.HashMap;
 
 public class Electrodomestico {
-    private static final double PRECIO_BASE = 100;
-    private static final String [] COLORES = {"Blanco","Negro","Rojo","Azul","Gris"};
-    private static final char[] LETRAS_CONSUMO = {'F','A','B','C','D','E'};
-    private static final float PESO_PREDETERMINADO = 5;
+    protected static final double PRECIO_BASE = 100;
+    protected static final String [] COLORES = {"Blanco","Negro","Rojo","Azul","Gris"};
+    protected static final String  COLOR_POR_DEFECTO = COLORES[0];
+    protected static final char[] LETRAS_CONSUMO = {'F','A','B','C','D','E'};
+    protected static final char LETRA_POR_DEFECTO = LETRAS_CONSUMO[0];
+    protected static final float PESO_PREDETERMINADO = 5;
     protected double precio;
     protected String color;
     protected char consumo;
     protected float peso;
-
-    public Electrodomestico(){
-        this(PRECIO_BASE, COLORES[0], LETRAS_CONSUMO[0], PESO_PREDETERMINADO);
-    }
-    public Electrodomestico(double precio, float peso){
-        this(precio, COLORES[0], LETRAS_CONSUMO[0],peso);
-    }
+    //
     public Electrodomestico(double precio, String color, char consumo, float peso) {
         this.color = (comprovarColor(color)) ? color : COLORES[0];
         this.consumo = (comprovarConsumoEnergetico(consumo)) ? consumo : LETRAS_CONSUMO[0];
@@ -25,6 +21,12 @@ public class Electrodomestico {
         this.precio = precio;
     }
 
+    public Electrodomestico(){
+        this(PRECIO_BASE, COLORES[0], LETRAS_CONSUMO[0], PESO_PREDETERMINADO);
+    }
+    public Electrodomestico(double precio, float peso){
+        this(precio, COLOR_POR_DEFECTO, LETRA_POR_DEFECTO,peso);
+    }
     public double getPrecio() {
         return precio;
     }
