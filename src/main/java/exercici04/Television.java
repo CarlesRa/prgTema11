@@ -15,8 +15,7 @@ public class Television extends Electrodomestico{
     }
 
     public Television(double precio, float peso) {
-        super(precio, peso);
-        this.precio += precioFinal();
+        super(precio,peso);
         this.resolucion = 20;
         this.esSmart = false;
     }
@@ -31,13 +30,14 @@ public class Television extends Electrodomestico{
         return resolucion;
     }
 
-    public boolean isEsSmart() {
+    public boolean isSmart() {
         return esSmart;
     }
     @Override
     public double precioFinal(){
+        super.precioFinal();
         if (this.resolucion > 40){
-            this.precio += this.precio*0.3;
+            this.precio += (this.precio*0.3);
         }
         if (this.esSmart){
             this.precio += 50;
