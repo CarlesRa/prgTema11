@@ -4,13 +4,13 @@
 
 package exercici05;
 
-public class Madera extends ItemApilable {
+public class Madera extends ApilableTo64 {
 
-    public Madera(String nombre, Rareza rareza, Tipo tipo, Personaje personaje, int nivelNecesario, int cantidad) {
-        super(nombre, rareza, tipo, personaje, nivelNecesario, cantidad);
+    public Madera(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {
+        super(nombre, rareza, personaje, nivelNecesario);
     }
 
     public Madera() {
-        this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,TIPO_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO,CANTIDAD_POR_DEFECTO);
+        this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO);
     }
 }
