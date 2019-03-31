@@ -5,7 +5,7 @@
 package exercici05;
 
 abstract class ItemNoApilable extends Item {
-    private int cantidad;
+    protected int cantidad;
     protected static final int CANTIDAD_NO_API_DEF = 1;
     public ItemNoApilable(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {
         super(nombre, rareza, personaje, nivelNecesario);

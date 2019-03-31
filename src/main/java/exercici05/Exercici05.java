@@ -9,9 +9,10 @@ import java.util.Arrays;
 public class Exercici05 {
     public Exercici05(){
         Item madera = new Madera();
-        Inventario inventario = new Inventario();
-
-        inventario.addItem();
-
+        Item piedra = new Piedra();
+        Item pico = new Pico();
+        System.out.println(madera.toString());
+        System.out.println(pico.toString());
+        System.out.println(piedra.toString());
     }
 }

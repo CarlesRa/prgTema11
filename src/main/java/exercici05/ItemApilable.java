@@ -5,7 +5,7 @@
 package exercici05;
 
 abstract class ItemApilable extends Item {
-    private int cantidad;
+    protected int cantidad;
     protected static final int CANTIDAD_POR_DEFECTO = 1;
 
     public ItemApilable(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {

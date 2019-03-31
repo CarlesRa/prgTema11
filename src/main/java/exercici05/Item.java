@@ -21,6 +21,7 @@ package exercici05;
         this.rareza = rareza;
         this.personaje = personaje;
         this.nivelNecesario = nivelNecesario;
+        this.cantidad = CANTIDAD_DEFECTO;
     }
     public Item(){
         this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO);
@@ -45,12 +46,11 @@ package exercici05;
 
         @Override
         public String toString() {
-            return "Item{" +
+            return "Item: " +
                     "nombre='" + nombre + '\'' +
                     ", rareza=" + rareza +
                     ", personaje=" + personaje +
                     ", nivelNecesario=" + nivelNecesario +
-                    ", cantidad=" + cantidad +
-                    '}';
+                    ", cantidad=" + cantidad;
         }
     }
