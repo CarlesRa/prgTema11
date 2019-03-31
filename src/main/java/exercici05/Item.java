@@ -15,16 +15,19 @@ package exercici05;
     protected static final int NIVEL_POR_DEFECTO = 0;
     protected int cantidad;
     protected static final int CANTIDAD_DEFECTO = 0;
+    protected Tipo tipo;
+    protected static final Tipo TIPO_POR_DEFECTO = Tipo.DEFAULT;
 
-    public Item(String nombre, Rareza rareza,Personaje personaje, int nivelNecesario) {
+    public Item(String nombre, Rareza rareza,Personaje personaje, int nivelNecesario, Tipo tipo) {
         this.nombre = nombre;
         this.rareza = rareza;
         this.personaje = personaje;
         this.nivelNecesario = nivelNecesario;
         this.cantidad = CANTIDAD_DEFECTO;
+        this.tipo = tipo;
     }
     public Item(){
-        this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO);
+        this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO,TIPO_POR_DEFECTO);
     }
 
     public String getNombre() {
@@ -40,7 +43,18 @@ package exercici05;
         return personaje;
     }
 
-        public int getNivelNecesario() {
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(){
+        this.cantidad = 0;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+    public int getNivelNecesario() {
         return nivelNecesario;
     }
 
@@ -50,7 +64,8 @@ package exercici05;
                     "nombre='" + nombre + '\'' +
                     ", rareza=" + rareza +
                     ", personaje=" + personaje +
-                    ", nivelNecesario=" + nivelNecesario +
-                    ", cantidad=" + cantidad;
+                    ", nivelNecesario=" + nivelNecesario + ", ";
         }
+
+        public abstract void setCantidad(int i);
     }

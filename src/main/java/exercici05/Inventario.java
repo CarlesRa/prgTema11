@@ -4,8 +4,6 @@
 
 package exercici05;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -15,13 +13,17 @@ public class Inventario {
     private Scanner lec;
     private Item [] items;
     private Madera madera = new Madera();
+    private static int puntero;
     public Inventario(){
         items = new Item[7];
         lec = new Scanner(System.in);
+        puntero = 0;
 
     }
 
     public void addItem(){
+        Item item = new Madera() {
+        };
         int num = 0;
         boolean esCorrecto = false;
         do {
@@ -44,27 +46,31 @@ public class Inventario {
 
             switch (num){
                 case 1:{
-                    Item item = new Espada();
+                    item = new Espada();
                     break;
                 }
                 case 2:{
-                    Item item = new Huevo();
+                    item = new Huevo();
                     break;
                 }
                 case 3:{
-                    Item item = new Madera();
+                    item = new Madera();
                     break;
                 }
                 case 4:{
-                    Item item = new PerlaEnder();
+                    item = new PerlaEnder();
                     break;
                 }
                 case 5:{
-                    Item item = new Pico();
+                    item = new Pico();
                     break;
                 }
                 case 6:{
-                    Item item = new Piedra();
+                    item = new Piedra();
+                }
+                default:{
+                    System.out.println("Selección incorrecta, prueba de nuevo....");
+                    esCorrecto = false;
                 }
             }
         }while (!esCorrecto);
@@ -78,6 +84,33 @@ public class Inventario {
                 esCorrecto = false;
             }
         }while (!esCorrecto);
+        if (item instanceof ApilableTo64){
+                if (items[puntero] == null ){
+                    items[puntero] = item;
+
+                }
+                for (int i=0; i<num; i++){
+                    if (items[puntero].getCantidad() < MAX_HIGH_ACUMULABLE){
+                        items[puntero].setCantidad();
+                        System.out.println(items[puntero].getCantidad());
+                    }
+                    if (items[puntero].getCantidad() == MAX_HIGH_ACUMULABLE){
+                        puntero++;
+                        if (item.getTipo() == Tipo.MADERA){
+                            items[puntero] = new Madera();
+                            for (int z=i; z<num; z++){
+                                items[puntero].setCantidad(0);
+                            }
+                        }
+                    }
+                }
+        }
+        else if (item instanceof ApilableTo16){
+            System.out.println("Me apilo de 16");
+        }
+        else if (item instanceof ItemNoApilable){
+            System.out.println("Me apilo de 1");
+        }
 
     }
 
