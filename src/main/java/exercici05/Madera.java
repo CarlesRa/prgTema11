@@ -8,7 +8,7 @@ public class Madera extends ApilableTo64 {
     private int cantidad;
     public Madera(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {
         super(nombre, rareza, personaje, nivelNecesario,Tipo.MADERA);
-        cantidad = 0;
+
     }
 
     public Madera() {

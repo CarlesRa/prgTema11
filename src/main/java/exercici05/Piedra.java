@@ -19,6 +19,9 @@ public class Piedra extends ApilableTo64 {
         return cantidad;
     }
 
+    public void setCantidad(){
+        cantidad += 1;
+    }
     public void setCantidad(int cantidad){
         cantidad += 1;
     }
