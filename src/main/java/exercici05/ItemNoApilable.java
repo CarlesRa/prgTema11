@@ -9,7 +9,7 @@ abstract class ItemNoApilable extends Item {
     protected static final int CANTIDAD_NO_API_DEF = 1;
     public ItemNoApilable(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario, Tipo tipo) {
         super(nombre, rareza, personaje, nivelNecesario,tipo);
-
+        this.cantidad = CANTIDAD_NO_API_DEF;
     }
 
     public ItemNoApilable() {

@@ -19,7 +19,8 @@ public class Pico extends ItemNoApilable {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad){
+    @Override
+    public void setCantidad(){
         cantidad += 1;
     }
 

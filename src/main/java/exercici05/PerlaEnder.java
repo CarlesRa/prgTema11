@@ -18,10 +18,11 @@ public class PerlaEnder extends ApilableTo16 {
     public int getCantidad(){
         return cantidad;
     }
-
-    public void setCantidad(int cantidad){
+    @Override
+    public void setCantidad(){
         cantidad += 1;
     }
+
 
     @Override
     public String toString() {

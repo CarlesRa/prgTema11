@@ -22,10 +22,6 @@ public class Piedra extends ApilableTo64 {
     public void setCantidad(){
         cantidad += 1;
     }
-    public void setCantidad(int cantidad){
-        cantidad += 1;
-    }
-
     @Override
     public String toString() {
         return super.toString() +

@@ -4,7 +4,7 @@
 
 package exercici05;
 
-    abstract class Item {
+    public class Item {
     protected String nombre;
     protected static final String NOMBRE_POR_DEFECTO = "Item";
     protected Rareza rareza;
@@ -67,5 +67,5 @@ package exercici05;
                     ", nivelNecesario=" + nivelNecesario + ", ";
         }
 
-        public abstract void setCantidad(int i);
+
     }
