@@ -12,17 +12,20 @@ public class Inventario {
     private static final int MAX_LOW_ACUMULABLE = 16;
     private Scanner lec;
     private Item [] items;
-    private static int puntero;
+    private int puntero;
+    private Tipo tipoAux;
     public Inventario(){
         items = new Item[7];
-        /*items[0] = new Madera();
+        items[0] = new Madera();
         items[1] = new Piedra();
         items[2] = new Huevo();
         items[3] = new PerlaEnder();
         items[4] = new Pico();
-        items[5] = new Espada();*/
+        items[5] = new Espada();
+        items[6] = new Espada();
         lec = new Scanner(System.in);
         puntero = 0;
+
 
     }
 
@@ -52,44 +55,46 @@ public class Inventario {
             switch (eleccio){
                 case 1:{
                     item = new Espada();
-                    puntero = calcularPosicion(item.getTipo());
-                    items[puntero] = new Espada();
-                    System.out.println(items[puntero].toString());
+                    tipoAux = Tipo.ESPADA;
+                    puntero = calcularPosicion(tipoAux);
+                    System.out.println(item.toString());
                     break;
                 }
                 case 2:{
                     item = new Huevo();
-                    puntero = calcularPosicion(item.getTipo());
-                    items[puntero] = new Huevo();
+                    tipoAux = Tipo.HUEVO;
+                    puntero = calcularPosicion(tipoAux);
                     System.out.println(items[puntero].toString());
+                    System.out.println(item.toString());
                     break;
                 }
                 case 3:{
                     item = new Madera();
-                    puntero = calcularPosicion(item.getTipo());
-                    items[puntero] = new Madera();
-                    System.out.println(items[puntero].toString());
+                    tipoAux = Tipo.MADERA;
+                    puntero = calcularPosicion(tipoAux);
+                    System.out.println(item.toString());
                     break;
                 }
                 case 4:{
                     item = new PerlaEnder();
-                    puntero = calcularPosicion(item.getTipo());
-                    items[puntero] = new PerlaEnder();
-                    System.out.println(items[puntero].toString());
+                    tipoAux = Tipo.PERLA_ENDER;
+                    puntero = calcularPosicion(tipoAux);
+                    System.out.println(item.toString());
+
                     break;
                 }
                 case 5:{
                     item = new Pico();
-                    puntero = calcularPosicion(item.getTipo());
-                    items[puntero] = new Pico();
-                    System.out.println(items[puntero].toString());
+                    tipoAux = Tipo.PICO;
+                    puntero = calcularPosicion(tipoAux);
+                    System.out.println(item.toString());
                     break;
                 }
                 case 6:{
                     item = new Piedra();
-                    puntero = calcularPosicion(item.getTipo());
-                    items[puntero] = new Piedra();
-                    System.out.println(items[puntero].toString());
+                    tipoAux = Tipo.PIEDRA;
+                    puntero = calcularPosicion(tipoAux);
+                    System.out.println(item.toString());
                     break;
                 }
                 default:{
@@ -110,24 +115,41 @@ public class Inventario {
         }while (!esCorrecto);
         if (item instanceof ApilableTo64){
                 for (int i=0; i<cuantos; i++){
-                    if (items[puntero].getCantidad() < MAX_HIGH_ACUMULABLE){
-                        items[puntero].setCantidad();
-                        //System.out.println(items[puntero].getCantidad());
+                    try {
+                        if (items[puntero].getCantidad() == 0) {
+                            items[puntero] = item;
+                        }
+                    }catch (IndexOutOfBoundsException iobe){
+
                     }
-                    if (items[puntero].getCantidad() == MAX_HIGH_ACUMULABLE){
-                        puntero = calcularPosicion(item.getTipo());
-                        if (item.getTipo() == Tipo.MADERA){
-                            items[puntero] = new Madera();
-                            for (int z=i; z<cuantos; z++){
-                                items[puntero].setCantidad(0);
+                    try {
+                        if (items[puntero].getCantidad() < MAX_HIGH_ACUMULABLE) {
+                            items[puntero].setCantidad();
+                            //System.out.println(items[puntero].getCantidad());
+                        }
+                    }catch (IndexOutOfBoundsException iobe){
+
+                    }
+                    try {
+                        if (items[puntero].getCantidad() == MAX_HIGH_ACUMULABLE) {
+                            puntero = calcularPosicion(item.getTipo());
+                            try {
+                                if (item.getTipo() == Tipo.MADERA) {
+                                    items[puntero] = new Madera();
+                                }
+                            } catch (IndexOutOfBoundsException iobe) {
+
+                            }
+                            try {
+                                if (item.getTipo() == Tipo.PIEDRA) {
+                                    items[puntero] = new Piedra();
+                                }
+                            } catch (IndexOutOfBoundsException iobe) {
+
                             }
                         }
-                        if (item.getTipo() == Tipo.PIEDRA){
-                            items[puntero] = new Piedra();
-                            for (int z=i; z<cuantos; z++){
-                                items[puntero].setCantidad(0);
-                            }
-                        }
+                    }catch (IndexOutOfBoundsException iobe){
+
                     }
                 }
         }
@@ -161,26 +183,21 @@ public class Inventario {
         return items;
     }
 
-    public void apilarItems(int cantidad){
-        //TODO metode per a buscar lloc i apilar
-    }
-
     public int calcularPosicion(Tipo tipo){
         int posicion = 0;
         for (int i=0; i<items.length; i++){
             try {
-                if (items[i].getTipo() == tipo && items[i].getCantidad() < MAX_HIGH_ACUMULABLE) {
-                    return i;
-                }
-                else if (items[i].getCantidad() == 0){
+                if (items[i].getTipo() == tipo && items[i].getCantidad() < MAX_HIGH_ACUMULABLE
+                || items[i] == null || items[i].getCantidad() == 0) {
                     return i;
                 }
             }
             catch (NullPointerException npe){
                 return i;
             }
+
         }
-        return posicion;
+        return 7;
     }
 
 }

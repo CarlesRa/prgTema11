@@ -15,6 +15,11 @@ public class Madera extends ApilableTo64 {
         this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO);
     }
 
+    public Madera(int cantidad) {
+        this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO);
+        this.cantidad = cantidad;
+    }
+
 
     public int getCantidad(){
         return cantidad;
@@ -24,7 +29,7 @@ public class Madera extends ApilableTo64 {
         cantidad += 1;
     }
     public void setCantidad(int cantidad){
-        cantidad += 1;
+        this.cantidad += cantidad;
     }
 
     @Override

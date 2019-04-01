@@ -48,7 +48,7 @@ package exercici05;
     }
 
     public void setCantidad(){
-        this.cantidad = 0;
+        this.cantidad += 1;
     }
 
     public Tipo getTipo() {
