@@ -181,6 +181,9 @@ public class Inventario {
 
                 }
             }
+            if (items[puntero].getCantidad() == 0){
+                items[puntero] = null;
+            }
         }
         for (Item i : items){
             try {
