@@ -4,7 +4,7 @@
 
 package exercici05;
 
-    public class Item {
+    abstract class Item {
     protected String nombre;
     protected static final String NOMBRE_POR_DEFECTO = "Item";
     protected Rareza rareza;
@@ -49,6 +49,10 @@ package exercici05;
 
     public void setCantidad(){
         this.cantidad += 1;
+    }
+
+    public void quitarItems(){
+        this.cantidad -= 1;
     }
 
     public Tipo getTipo() {

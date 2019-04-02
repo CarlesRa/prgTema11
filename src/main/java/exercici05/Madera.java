@@ -4,7 +4,7 @@
 
 package exercici05;
 
-public class Madera extends ApilableTo64 {
+public class Madera extends ApilableHi {
     private int cantidad;
     public Madera(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {
         super(nombre, rareza, personaje, nivelNecesario,Tipo.MADERA);
@@ -21,6 +21,11 @@ public class Madera extends ApilableTo64 {
     @Override
     public void setCantidad(){
         cantidad += 1;
+    }
+
+    @Override
+    public void quitarItems() {
+        super.quitarItems();
     }
 
     @Override

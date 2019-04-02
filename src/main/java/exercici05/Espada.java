@@ -17,10 +17,10 @@ public class Espada extends ItemNoApilable {
         return cantidad;
     }
 
-    @Override
+   /* @Override
     public void setCantidad(){
         cantidad += 1;
-    }
+    }*/
 
 
 

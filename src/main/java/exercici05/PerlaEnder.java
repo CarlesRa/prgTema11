@@ -4,7 +4,7 @@
 
 package exercici05;
 
-public class PerlaEnder extends ApilableTo16 {
+public class PerlaEnder extends ApilableLow {
     private Tipo tipo;
     public PerlaEnder(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {
         super(nombre, rareza, personaje, nivelNecesario,Tipo.PERLA_ENDER);

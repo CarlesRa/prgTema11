@@ -4,7 +4,7 @@
 
 package exercici05;
 
-public class Huevo extends ApilableTo16 {
+public class Huevo extends ApilableLow {
     public Huevo(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {
         super(nombre, rareza,personaje, nivelNecesario,Tipo.HUEVO);
     }
@@ -21,8 +21,6 @@ public class Huevo extends ApilableTo16 {
     public void setCantidad(){
         cantidad += 1;
     }
-
-
 
     @Override
     public String toString() {

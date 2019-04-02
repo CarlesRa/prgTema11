@@ -6,7 +6,6 @@ package exercici05;
 
 abstract class ItemApilable extends Item {
     protected int cantidad;
-    protected static final int CANTIDAD_POR_DEFECTO = 1;
 
     public ItemApilable(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario, Tipo tipo) {
         super(nombre, rareza, personaje, nivelNecesario,tipo);
