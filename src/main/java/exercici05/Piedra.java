@@ -28,4 +28,9 @@ public class Piedra extends ApilableHi {
                 "tipo=" + tipo +
                 ", cantidad=" + cantidad;
     }
+
+    @Override
+    public void quitarItems() {
+        cantidad = cantidad - 1;
+    }
 }

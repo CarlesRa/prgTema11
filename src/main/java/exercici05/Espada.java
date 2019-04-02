@@ -30,5 +30,10 @@ public class Espada extends ItemNoApilable {
                 "tipo=" + tipo +
                 ", cantidad=" + cantidad;
     }
+
+    @Override
+    public void quitarItems() {
+        cantidad = cantidad - 1;
+    }
 }
 

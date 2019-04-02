@@ -145,8 +145,12 @@ public class Inventario {
                     return;
                 }
             }
-            if (items[puntero].getCantidad() == 0){
-                items[puntero] = null;
+            try {
+                if (items[puntero].getCantidad() == 0) {
+                    items[puntero] = null;
+                }
+            }catch (NullPointerException npe5){
+
             }
         }
         for (Item i : items){
@@ -154,7 +158,7 @@ public class Inventario {
                 System.out.println(i.toString());
             }
             catch (NullPointerException npe){
-                System.out.println("Null");
+                System.out.println("VACIO");
             }
         }
         System.out.print("Intro per continuar: ");
@@ -209,12 +213,27 @@ public class Inventario {
                 items[puntero] = null;
             }
         }
+        if (item instanceof ItemNoApilable){
+            for (int i=0; i<cuantos; i++){
+                try {
+                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() >0){
+                        items[puntero].quitarItems();
+                        if (items[puntero].getCantidad() == 0){
+                            items[puntero] = null;
+                        }
+                    }
+                }catch (NullPointerException npe1){
+
+                }
+            }
+
+        }
         for (Item i : items){
             try {
                 System.out.println(i.toString());
             }
             catch (NullPointerException npe){
-                System.out.println("Null");
+                System.out.println("VACIO");
             }
         }
     }

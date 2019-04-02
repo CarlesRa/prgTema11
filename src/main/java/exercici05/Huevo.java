@@ -28,4 +28,9 @@ public class Huevo extends ApilableLow {
                 "tipo=" + tipo +
                 ", cantidad=" + cantidad;
     }
+
+    @Override
+    public void quitarItems() {
+        cantidad = cantidad - 1;
+    }
 }
