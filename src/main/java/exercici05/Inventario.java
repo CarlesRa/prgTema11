@@ -85,6 +85,7 @@ public class Inventario {
                     if (items[puntero] == null) {
                         items[puntero] = item;
                     }
+
                 }catch (IndexOutOfBoundsException iobe){
 
                 }
@@ -92,25 +93,26 @@ public class Inventario {
                     if (items[puntero].getCantidad() < MAX_LOW_ACUMULABLE) {
                         items[puntero].setCantidad();
                     }
-                }catch (IndexOutOfBoundsException iobe1){
-                    System.out.println("No hay espacio en el inventario...");
-                    return;
+                }catch (IndexOutOfBoundsException iobe){
+
                 }
                 try {
                     if (items[puntero].getCantidad() == MAX_LOW_ACUMULABLE) {
                         puntero = punteroApilar(item);
                         System.out.println(puntero);
-
+                        try {
                             if (item.getTipo() == Tipo.PERLA_ENDER) {
                                 items[puntero] = new PerlaEnder();
                             }
+                        } catch (IndexOutOfBoundsException iobe) {
 
+                        }
 
-                            if (item.getTipo() == Tipo.HUEVO) {
-                                items[puntero] = new Huevo();
-                            }
+                        if (item.getTipo() == Tipo.HUEVO) {
+                            items[puntero] = new Huevo();
+                        }
                     }
-                }catch (IndexOutOfBoundsException iobe2){
+                }catch (IndexOutOfBoundsException iobe){
                     System.out.println("No hay espacio en el inventario...");
                     return;
                 }
@@ -279,9 +281,8 @@ public class Inventario {
         else if (item instanceof ApilableLow){
             for (int i=0; i<items.length; i++){
                 try {
-                    if (items[i] == null
-                            || items[i].getTipo() == item.getTipo()
-                            && items[i].getCantidad() < MAX_LOW_ACUMULABLE ) {
+                    if (items[i] == null || items[i].getTipo() == item.getTipo()
+                            && items[i].getCantidad() < MAX_LOW_ACUMULABLE) {
                         System.out.println(i);
                         return i;
                     }
@@ -289,6 +290,7 @@ public class Inventario {
                 catch (NullPointerException npe){
                     return i;
                 }
+
             }
         }
         else if (item instanceof ItemNoApilable){
