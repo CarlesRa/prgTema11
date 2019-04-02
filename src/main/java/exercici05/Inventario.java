@@ -28,74 +28,7 @@ public class Inventario {
         int eleccio = 0;
         int cuantos = 0;
         boolean esCorrecto = false;
-        Item item = new Pico();
-        do {
-            System.out.println("¿Que tipo de item desea añadir?");
-            System.out.println("1- " + Tipo.ESPADA);
-            System.out.println("2- " + Tipo.HUEVO);
-            System.out.println("3- " + Tipo.MADERA);
-            System.out.println("4- " + Tipo.PERLA_ENDER);
-            System.out.println("5- " + Tipo.PICO);
-            System.out.println("6- " + Tipo.PIEDRA);
-            System.out.print("Selecciona una opción: ");
-
-            try {
-                eleccio = Integer.parseInt(lec.nextLine());
-                esCorrecto = true;
-            } catch (NumberFormatException nfe) {
-                System.out.println("Solo se aceptan numeros....");
-                esCorrecto = false;
-            }
-            //segons la eleccion del usuario se iniciara el item con el tipo correspondiente
-            item = seleccionarTipo(eleccio);
-          /*  switch (eleccio){
-                case 1:{
-                    item = new Espada();
-                    tipoAux = Tipo.ESPADA;
-                    break;
-                }
-                case 2:{
-                    item = new Huevo();
-                    tipoAux = Tipo.HUEVO;
-                    puntero = posicionApilableHi(tipoAux);
-                    System.out.println(item.toString());
-                    break;
-                }
-                case 3:{
-                    item = new Madera();
-                    tipoAux = Tipo.MADERA;
-                    puntero = posicionApilableHi(tipoAux);
-                    System.out.println(item.toString());
-                    break;
-                }
-                case 4:{
-                    item = new PerlaEnder();
-                    tipoAux = Tipo.PERLA_ENDER;
-                    puntero = posicionApilableHi(tipoAux);
-                    System.out.println(item.toString());
-
-                    break;
-                }
-                case 5:{
-                    item = new Pico();
-                    tipoAux = Tipo.PICO;
-                    puntero = posicionApilableHi(tipoAux);
-                    System.out.println(item.toString());
-                    break;
-                }
-                case 6:{
-                    item = new Piedra();
-                    tipoAux = Tipo.PIEDRA;
-                    puntero = posicionApilableHi(tipoAux);
-                    System.out.println(item.toString());
-                    break;
-                }
-                default:{
-                    System.out.println("Selección incorrecta, prueba de nuevo....");
-                    esCorrecto = false;
-                }
-            }*/
-        }while (!esCorrecto);
+        Item item = seleccionarTipo();
         do {
             System.out.print("¿Cuentos quieres añadir?: ");
             try {
@@ -119,7 +52,6 @@ public class Inventario {
                     try {
                         if (items[puntero].getCantidad() < MAX_HIGH_ACUMULABLE) {
                             items[puntero].setCantidad();
-                            //System.out.println(items[puntero].getCantidad());
                         }
                     }catch (IndexOutOfBoundsException iobe){
 
@@ -135,16 +67,14 @@ public class Inventario {
                             } catch (IndexOutOfBoundsException iobe) {
 
                             }
-                            try {
+
                                 if (item.getTipo() == Tipo.PIEDRA) {
                                     items[puntero] = new Piedra();
                                 }
-                            } catch (IndexOutOfBoundsException iobe) {
-
-                            }
                         }
                     }catch (IndexOutOfBoundsException iobe){
                         System.out.println("No hay espacio en el inventario...");
+                        return;
                     }
                 }
         }
@@ -160,10 +90,10 @@ public class Inventario {
                 try {
                     if (items[puntero].getCantidad() < MAX_LOW_ACUMULABLE) {
                         items[puntero].setCantidad();
-                        //System.out.println(items[puntero].getCantidad());
                     }
                 }catch (IndexOutOfBoundsException iobe1){
-
+                    System.out.println("No hay espacio en el inventario...");
+                    return;
                 }
                 try {
                     if (items[puntero].getCantidad() == MAX_LOW_ACUMULABLE) {
@@ -181,6 +111,7 @@ public class Inventario {
                     }
                 }catch (IndexOutOfBoundsException iobe2){
                     System.out.println("No hay espacio en el inventario...");
+                    return;
                 }
             }
         }
@@ -204,14 +135,16 @@ public class Inventario {
                         items[puntero] = item;
                     }
                 } catch (IndexOutOfBoundsException iobe) {
-
+                    System.out.println("No hay espacio en el inventario...");
+                    return;
                 }
                 try {
                     if (item.getTipo() == Tipo.PICO) {
                         items[puntero] = new Pico();
                     }
                 } catch (IndexOutOfBoundsException iobe) {
-
+                    System.out.println("No hay espacio en el inventario...");
+                    return;
                 }
             }
         }
@@ -276,12 +209,36 @@ public class Inventario {
         return 7;
     }
 
-    public void borrarItem(Tipo tipo,int cantidad){
+    public void borrarItem(){
+        int seleccion;
+        Item item = seleccionarTipo();
 
     }
 
-    public Item seleccionarTipo(int eleccio){
+    public Item seleccionarTipo(){
         Item item = new Pico();
+        int eleccio = 0;
+        boolean esCorrecto = false;
+        do {
+            System.out.println("¿Que tipo de item desea añadir?");
+            System.out.println("1- " + Tipo.ESPADA);
+            System.out.println("2- " + Tipo.HUEVO);
+            System.out.println("3- " + Tipo.MADERA);
+            System.out.println("4- " + Tipo.PERLA_ENDER);
+            System.out.println("5- " + Tipo.PICO);
+            System.out.println("6- " + Tipo.PIEDRA);
+            System.out.print("Selecciona una opción: ");
+
+            try {
+                eleccio = Integer.parseInt(lec.nextLine());
+                esCorrecto = true;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Solo se aceptan numeros....");
+                esCorrecto = false;
+            }
+            //segons la eleccion del usuario se iniciara el item con el tipo correspondiente
+
+        }while (!esCorrecto);
         switch (eleccio){
             case 1:{
                 item = new Espada();
