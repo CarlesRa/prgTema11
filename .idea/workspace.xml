@@ -43,7 +43,7 @@
     <favorites_list name="tema11" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.20378788">
+    <splitter split-orientation="horizontal" split-proportion="0.101592116">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
@@ -59,7 +59,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici05/Inventario.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-23">
-                  <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
+                  <caret line="188" column="16" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
@@ -130,8 +130,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici05/Inventario.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="191" column="13" lean-forward="true" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="13" />
+                <state relative-caret-position="267">
+                  <caret line="208" column="120" selection-start-line="208" selection-start-column="120" selection-end-line="208" selection-end-column="120" />
                 </state>
               </provider>
             </entry>
@@ -493,7 +493,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554204188399</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="desapilar madera parece que funciona">
+      <created>1554213779851</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1554213779851</updated>
+    </task>
+    <task id="LOCAL-00028" summary="reinicia a null si la natidad es 0">
+      <created>1554214172831</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1554214172831</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -573,8 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="exercici 1 i 2 fets" />
-    <MESSAGE value="gaste el metode numVertex()" />
     <MESSAGE value="Canvie el tostring()" />
     <MESSAGE value="modifique el metode distancia" />
     <MESSAGE value="flata fer metodes" />
@@ -598,7 +610,9 @@
     <MESSAGE value="intente reparar els  items apilable low" />
     <MESSAGE value="solucionade items apilable low" />
     <MESSAGE value="apilar complet falta el desapilar i mostrar el menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="apilar complet falta el desapilar i mostrar el menu" />
+    <MESSAGE value="desapilar madera parece que funciona" />
+    <MESSAGE value="reinicia a null si la natidad es 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="reinicia a null si la natidad es 0" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici01/Punt.java">
@@ -882,8 +896,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici05/Inventario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="191" column="13" lean-forward="true" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="13" />
+        <state relative-caret-position="267">
+          <caret line="208" column="120" selection-start-line="208" selection-start-column="120" selection-end-line="208" selection-end-column="120" />
         </state>
       </provider>
     </entry>

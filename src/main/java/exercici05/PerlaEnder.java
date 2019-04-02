@@ -23,6 +23,10 @@ public class PerlaEnder extends ApilableLow {
         cantidad += 1;
     }
 
+    @Override
+    public void quitarItems() {
+        cantidad = cantidad - 1;
+    }
 
     @Override
     public String toString() {

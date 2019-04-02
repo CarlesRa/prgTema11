@@ -78,6 +78,9 @@ public class Inventario {
                         return;
                     }
                 }
+                if (items[puntero].getCantidad() == 0){
+                    items[puntero] = null;
+                }
         }
         else if (item instanceof ApilableLow){
             for (int i=0; i<cuantos; i++){
@@ -117,6 +120,9 @@ public class Inventario {
                     return;
                 }
             }
+            if (items[puntero].getCantidad() == 0){
+                items[puntero] = null;
+            }
         }
         else if (item instanceof ItemNoApilable){
             for (int i=0; i<cuantos; i++){
@@ -138,6 +144,9 @@ public class Inventario {
                     System.out.println("No hay espacio en el inventario...");
                     return;
                 }
+            }
+            if (items[puntero].getCantidad() == 0){
+                items[puntero] = null;
             }
         }
         for (Item i : items){
@@ -175,6 +184,21 @@ public class Inventario {
                 try {
                     if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() <= MAX_HIGH_ACUMULABLE
                     && items[puntero].getCantidad() >0){
+                        items[puntero].quitarItems();
+                    }
+                }catch (NullPointerException npe1){
+
+                }
+            }
+            if (items[puntero].getCantidad() == 0){
+                items[puntero] = null;
+            }
+        }
+        if (item instanceof ApilableLow){
+            for (int i=0; i<cuantos; i++){
+                try {
+                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() <= MAX_LOW_ACUMULABLE
+                            && items[puntero].getCantidad() >0){
                         items[puntero].quitarItems();
                     }
                 }catch (NullPointerException npe1){
