@@ -156,11 +156,9 @@ public class Inventario {
 
 
     public void borrarItem(){
-        int seleccion = 0;
         int cuantos = 0;
         boolean esCorrecto = false;
         Item item = seleccionarTipo();
-        System.out.println(item.toString());
         puntero = punteroBorrar(item);
         do {
             System.out.print("¿Cuentos quieres quieres quitar?: ");
@@ -175,19 +173,11 @@ public class Inventario {
         if (item instanceof ApilableHi){
             for (int i=0; i<cuantos; i++){
                 try {
-                    if (items[puntero].getTipo() == item.getTipo() && item.getCantidad() < MAX_HIGH_ACUMULABLE
-                    && item.getCantidad() > 0) {
+                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() <= MAX_HIGH_ACUMULABLE
+                    && items[puntero].getCantidad() >0){
                         items[puntero].quitarItems();
                     }
-
                 }catch (NullPointerException npe1){
-
-                }
-                try {
-                    if (items[puntero].getTipo() == item.getTipo() && item.getCantidad() == MAX_HIGH_ACUMULABLE) {
-                        items[puntero].quitarItems();
-                    }
-                }catch (NullPointerException npe2){
 
                 }
             }
@@ -318,6 +308,7 @@ public class Inventario {
         return 7;
     }
     public int punteroBorrar(Item item){
+        System.out.println(item.toString());
         for (int i=0; i<items.length; i++){
             try {
                 if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() < MAX_HIGH_ACUMULABLE) {
