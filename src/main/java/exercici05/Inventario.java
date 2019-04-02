@@ -160,6 +160,8 @@ public class Inventario {
         int cuantos = 0;
         boolean esCorrecto = false;
         Item item = seleccionarTipo();
+        System.out.println(item.toString());
+        puntero = punteroBorrar(item);
         do {
             System.out.print("¿Cuentos quieres quieres quitar?: ");
             try {
@@ -173,22 +175,29 @@ public class Inventario {
         if (item instanceof ApilableHi){
             for (int i=0; i<cuantos; i++){
                 try {
-                    if (items[i].getTipo() == item.getTipo() && item.getCantidad() < MAX_HIGH_ACUMULABLE
+                    if (items[puntero].getTipo() == item.getTipo() && item.getCantidad() < MAX_HIGH_ACUMULABLE
                     && item.getCantidad() > 0) {
-                        item.quitarItems();
+                        items[puntero].quitarItems();
                     }
 
                 }catch (NullPointerException npe1){
 
                 }
                 try {
-                    if (items[i].getTipo() == item.getTipo() && item.getCantidad() == MAX_HIGH_ACUMULABLE
-                    && item.getCantidad() > 0) {
-                        item.quitarItems();
+                    if (items[puntero].getTipo() == item.getTipo() && item.getCantidad() == MAX_HIGH_ACUMULABLE) {
+                        items[puntero].quitarItems();
                     }
                 }catch (NullPointerException npe2){
 
                 }
+            }
+        }
+        for (Item i : items){
+            try {
+                System.out.println(i.toString());
+            }
+            catch (NullPointerException npe){
+                System.out.println("Null");
             }
         }
     }
@@ -311,8 +320,11 @@ public class Inventario {
     public int punteroBorrar(Item item){
         for (int i=0; i<items.length; i++){
             try {
-                if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() < MAX_HIGH_ACUMULABLE
-                || items[i].getTipo() == item.getTipo() && items[i].getCantidad() == MAX_HIGH_ACUMULABLE) {
+                if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() < MAX_HIGH_ACUMULABLE) {
+                    System.out.println(i);
+                    return i;
+                }
+                else if(items[i].getTipo() == item.getTipo() && items[i].getCantidad() == MAX_HIGH_ACUMULABLE){
                     System.out.println(i);
                     return i;
                 }
@@ -323,7 +335,17 @@ public class Inventario {
             }
 
         }
-        return 7;
+        for (Item i : items){
+            try {
+                System.out.println(i.toString());
+            }
+            catch (NullPointerException npe){
+                System.out.println("Null");
+            }
+        }
+        System.out.print("Intro per continuar: ");
+        lec.nextLine();
+        return 0;
     }
 
 }

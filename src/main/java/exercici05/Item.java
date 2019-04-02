@@ -52,7 +52,7 @@ package exercici05;
     }
 
     public void quitarItems(){
-        this.cantidad -= 1;
+        this.cantidad = this.cantidad - 1;
     }
 
     public Tipo getTipo() {

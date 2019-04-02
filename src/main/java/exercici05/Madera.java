@@ -25,7 +25,7 @@ public class Madera extends ApilableHi {
 
     @Override
     public void quitarItems() {
-        this.cantidad -= 1;
+        cantidad = cantidad - 1;
     }
 
     @Override

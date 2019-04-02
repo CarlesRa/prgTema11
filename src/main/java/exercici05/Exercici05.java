@@ -17,8 +17,10 @@ public class Exercici05 {
         System.out.println(pico.toString());
         System.out.println(piedra.toString());
         do {
+            System.out.println("Añadir");
             inventario.addItem();
-            //inventario.borrarItem();
+            System.out.println("Borrar");
+            inventario.borrarItem();
 
         }while (eleccio != 0);
     }
