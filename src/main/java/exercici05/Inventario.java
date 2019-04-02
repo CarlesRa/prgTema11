@@ -159,10 +159,9 @@ public class Inventario {
         System.out.print("Intro per continuar: ");
         lec.nextLine();
     }
-    public Item[] getItems() {
-        return items;
-    }
+
     public int posicionApilableHi(Tipo tipo){
+
         for (int i=0; i<items.length; i++){
             try {
                 if (items[i] == null || items[i].getTipo() == tipo && items[i].getCantidad() < MAX_HIGH_ACUMULABLE) {
@@ -210,17 +209,49 @@ public class Inventario {
     }
 
     public void borrarItem(){
-        int seleccion;
+        int seleccion = 0;
+        int cuantos = 0;
+        boolean esCorrecto = false;
         Item item = seleccionarTipo();
+        do {
+            System.out.print("¿Cuentos quieres quieres quitar?: ");
+            try {
+                cuantos = Integer.parseInt(lec.nextLine());
+                esCorrecto = true;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Solo se aceptan numeros....");
+                esCorrecto = false;
+            }
+        }while (!esCorrecto);
+        if (item instanceof ApilableHi){
+            for (int i=0; i<cuantos; i++){
+                try {
+                    if (items[i].getTipo() == item.getTipo() && item.getCantidad() < MAX_HIGH_ACUMULABLE
+                    && item.getCantidad() > 0) {
+                        item.quitarItems();
+                    }
 
+                }catch (NullPointerException npe1){
+
+                }
+                try {
+                    if (items[i].getTipo() == item.getTipo() && item.getCantidad() == MAX_HIGH_ACUMULABLE
+                    && item.getCantidad() > 0) {
+                        item.quitarItems();
+                    }
+                }catch (NullPointerException npe2){
+
+                }
+            }
+        }
     }
-
+    //pide al usuario el tipo de item con el que desea trabajar.
     public Item seleccionarTipo(){
         Item item = new Pico();
         int eleccio = 0;
         boolean esCorrecto = false;
         do {
-            System.out.println("¿Que tipo de item desea añadir?");
+            System.out.println("¿Que tipo de item desea?");
             System.out.println("1- " + Tipo.ESPADA);
             System.out.println("2- " + Tipo.HUEVO);
             System.out.println("3- " + Tipo.MADERA);
@@ -236,9 +267,9 @@ public class Inventario {
                 System.out.println("Solo se aceptan numeros....");
                 esCorrecto = false;
             }
-            //segons la eleccion del usuario se iniciara el item con el tipo correspondiente
-
         }while (!esCorrecto);
+
+        //segons la eleccion del usuario se iniciara el item con el tipo correspondiente.
         switch (eleccio){
             case 1:{
                 item = new Espada();
@@ -287,6 +318,24 @@ public class Inventario {
             }
         }
         return item;
+    }
+
+    public int posicionBorrar(Tipo tipo){
+        for (int i=0; i<items.length; i++){
+            try {
+                if (items[i].getTipo() == tipo && items[i].getCantidad() < MAX_HIGH_ACUMULABLE
+                || items[i].getTipo() == tipo && items[i].getCantidad() == MAX_HIGH_ACUMULABLE) {
+                    System.out.println(i);
+                    return i;
+                }
+
+            }
+            catch (NullPointerException npe){
+
+            }
+
+        }
+        return 7;
     }
 
 }

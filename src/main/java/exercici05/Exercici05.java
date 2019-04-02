@@ -18,15 +18,8 @@ public class Exercici05 {
         System.out.println(piedra.toString());
         do {
             inventario.addItem();
+            inventario.borrarItem();
 
         }while (eleccio != 0);
-        for (Item i : inventario.getItems()){
-            try {
-                System.out.println(i.toString());
-            }
-            catch (NullPointerException npe){
-                System.out.println("Null");
-            }
-        }
     }
 }
