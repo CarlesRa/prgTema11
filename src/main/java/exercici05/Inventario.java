@@ -58,14 +58,14 @@ public class Inventario {
                         if (items[puntero].getCantidad() == MAX_HIGH_ACUMULABLE) {
                             puntero = punteroApilar(item);
                             try {
-                                if (item.getTipo() == Tipo.MADERA) {
+                                if (item instanceof Madera) {
                                     items[puntero] = new Madera();
                                 }
                             } catch (IndexOutOfBoundsException iobe) {
 
                             }
 
-                                if (item.getTipo() == Tipo.PIEDRA) {
+                                if (item instanceof Piedra) {
                                     items[puntero] = new Piedra();
                                 }
                         }
@@ -343,7 +343,7 @@ public class Inventario {
         return 7;
     }
     public int punteroBorrar(Item item){
-        if (item instanceof ItemApilable) {
+        if (item instanceof ApilableHi) {
             for (int i = 0; i < items.length; i++) {
                 try {
                     if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() < MAX_HIGH_ACUMULABLE && items[i].getCantidad() > 0) {
@@ -356,6 +356,28 @@ public class Inventario {
             for (int i = 0; i < items.length; i++) {
                 try {
                     if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() == MAX_HIGH_ACUMULABLE) {
+                        return i;
+                    }
+
+                } catch (NullPointerException npe) {
+
+                }
+            }
+            return 7;
+        }
+        else if (item instanceof ApilableLow){
+            for (int i = 0; i < items.length; i++) {
+                try {
+                    if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() < MAX_LOW_ACUMULABLE && items[i].getCantidad() > 0) {
+                        return i;
+                    }
+                } catch (NullPointerException npe) {
+
+                }
+            }
+            for (int i = 0; i < items.length; i++) {
+                try {
+                    if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() == MAX_LOW_ACUMULABLE) {
                         return i;
                     }
 

@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1a9af30c-2c67-4d9d-be32-96ef9fad33fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/ApilableHi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/ApilableHi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Espada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Espada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Exercici05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Exercici05.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Huevo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Huevo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Inventario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Inventario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Madera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Madera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Pico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Pico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici05/Piedra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici05/Piedra.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -64,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/exercici05/Inventario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
+            <state relative-caret-position="651">
+              <caret line="379" column="108" selection-start-line="379" selection-start-column="108" selection-end-line="379" selection-end-column="108" />
             </state>
           </provider>
         </entry>
@@ -526,7 +518,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554217296577</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="cambio los if añadiendo instancof">
+      <created>1554286144927</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1554286144927</updated>
+    </task>
+    <task id="LOCAL-00032" summary="funcionando correctamente a falta de pruebas">
+      <created>1554286356073</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1554286356073</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -542,7 +548,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.504886" side_tool="true" weight="0.3659091" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36853448" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36853448" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3448276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -606,8 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="flata fer metodes" />
-    <MESSAGE value="Fetisim falta comentar" />
     <MESSAGE value="CAMVIE EL ENUM A VAL" />
     <MESSAGE value="camvie if per switch" />
     <MESSAGE value="Falta ajustar los precios" />
@@ -631,7 +635,9 @@
     <MESSAGE value="reinicia a null si la natidad es 0" />
     <MESSAGE value="llevar apilable null fet" />
     <MESSAGE value="fet falta comprovar la espasa i el pic" />
-    <option name="LAST_COMMIT_MESSAGE" value="fet falta comprovar la espasa i el pic" />
+    <MESSAGE value="cambio los if añadiendo instancof" />
+    <MESSAGE value="funcionando correctamente a falta de pruebas" />
+    <option name="LAST_COMMIT_MESSAGE" value="funcionando correctamente a falta de pruebas" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici01/Punt.java">
@@ -909,8 +915,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici05/Inventario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="142" column="49" selection-start-line="142" selection-start-column="49" selection-end-line="142" selection-end-column="49" />
+        <state relative-caret-position="651">
+          <caret line="379" column="108" selection-start-line="379" selection-start-column="108" selection-end-line="379" selection-end-column="108" />
         </state>
       </provider>
     </entry>
