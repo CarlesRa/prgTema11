@@ -16,7 +16,6 @@ public class Huevo extends ApilableLow {
     public int getCantidad(){
         return cantidad;
     }
-
     @Override
     public void setCantidad(){
         cantidad += 1;

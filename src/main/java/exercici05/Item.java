@@ -30,35 +30,35 @@ package exercici05;
         this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO,TIPO_POR_DEFECTO);
     }
 
-    public String getNombre() {
+    protected String getNombre() {
         return nombre;
     }
 
-    public Rareza getRareza() {
+    protected Rareza getRareza() {
         return rareza;
     }
 
 
-    public Personaje getPersonaje() {
+    protected Personaje getPersonaje() {
         return personaje;
     }
 
-    public int getCantidad() {
+    protected int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(){
+    protected void setCantidad(){
         cantidad += 1;
     }
 
-    public void quitarItems(){
+    protected void quitarItems(){
         this.cantidad = this.cantidad - 1;
     }
 
-    public Tipo getTipo() {
+    protected Tipo getTipo() {
         return tipo;
     }
-    public int getNivelNecesario() {
+    protected int getNivelNecesario() {
         return nivelNecesario;
     }
 

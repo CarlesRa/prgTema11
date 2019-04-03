@@ -22,12 +22,12 @@ public class Inventario {
      * metodo para añadir items al inventario
      *filtrados segun el padre el que pertenecen
      */
-    public void addItem(){
-        int cuantos = 0;
+    public void addItem(Item item,int cuantos){
+        /*int cuantos = 0;
         boolean esCorrecto = false;
-        Item item = seleccionarTipo();
+       /* Item item = seleccionarTipo();*/
         puntero = punteroApilar(item);
-        do {
+        /*do {
             System.out.print("¿Cuentos quieres añadir?: ");
             try {
                 cuantos = Integer.parseInt(lec.nextLine());
@@ -36,7 +36,7 @@ public class Inventario {
                 System.out.println("Solo se aceptan numeros....");
                 esCorrecto = false;
             }
-        }while (!esCorrecto);
+        }while (!esCorrecto);*/
         if (item instanceof ApilableHi){
                 for (int i=0; i<cuantos; i++){
                     try {
@@ -153,10 +153,10 @@ public class Inventario {
 
 
 
-    public void borrarItem(){
-        int cuantos = 0;
+    public void borrarItem(Item item,int cuantos){
+      /* // int cuantos = 0;
         boolean esCorrecto = false;
-        Item item = seleccionarTipo();
+      //  Item item = seleccionarTipo();
         puntero = punteroBorrar(item);
         do {
             System.out.print("¿Cuentos quieres quieres quitar?: ");
@@ -167,7 +167,7 @@ public class Inventario {
                 System.out.println("Solo se aceptan numeros....");
                 esCorrecto = false;
             }
-        }while (!esCorrecto);
+        }while (!esCorrecto);*/
         if (item instanceof ApilableHi){
             for (int i=0; i<cuantos; i++){
                 puntero = punteroBorrar(item);
@@ -236,7 +236,7 @@ public class Inventario {
         lec.nextLine();
     }
     //pide al usuario el tipo de item con el que desea trabajar.
-    public Item seleccionarTipo(){
+  /*  public Item seleccionarTipo(){
         Item item = new Pico();
         int eleccio = 0;
         boolean esCorrecto = false;
@@ -294,7 +294,7 @@ public class Inventario {
             }
         }
         return item;
-    }
+    }*/
 
     public int punteroApilar(Item item){
         if (item instanceof ApilableHi){

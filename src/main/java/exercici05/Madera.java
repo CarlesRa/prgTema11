@@ -14,10 +14,6 @@ public class Madera extends ApilableHi {
         this(NOMBRE_POR_DEFECTO,RAREZA_POR_DEFECTO,PERSONAJE_POR_DEFECTO,NIVEL_POR_DEFECTO);
     }
 
-    /*public int getCantidad(){
-        return cantidad;
-    }*/
-
     @Override
     public void setCantidad(){
         cantidad += 1;
