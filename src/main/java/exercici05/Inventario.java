@@ -171,7 +171,6 @@ public class Inventario {
         if (item instanceof ApilableHi){
             for (int i=0; i<cuantos; i++){
                 puntero = punteroBorrar(item);
-                System.out.print(puntero);
                 try {
                     if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() < MAX_HIGH_ACUMULABLE
                     && items[puntero].getCantidad() >0){
@@ -202,7 +201,6 @@ public class Inventario {
         if (item instanceof ApilableLow){
             for (int i=0; i<cuantos; i++){
                 puntero = punteroBorrar(item);
-                System.out.println(puntero);
                 try {
                     if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() <= MAX_LOW_ACUMULABLE
                             && items[puntero].getCantidad() >0){
@@ -219,7 +217,6 @@ public class Inventario {
         if (item instanceof ItemNoApilable){
             for (int i=0; i<cuantos; i++){
                 puntero = punteroBorrar(item);
-                System.out.println(puntero);
                 try {
                     if (items[puntero].getTipo() == item.getTipo()){
                         items[puntero].quitarItems();
@@ -260,7 +257,7 @@ public class Inventario {
                 }
             } catch (NumberFormatException nfe) {
                 System.out.println("Solo se aceptan numeros....");
-                esCorrecto = true;
+                esCorrecto = false;
             }
         }while (!esCorrecto);
 
@@ -292,6 +289,7 @@ public class Inventario {
             }
             default:{
                 System.out.println("Selección incorrecta, prueba de nuevo....");
+                break;
 
             }
         }
