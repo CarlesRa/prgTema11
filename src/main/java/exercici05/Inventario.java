@@ -106,7 +106,7 @@ public class Inventario {
 
                         }
 
-                        if (item.getTipo() == Tipo.HUEVO) {
+                        if (item instanceof Huevo) {
                             items[puntero] = new Huevo();
                         }
                     }
@@ -123,12 +123,14 @@ public class Inventario {
             for (int i=0; i<cuantos; i++){
                 try {
                     if (items[puntero] == null) {
-                        items[puntero] = item;
+                        if (item instanceof Espada){
+                            items[puntero] = new Espada();
+                        }
+                        else if (item instanceof Pico){
+                            items[puntero] = new Pico();
+                        }
                     }
                     puntero = punteroApilar(item);
-                    /*if (items[i].getCantidad() == 0) {
-                        items[puntero] = item;
-                    }*/
                 }catch (IndexOutOfBoundsException iobe3){
                     System.out.println("No hay espacio en el inventario...");
                     return;
