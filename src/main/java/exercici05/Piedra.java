@@ -5,10 +5,8 @@
 package exercici05;
 
 public class Piedra extends ApilableHi {
-    private Tipo tipo;
     public Piedra(String nombre, Rareza rareza, Personaje personaje, int nivelNecesario) {
         super(nombre, rareza,  personaje, nivelNecesario,Tipo.PIEDRA);
-        tipo = Tipo.PIEDRA;
     }
 
     public Piedra() {

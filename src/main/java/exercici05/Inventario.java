@@ -9,11 +9,9 @@ import java.util.Scanner;
 public class Inventario {
     private static final int MAX_HIGH_ACUMULABLE = 64;
     private static final int MAX_LOW_ACUMULABLE = 16;
-    private static final int CANTIDAD_NO_APILABLE = 1;
     private Scanner lec;
     private Item [] items;
     private int puntero;
-    private Tipo tipoAux;
     public Inventario(){
         items = new Item[7];
         lec = new Scanner(System.in);
@@ -22,10 +20,9 @@ public class Inventario {
 
     /**
      * metodo para añadir items al inventario
-     *
+     *filtrados segun el padre el que pertenecen
      */
     public void addItem(){
-        int eleccio = 0;
         int cuantos = 0;
         boolean esCorrecto = false;
         Item item = seleccionarTipo();
@@ -60,7 +57,6 @@ public class Inventario {
                     try {
                         if (items[puntero].getCantidad() == MAX_HIGH_ACUMULABLE) {
                             puntero = punteroApilar(item);
-                            System.out.println(puntero);
                             try {
                                 if (item.getTipo() == Tipo.MADERA) {
                                     items[puntero] = new Madera();
@@ -102,9 +98,8 @@ public class Inventario {
                 try {
                     if (items[puntero].getCantidad() == MAX_LOW_ACUMULABLE) {
                         puntero = punteroApilar(item);
-                        System.out.println(puntero);
                         try {
-                            if (item.getTipo() == Tipo.PERLA_ENDER) {
+                            if (item instanceof PerlaEnder) {
                                 items[puntero] = new PerlaEnder();
                             }
                         } catch (IndexOutOfBoundsException iobe) {
@@ -130,16 +125,10 @@ public class Inventario {
                     if (items[puntero] == null) {
                         items[puntero] = item;
                     }
-                }catch (IndexOutOfBoundsException iobe4){
-                    System.out.println("No hay espacio en el inventario...");
-                    return;
-                }
-                puntero = punteroApilar(item);
-                System.out.println(puntero);
-                try {
-                    if (items[i].getCantidad() == 0) {
+                    puntero = punteroApilar(item);
+                    /*if (items[i].getCantidad() == 0) {
                         items[puntero] = item;
-                    }
+                    }*/
                 }catch (IndexOutOfBoundsException iobe3){
                     System.out.println("No hay espacio en el inventario...");
                     return;
@@ -151,17 +140,11 @@ public class Inventario {
                 }
             }catch (NullPointerException npe5){
 
+            }catch (IndexOutOfBoundsException iobe){
+
             }
         }
-        for (Item i : items){
-            try {
-                System.out.println(i.toString());
-            }
-            catch (NullPointerException npe){
-                System.out.println("VACIO");
-            }
-        }
-        System.out.print("Intro per continuar: ");
+        System.out.print("Item apilado con exito!! intro para continuar: ");
         lec.nextLine();
     }
 
@@ -185,38 +168,42 @@ public class Inventario {
         }while (!esCorrecto);
         if (item instanceof ApilableHi){
             for (int i=0; i<cuantos; i++){
+                puntero = punteroBorrar(item);
+                System.out.print(puntero);
                 try {
-                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() <= MAX_HIGH_ACUMULABLE
+                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() < MAX_HIGH_ACUMULABLE
                     && items[puntero].getCantidad() >0){
                         items[puntero].quitarItems();
+                        if (items[puntero].getCantidad() == 0) {
+                            items[puntero] = null;
+                        }
                     }
-                }catch (NullPointerException npe1){
-
-                }
-            }
-            if (items[puntero].getCantidad() == 0){
-                items[puntero] = null;
-            }
-        }
-        if (item instanceof ApilableLow){
-            for (int i=0; i<cuantos; i++){
-                try {
-                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() <= MAX_LOW_ACUMULABLE
+                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() == MAX_HIGH_ACUMULABLE
                             && items[puntero].getCantidad() >0){
                         items[puntero].quitarItems();
                     }
                 }catch (NullPointerException npe1){
 
                 }
+                catch (IndexOutOfBoundsException iobe){
+
+                }
             }
-            if (items[puntero].getCantidad() == 0){
-                items[puntero] = null;
+            try {
+                if (items[puntero].getCantidad() == 0) {
+                    items[puntero] = null;
+                }
+            }catch (IndexOutOfBoundsException iobe){
+
             }
         }
-        if (item instanceof ItemNoApilable){
+        if (item instanceof ApilableLow){
             for (int i=0; i<cuantos; i++){
+                puntero = punteroBorrar(item);
+                System.out.println(puntero);
                 try {
-                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() >0){
+                    if (items[puntero].getTipo() == item.getTipo() && items[puntero].getCantidad() <= MAX_LOW_ACUMULABLE
+                            && items[puntero].getCantidad() >0){
                         items[puntero].quitarItems();
                         if (items[puntero].getCantidad() == 0){
                             items[puntero] = null;
@@ -226,16 +213,28 @@ public class Inventario {
 
                 }
             }
+        }
+        if (item instanceof ItemNoApilable){
+            for (int i=0; i<cuantos; i++){
+                puntero = punteroBorrar(item);
+                System.out.println(puntero);
+                try {
+                    if (items[puntero].getTipo() == item.getTipo()){
+                        items[puntero].quitarItems();
+                        if (items[puntero].getCantidad() != 1){
+                            items[puntero] = null;
+                        }
+                    }
+                }catch (NullPointerException npe1){
+
+                }catch (IndexOutOfBoundsException iobe){
+
+                }
+            }
 
         }
-        for (Item i : items){
-            try {
-                System.out.println(i.toString());
-            }
-            catch (NullPointerException npe){
-                System.out.println("VACIO");
-            }
-        }
+        System.out.println("Items borrados con éxito!! intro para continuar...");
+        lec.nextLine();
     }
     //pide al usuario el tipo de item con el que desea trabajar.
     public Item seleccionarTipo(){
@@ -254,10 +253,12 @@ public class Inventario {
 
             try {
                 eleccio = Integer.parseInt(lec.nextLine());
-                esCorrecto = true;
+                if (eleccio >= 0 && eleccio <=6){
+                    esCorrecto = true;
+                }
             } catch (NumberFormatException nfe) {
                 System.out.println("Solo se aceptan numeros....");
-                esCorrecto = false;
+                esCorrecto = true;
             }
         }while (!esCorrecto);
 
@@ -265,38 +266,26 @@ public class Inventario {
         switch (eleccio){
             case 1:{
                 item = new Espada();
-                tipoAux = Tipo.ESPADA;
                 break;
             }
             case 2:{
-                item = new Huevo();
-                tipoAux = Tipo.HUEVO;
-                System.out.println(item.toString());
+                item = new Huevo();;
                 break;
             }
             case 3:{
                 item = new Madera();
-                tipoAux = Tipo.MADERA;
-                System.out.println(item.toString());
                 break;
             }
             case 4:{
                 item = new PerlaEnder();
-                tipoAux = Tipo.PERLA_ENDER;
-                System.out.println(item.toString());
-
                 break;
             }
             case 5:{
                 item = new Pico();
-                tipoAux = Tipo.PICO;
-                System.out.println(item.toString());
                 break;
             }
             case 6:{
                 item = new Piedra();
-                tipoAux = Tipo.PIEDRA;
-                System.out.println(item.toString());
                 break;
             }
             default:{
@@ -313,7 +302,6 @@ public class Inventario {
                 try {
                     if (items[i] == null || items[i].getTipo() == item.getTipo()
                             && items[i].getCantidad() < MAX_HIGH_ACUMULABLE) {
-                        System.out.println(i);
                         return i;
                     }
                 }
@@ -328,7 +316,6 @@ public class Inventario {
                 try {
                     if (items[i] == null || items[i].getTipo() == item.getTipo()
                             && items[i].getCantidad() < MAX_LOW_ACUMULABLE) {
-                        System.out.println(i);
                         return i;
                     }
                 }
@@ -354,24 +341,43 @@ public class Inventario {
         return 7;
     }
     public int punteroBorrar(Item item){
-        System.out.println(item.toString());
-        for (int i=0; i<items.length; i++){
-            try {
-                if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() < MAX_HIGH_ACUMULABLE) {
-                    System.out.println(i);
-                    return i;
+        if (item instanceof ItemApilable) {
+            for (int i = 0; i < items.length; i++) {
+                try {
+                    if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() < MAX_HIGH_ACUMULABLE && items[i].getCantidad() > 0) {
+                        return i;
+                    }
+                } catch (NullPointerException npe) {
+
                 }
-                else if(items[i].getTipo() == item.getTipo() && items[i].getCantidad() == MAX_HIGH_ACUMULABLE){
-                    System.out.println(i);
-                    return i;
+            }
+            for (int i = 0; i < items.length; i++) {
+                try {
+                    if (items[i].getTipo() == item.getTipo() && items[i].getCantidad() == MAX_HIGH_ACUMULABLE) {
+                        return i;
+                    }
+
+                } catch (NullPointerException npe) {
+
                 }
-
             }
-            catch (NullPointerException npe){
-
-            }
-
+            return 7;
         }
+        else{
+            for (int i = 0; i < items.length; i++) {
+                try {
+                    if (items[i].getTipo() == item.getTipo()) {
+                        return i;
+                    }
+                } catch (NullPointerException npe) {
+
+                }
+            }
+            return 7;
+        }
+    }
+
+    public void mostrarInventario(){
         for (Item i : items){
             try {
                 System.out.println(i.toString());
@@ -380,9 +386,6 @@ public class Inventario {
                 System.out.println("Null");
             }
         }
-        System.out.print("Intro per continuar: ");
-        lec.nextLine();
-        return 0;
     }
 
 }

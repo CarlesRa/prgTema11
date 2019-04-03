@@ -5,10 +5,10 @@
 package exercici05;
 
 public class Pico extends ItemNoApilable {
-    private Tipo tipo;
+    //private Tipo tipo;
     public Pico(String nombre, Rareza rareza,Personaje personaje, int nivelNecesario) {
         super(nombre, rareza, personaje, nivelNecesario,Tipo.PICO);
-        tipo = Tipo.PICO;
+        //tipo = Tipo.PICO;
     }
 
     public Pico() {

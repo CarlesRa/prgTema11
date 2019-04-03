@@ -23,14 +23,14 @@ public class Huevo extends ApilableLow {
     }
 
     @Override
+    public void quitarItems() {
+        cantidad = cantidad - 1;
+    }
+
+    @Override
     public String toString() {
         return super.toString() +
                 "tipo=" + tipo +
                 ", cantidad=" + cantidad;
-    }
-
-    @Override
-    public void quitarItems() {
-        cantidad = cantidad - 1;
     }
 }
