@@ -7,6 +7,8 @@ package exercici06;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Socio {
@@ -16,6 +18,7 @@ public class Socio {
     private String nom;
     private GregorianCalendar dataNaiximent;
     private String poblacio;
+    private ArrayList <Alquiler> alquilers;
 
     public Socio(String nif, String nom, GregorianCalendar dataNaiximent, String poblacio) {
         iD = ++idSoci;
@@ -23,6 +26,7 @@ public class Socio {
         this.nom = nom;
         this.dataNaiximent = dataNaiximent;
         this.poblacio = poblacio;
+        alquilers = new ArrayList<>();
     }
 
     public String getNif() {
@@ -62,7 +66,9 @@ public class Socio {
         return "Socio{" +
                 "nif='" + nif + '\'' +
                 ", nom='" + nom + '\'' +
-                ", dataNaiximent=" + dataNaiximent +
+                ", dataNaiximent=" + dataNaiximent.get(Calendar.DAY_OF_MONTH)
+                + dataNaiximent.get(Calendar.MONTH)
+                + dataNaiximent.get(Calendar.YEAR) +
                 ", poblacio='" + poblacio + '\'' +
                 '}';
     }

@@ -5,18 +5,20 @@
 package exercici06;
 
 public abstract class Multimedia {
+    protected static final int PRECIO_BASE = 4;
+    protected static final int PRECIO_REDUCIDO = 3;
     protected String titol;
     protected String autor;
     protected Formats format;
     protected int any;
-    protected boolean estaDisponible;
+    protected int precioAlquiler;
 
     public Multimedia(String titol, String autor, Formats format, int any) {
         this.titol = titol;
         this.autor = autor;
         this.format = format;
         this.any = any;
-        estaDisponible = true;
+        precioAlquiler = calcularPrecioAlquiler();
     }
 
     public String getTitol() {
@@ -35,17 +37,11 @@ public abstract class Multimedia {
         return any;
     }
 
-    public boolean getEstaDisponible() {
-        return estaDisponible;
-    }
 
     public void setFormat(Formats format) {
         this.format = format;
     }
 
-    public void setEstaDisponible(boolean estaDisponible) {
-        this.estaDisponible = estaDisponible;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -65,4 +61,6 @@ public abstract class Multimedia {
                 ", any=" + any +
                 '}';
     }
+
+    abstract int calcularPrecioAlquiler();
 }

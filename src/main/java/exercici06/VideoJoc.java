@@ -33,4 +33,14 @@ public class VideoJoc extends Multimedia{
                 "plataformas=" + plataformas +
                 '}';
     }
+
+    @Override
+    int calcularPrecioAlquiler() {
+        if (any < 2010){
+            return PRECIO_REDUCIDO;
+        }
+        else{
+            return PRECIO_BASE;
+        }
+    }
 }

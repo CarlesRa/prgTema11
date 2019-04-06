@@ -9,9 +9,8 @@ public class Pelicula extends Multimedia {
     private String actorPrincipal;
     private String actriuPrincipal;
 
-    public Pelicula(String titol, String autor, Formats format, int any
-    ,float duracio, String actorPrincipal, String actriuPrincipal) {
-        super(titol,autor,format,any);
+    public Pelicula(String titol, String autor, Formats format, int any, float duracio, String actorPrincipal, String actriuPrincipal) {
+        super(titol, autor, format, any);
         this.duracio = duracio;
         this.actorPrincipal = actorPrincipal;
         this.actriuPrincipal = actriuPrincipal;
@@ -29,6 +28,8 @@ public class Pelicula extends Multimedia {
         return actriuPrincipal;
     }
 
+
+
     @Override
     public String toString() {
         return
@@ -37,5 +38,15 @@ public class Pelicula extends Multimedia {
                 ", actorPrincipal='" + actorPrincipal + '\'' +
                 ", actriuPrincipal='" + actriuPrincipal + '\'' +
                 '}';
+    }
+
+    @Override
+    int calcularPrecioAlquiler(){
+        if (any < 2012){
+            return PRECIO_REDUCIDO;
+        }
+        else{
+            return PRECIO_BASE;
+        }
     }
 }
