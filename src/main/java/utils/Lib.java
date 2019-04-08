@@ -1,9 +1,9 @@
 package utils;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import  java.util.Scanner;
-import java.util.Random;
+import java.util.*;
+
 public class Lib {
 
     static  Scanner lec = new Scanner (System.in);
@@ -121,6 +121,19 @@ public class Lib {
         lletraNif=lletres.charAt(calcularLletra);
         stringLletraDni=Character.toString(lletraNif);
         return stringLletraDni;
+    }
+
+    public static GregorianCalendar convertStringToGregorian(String fecha){
+        DateFormat df = new SimpleDateFormat("dd MM yyyy");
+        Date date = null;
+        GregorianCalendar cal = new GregorianCalendar();
+        try {
+            date = df.parse(fecha);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        cal.setTime(date);
+        return cal;
     }
 
 }

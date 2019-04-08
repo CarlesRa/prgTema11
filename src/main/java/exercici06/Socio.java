@@ -53,8 +53,17 @@ public class Socio {
         this.poblacio = poblacio;
     }
 
-    public int calcularEdat(){
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public ArrayList<Alquiler> getAlquilers() {
+        return alquilers;
+    }
+
+
+    public int alquilersSize(){
+        return alquilers.size();
+    }
+
+    public  int calcularEdat(){
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaNac = LocalDate.parse(dataNaiximent.toString(), fmt);
         LocalDate ara = LocalDate.now();
         Period periodo = Period.between(fechaNac, ara);

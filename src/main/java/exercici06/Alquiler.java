@@ -4,16 +4,17 @@
 
 package exercici06;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Alquiler {
     private String nombrePelicula;
-    private Calendar fechaAlquiler;
-    private Calendar fechaDevolucion;
+    private LocalDate fechaAlquiler;
+    private LocalDate fechaDevolucion;
     private float recargo;
 
-    public Alquiler(String nombrePelicula, Calendar fechaAlquiler){
+    public Alquiler(String nombrePelicula, LocalDate fechaAlquiler){
         this.nombrePelicula = nombrePelicula;
         this.fechaAlquiler = fechaAlquiler;
     }
@@ -22,11 +23,11 @@ public class Alquiler {
         return nombrePelicula;
     }
 
-    public Calendar getFechaAlquiler() {
+    public LocalDate getFechaAlquiler() {
         return fechaAlquiler;
     }
 
-    public Calendar getFechaDevolucion() {
+    public LocalDate getFechaDevolucion() {
         return fechaDevolucion;
     }
 
@@ -34,11 +35,11 @@ public class Alquiler {
         return recargo;
     }
 
-    public void setFechaAlquiler(GregorianCalendar fechaAlquiler) {
+    public void setFechaAlquiler(LocalDate fechaAlquiler) {
         this.fechaAlquiler = fechaAlquiler;
     }
 
-    public void setFechaDevolucion(GregorianCalendar fechaDevolucion) {
+    public void setFechaDevolucion(LocalDate fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
     }
 
