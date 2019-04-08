@@ -12,12 +12,15 @@ public abstract class Multimedia {
     protected Formats format;
     protected int any;
     protected int precioAlquiler;
+    protected static int autoId;
+    protected int id;
 
     public Multimedia(String titol, String autor, Formats format, int any) {
         this.titol = titol;
         this.autor = autor;
         this.format = format;
         this.any = any;
+        id = ++autoId;
         precioAlquiler = calcularPrecioAlquiler();
     }
 
@@ -37,6 +40,9 @@ public abstract class Multimedia {
         return any;
     }
 
+    public int getId() {
+        return id;
+    }
 
     public void setFormat(Formats format) {
         this.format = format;

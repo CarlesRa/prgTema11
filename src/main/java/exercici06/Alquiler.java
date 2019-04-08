@@ -5,22 +5,22 @@
 package exercici06;
 
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class Alquiler {
-    private String nombrePelicula;
+    private int idProducto;
     private LocalDate fechaAlquiler;
     private LocalDate fechaDevolucion;
     private float recargo;
 
-    public Alquiler(String nombrePelicula, LocalDate fechaAlquiler){
-        this.nombrePelicula = nombrePelicula;
+    public Alquiler(int idPelicula, LocalDate fechaAlquiler){
+        this.idProducto = idPelicula;
         this.fechaAlquiler = fechaAlquiler;
+        fechaDevolucion = null;
+        recargo = 0;
     }
 
-    public String getNombrePelicula() {
-        return nombrePelicula;
+    public int getIdProducto() {
+        return idProducto;
     }
 
     public LocalDate getFechaAlquiler() {
@@ -47,9 +47,9 @@ public class Alquiler {
         this.recargo = recargo;
     }
 
-    public float calcularRecargo(){
+    /*public float calcularRecargo(){
         float recargo = 0;
         return recargo;
         //TODO calcular el recargo
-    }
+    }*/
 }

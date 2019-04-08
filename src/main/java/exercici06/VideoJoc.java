@@ -4,7 +4,6 @@
 
 package exercici06;
 
-import java.util.ArrayList;
 
 public class VideoJoc extends Multimedia{
     private Plataformas plataformas;

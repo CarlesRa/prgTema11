@@ -39,6 +39,7 @@ public class Exercici06 {
                     break;
                 }
                 case 2:{
+                    alquilarMultimedia();
                     break;
                 }
                 case 3:{
@@ -252,7 +253,7 @@ public class Exercici06 {
                     do{
                         System.out.print("Introduce el NIF: ");
                         nif = lec.nextLine();
-                        if (nif.length() < 8
+                        if (nif.length() == 9
                         && Character.isLetter(nif.charAt(nif.length()-1))){
                             esCorrecto = true;
                         }
@@ -321,6 +322,92 @@ public class Exercici06 {
                 break;
             }
         }
+    }
+
+    public void alquilarMultimedia(){
+        int idSocio = Integer.MAX_VALUE;
+        int idProducto = Integer.MAX_VALUE;
+        int posicionPelicula = 0;
+        int posicionSocio = 0;
+        char eleccion;
+        LocalDate fechaAlquiler;
+        int eleccionAltas;
+        do{
+            System.out.print("Introduce el ID del socio: ");
+            try {
+                idSocio = Integer.parseInt(lec.nextLine());
+                esCorrecto = true;
+            }
+            catch (NumberFormatException nfe4){
+                System.out.println("Solo se aceptan numeros");
+                Lib.continuar();
+                esCorrecto = false;
+            }
+            esCorrecto = false;
+            for (int i=0; i<videoclub.getListadoSocios().size(); i++){
+                if (videoclub.getListadoSocios().get(i).getiD() == idSocio){
+                    posicionSocio = i;
+                    esCorrecto = true;
+                }
+            }
+            //si esta en la base de datos.
+            if (esCorrecto){
+                esCorrecto = false;
+                System.out.print("Introduce la ID del Producto: ");
+                //comprobamos que el producto esta en la base de datos.
+                for (int i=0; i<videoclub.getListadoMultimedia().size(); i++){
+                    if (videoclub.getListadoMultimedia().get(i).getId() == idProducto){
+                        posicionPelicula = i;
+                        esCorrecto = true;
+                    }
+                }
+                if (esCorrecto){
+                    esCorrecto = true;
+                    //comprobamos si el producto esta alquilado y no ha sido devuelto
+                    for (int i=0; i<videoclub.getListadoSocios().size(); i++){
+                        if (videoclub.getListadoMultimedia().get(posicionPelicula).getId()
+                                == videoclub.getListadoSocios().get(i).getAlquilers().get(socio.sizeAlquilers()-1)
+                            .getIdProducto()
+                                && videoclub.getListadoSocios().get(i).getAlquilers()
+                                .get(socio.sizeAlquilers()-1).getFechaDevolucion() == null){
+                                System.out.println("El producto esta alquilado por el socio: "
+                                + videoclub.getListadoSocios().get(i).toString());
+                                Lib.continuar();
+                                esCorrecto = false;
+                        }
+                        //si esta disponible
+                        if (esCorrecto){
+                            fechaAlquiler = LocalDate.now();
+                            videoclub.alquilarMultimedia(fechaAlquiler, idProducto,posicionSocio);
+                        }
+                    }
+                }
+                else{
+                    System.out.println("El producto no se encuentra en la base de datos");
+                }
+            }
+            //si no existe el socio en la base de datos.
+            else{
+                System.out.println("La persona no esta en la base de datos");
+                System.out.print("Desea anyadirlo? selccione S o N: ");
+                eleccion = lec.next().charAt(0);
+                lec.nextLine();
+                if (eleccion == 's' || eleccion == 'S'){
+                    seleccionAltas(eleccionAltas = menuAltas());
+                    esCorrecto = true;
+                }
+                else if (eleccion == 'n' || eleccion == 'N'){
+                    System.out.println("Volviendo al menu principal...");
+                    Lib.continuar();
+                    esCorrecto = true;
+                }
+                else{
+                    System.out.println("Solo se acepta S o N");
+                    Lib.continuar();
+                    esCorrecto = false;
+                }
+            }
+        }while (!esCorrecto);
     }
 
     public  int calcularEdat(String fechaNacimiento){

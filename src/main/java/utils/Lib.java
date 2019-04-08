@@ -124,7 +124,7 @@ public class Lib {
     }
 
     public static GregorianCalendar convertStringToGregorian(String fecha){
-        DateFormat df = new SimpleDateFormat("dd MM yyyy");
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Date date = null;
         GregorianCalendar cal = new GregorianCalendar();
         try {

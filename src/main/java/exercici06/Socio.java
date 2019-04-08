@@ -49,6 +49,10 @@ public class Socio {
         return calcularEdat();
     }
 
+    public int getiD() {
+        return iD;
+    }
+
     public void setPoblacio(String poblacio) {
         this.poblacio = poblacio;
     }
@@ -57,9 +61,12 @@ public class Socio {
         return alquilers;
     }
 
-
-    public int alquilersSize(){
+    public int sizeAlquilers(){
         return alquilers.size();
+    }
+
+    public LocalDate getFechaDevolucion(int posicion){
+        return alquilers.get(posicion).getFechaDevolucion();
     }
 
     public  int calcularEdat(){
