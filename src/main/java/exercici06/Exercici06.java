@@ -18,7 +18,6 @@ import java.util.Scanner;
 public class Exercici06 {
     private Scanner lec;
     private int eleccio;
-    private int eleccioAltas;
     private Videoclub videoclub;
     private Multimedia multimedia;
     private String titulo;
@@ -46,7 +45,7 @@ public class Exercici06 {
             eleccio = mostrarMenuPri();
             switch (eleccio){
                 case 1:{
-                    seleccionAltas(eleccioAltas = menuAltas());
+                    seleccionAltas(menuAltas());
                     break;
                 }
                 case 2:{
@@ -342,7 +341,6 @@ public class Exercici06 {
         int posicionSocio = 0;
         char eleccion;
         LocalDate fechaAlquiler;
-        int eleccionAltas;
         do{
             //pido la id del socio
             System.out.print("Introduce el ID del socio: ");
@@ -427,7 +425,7 @@ public class Exercici06 {
                 eleccion = lec.next().charAt(0);
                 lec.nextLine();
                 if (eleccion == 's' || eleccion == 'S'){
-                    seleccionAltas(eleccionAltas = menuAltas());
+                    seleccionAltas(menuAltas());
                     esCorrecto = true;
                 }
                 else if (eleccion == 'n' || eleccion == 'N'){
@@ -443,7 +441,10 @@ public class Exercici06 {
             }
         }while (!esCorrecto);
     }
-    //Metodo para recoger los productos
+
+    /**
+     * Metodo para recoger los productos
+     */
     public void recogerMultimedia(){
         int idSocio = 0;
         do{
@@ -460,18 +461,26 @@ public class Exercici06 {
         }while (!esCorrecto);
         //comprovamos la id del socio.
         for (int i=0; i<videoclub.getListadoSocios().size(); i++){
-            if (videoclub.getListadoSocios().get(i).getiD() == idSocio){
+            if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()){
+                esCorrecto = false;
+            }
+            else if (videoclub.getListadoSocios().get(i).getiD() == idSocio){
                 //llamo al metodo de la clase viseoclub, el qual calculara el recargo
                 videoclub.recogerMultimedia(videoclub.getListadoSocios().get(i));
                 if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo() > 0){
                     System.out.println("Usted tiene un recargo de: " +
                     videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo()
                     + " Euros");
+                    esCorrecto = true;
                 }
                 else{
                     System.out.println("Sin recargos!!");
+                    esCorrecto = true;
                 }
             }
+        }
+        if (!esCorrecto){
+            System.out.println("El socio con id: " + idSocio + " No tiene ningun alquiler");
         }
 
     }

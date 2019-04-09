@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Socio {
-    private static int idSoci;
+    private static int idSoci = 1;
     private int iD;
     private String nif;
     private String nom;
@@ -80,8 +80,8 @@ public class Socio {
                 "id=" + iD +
                 ", nif='" + nif + '\'' +
                 ", nom='" + nom + '\'' +
-                ", dataNaiximent=" + dataNaiximent.get(Calendar.DAY_OF_MONTH)
-                + dataNaiximent.get(Calendar.MONTH)
+                ", dataNaiximent=" + dataNaiximent.get(Calendar.DAY_OF_MONTH)+ "-"
+                +  dataNaiximent.get(Calendar.MONTH) + "-" +
                 + dataNaiximent.get(Calendar.YEAR) +
                 ", poblacio='" + poblacio + '\'' +
                 '}'+ alquilers.get(alquilers.size()-1).toString() +"\n";

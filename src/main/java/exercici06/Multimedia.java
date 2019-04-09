@@ -12,7 +12,7 @@ public abstract class Multimedia {
     protected Formats format;
     protected int any;
     protected int precioAlquiler;
-    protected static int autoId;
+    protected static int autoId = 1;
     protected int id;
 
     public Multimedia(String titol, String autor, Formats format, int any) {
