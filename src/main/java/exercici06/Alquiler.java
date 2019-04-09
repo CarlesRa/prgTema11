@@ -52,4 +52,14 @@ public class Alquiler {
         return recargo;
         //TODO calcular el recargo
     }*/
+
+    @Override
+    public String toString() {
+        return "Alquiler{" +
+                "idProducto=" + idProducto +
+                ", fechaAlquiler=" + fechaAlquiler +
+                ", fechaDevolucion=" + fechaDevolucion +
+                ", recargo=" + recargo +
+                '}';
+    }
 }

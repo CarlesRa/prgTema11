@@ -30,15 +30,9 @@ public class Videoclub {
 
     public void alquilarMultimedia(LocalDate fechaAlquiler, int idMultimedia, int posicionSocio){
         Alquiler alquiler;
-        if (listadoSocios.get(posicionSocio).getAlquilers().get(listadoSocios.get(posicionSocio).sizeAlquilers()-1)
-        .getRecargo() > 0){
-            System.out.println("Existen recargos, no es posible el alquiler para este socio...");
-            Lib.continuar();
-            return;
-        }
-        else{
-            alquiler = new Alquiler(idMultimedia,fechaAlquiler);
-        }
+        alquiler = new Alquiler(idMultimedia, fechaAlquiler);
+        listadoSocios.get(posicionSocio).getAlquilers().add(alquiler);
+        System.out.println(listadoSocios.get(posicionSocio).toString());
     }
 
     public void recogerMultimedia(){
@@ -55,7 +49,7 @@ public class Videoclub {
 
     public int calcularRecargo(Socio socio){
         int resultado = 0;
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaAlquiler = socio.getAlquilers().get(socio.getAlquilers().size()-1).getFechaAlquiler();
         LocalDate fechaDevolucion = socio.getAlquilers().get(socio.getAlquilers().size()-1).getFechaDevolucion();
         Period periodo = Period.between(fechaAlquiler, fechaDevolucion);

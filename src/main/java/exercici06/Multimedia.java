@@ -60,8 +60,8 @@ public abstract class Multimedia {
 
     @Override
     public String toString() {
-        return "Multimedia{" +
-                "titol='" + titol + '\'' +
+        return "Multimedia{" + "id=" + id +
+                ", titol='" + titol + '\'' +
                 ", autor='" + autor + '\'' +
                 ", format=" + format +
                 ", any=" + any +

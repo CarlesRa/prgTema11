@@ -4,6 +4,7 @@
 
 package exercici06;
 
+import com.github.javafaker.Faker;
 import utils.Lib;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Exercici06 {
@@ -27,10 +29,19 @@ public class Exercici06 {
     private int anyoActual;
     private boolean esCorrecto = false;
     private Socio socio;
+    private Faker f = new Faker(new Locale("es"));
     //Clase para administrar los datos
     public Exercici06(){
+        int year = 1985;
+        float durac = 120;
         lec = new Scanner(System.in);
         videoclub = new Videoclub();
+        for (int i=0; i<5; i++){
+            videoclub.getListadoMultimedia().add(new Pelicula(f.name().fullName(),f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName()
+            ,f.name().firstName()));
+            year +=2 ;
+            videoclub.getListadoSocios().add(new Socio("53215474y",f.name().fullName(),new GregorianCalendar(),f.lordOfTheRings().location()));
+        }
         do {
             eleccio = mostrarMenuPri();
             switch (eleccio){
@@ -354,6 +365,16 @@ public class Exercici06 {
             if (esCorrecto){
                 esCorrecto = false;
                 System.out.print("Introduce la ID del Producto: ");
+                try {
+                    idProducto = Integer.parseInt(lec.nextLine());
+                    esCorrecto = true;
+                }
+                catch (NumberFormatException nfe4){
+                    System.out.println("Solo se aceptan numeros");
+                    Lib.continuar();
+                    esCorrecto = false;
+                }
+                esCorrecto = false;
                 //comprobamos que el producto esta en la base de datos.
                 for (int i=0; i<videoclub.getListadoMultimedia().size(); i++){
                     if (videoclub.getListadoMultimedia().get(i).getId() == idProducto){
@@ -361,29 +382,33 @@ public class Exercici06 {
                         esCorrecto = true;
                     }
                 }
+                if (!esCorrecto){
+                    System.out.println("El producto no esta en la base de datos");
+                    Lib.continuar();
+                    return;
+                }
                 if (esCorrecto){
-                    esCorrecto = true;
+                    esCorrecto = false;
                     //comprobamos si el producto esta alquilado y no ha sido devuelto
                     for (int i=0; i<videoclub.getListadoSocios().size(); i++){
-                        if (videoclub.getListadoMultimedia().get(posicionPelicula).getId()
-                                == videoclub.getListadoSocios().get(i).getAlquilers().get(socio.sizeAlquilers()-1)
-                            .getIdProducto()
-                                && videoclub.getListadoSocios().get(i).getAlquilers()
-                                .get(socio.sizeAlquilers()-1).getFechaDevolucion() == null){
+                        if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()){
+                            esCorrecto = false;
+                        }
+                        else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
+                                && videoclub.getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
                                 System.out.println("El producto esta alquilado por el socio: "
                                 + videoclub.getListadoSocios().get(i).toString());
                                 Lib.continuar();
-                                esCorrecto = false;
-                        }
-                        //si esta disponible
-                        if (esCorrecto){
-                            fechaAlquiler = LocalDate.now();
-                            videoclub.alquilarMultimedia(fechaAlquiler, idProducto,posicionSocio);
+                                return;
                         }
                     }
-                }
-                else{
-                    System.out.println("El producto no se encuentra en la base de datos");
+                    //si esta disponible
+                    if (!esCorrecto){
+                        fechaAlquiler = LocalDate.now();
+                        System.out.println("\n\nAlquilado correctamente al socio: ");
+                        videoclub.alquilarMultimedia(fechaAlquiler, idProducto,posicionSocio);
+                        esCorrecto = true;
+                    }
                 }
             }
             //si no existe el socio en la base de datos.

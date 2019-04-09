@@ -37,7 +37,7 @@ public class Pelicula extends Multimedia {
                 "duracio=" + duracio +
                 ", actorPrincipal='" + actorPrincipal + '\'' +
                 ", actriuPrincipal='" + actriuPrincipal + '\'' +
-                '}';
+                '}' + "\n";
     }
 
     @Override

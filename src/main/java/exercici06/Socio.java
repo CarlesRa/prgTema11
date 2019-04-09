@@ -65,6 +65,10 @@ public class Socio {
         return alquilers.size();
     }
 
+    public Alquiler getUltimoAlquiler(){
+            return alquilers.get(alquilers.size() - 1);
+    }
+
     public LocalDate getFechaDevolucion(int posicion){
         return alquilers.get(posicion).getFechaDevolucion();
     }
@@ -80,12 +84,13 @@ public class Socio {
     @Override
     public String toString() {
         return "Socio{" +
-                "nif='" + nif + '\'' +
+                "id=" + iD +
+                ", nif='" + nif + '\'' +
                 ", nom='" + nom + '\'' +
                 ", dataNaiximent=" + dataNaiximent.get(Calendar.DAY_OF_MONTH)
                 + dataNaiximent.get(Calendar.MONTH)
                 + dataNaiximent.get(Calendar.YEAR) +
                 ", poblacio='" + poblacio + '\'' +
-                '}';
+                '}'+ alquilers.get(alquilers.size()-1).toString() +"\n";
     }
 }
