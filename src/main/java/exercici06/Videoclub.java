@@ -26,20 +26,20 @@ public class Videoclub {
         listadoSocios.add(socio);
     }
 
-    public void alquilarMultimedia(LocalDate fechaAlquiler, int idMultimedia, int posicionSocio){
+    public void alquilarMultimedia(LocalDate fechaAlquiler, int idMultimedia, Socio socio){
         Alquiler alquiler;
         alquiler = new Alquiler(idMultimedia, fechaAlquiler);
-        listadoSocios.get(posicionSocio).getAlquilers().add(alquiler);
-        System.out.println(listadoSocios.get(posicionSocio).toString());
+        socio.getAlquilers().add(alquiler);
+        System.out.println(socio.toString());
     }
 
-    public void recogerMultimedia(int  posicionSocio){
+    public void recogerMultimedia(Socio socio){
         //Fuerzo a que haya recargo
         LocalDate fachaDevolucion = LocalDate.of(2019,04,15);
-        listadoSocios.get(posicionSocio).getUltimoAlquiler().setFechaDevolucion(fachaDevolucion);
-        calcularRecargo(listadoSocios.get(posicionSocio));
-        listadoSocios.get(posicionSocio).getUltimoAlquiler().setRecargo(calcularRecargo(listadoSocios.get(posicionSocio)));
-        System.out.println(listadoSocios.get(posicionSocio).toString());
+        socio.getUltimoAlquiler().setFechaDevolucion(fachaDevolucion);
+        calcularRecargo(socio);
+        socio.getUltimoAlquiler().setRecargo(calcularRecargo(socio));
+        System.out.println(socio.toString());
     }
 
     public ArrayList<Socio> getListadoSocios() {

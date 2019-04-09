@@ -339,7 +339,6 @@ public class Exercici06 {
     public void alquilarMultimedia(){
         int idSocio = Integer.MAX_VALUE;
         int idProducto = Integer.MAX_VALUE;
-        int posicionPelicula = 0;
         int posicionSocio = 0;
         char eleccion;
         LocalDate fechaAlquiler;
@@ -388,7 +387,6 @@ public class Exercici06 {
                 //comprobamos que el producto esta en la base de datos.
                 for (int i=0; i<videoclub.getListadoMultimedia().size(); i++){
                     if (videoclub.getListadoMultimedia().get(i).getId() == idProducto){
-                        posicionPelicula = i;
                         esCorrecto = true;
                     }
                 }
@@ -416,7 +414,8 @@ public class Exercici06 {
                     if (!esCorrecto){
                         fechaAlquiler = LocalDate.now();
                         System.out.println("\n\nAlquilado correctamente al socio: ");
-                        videoclub.alquilarMultimedia(fechaAlquiler, idProducto,posicionSocio);
+                        videoclub.alquilarMultimedia(fechaAlquiler, idProducto
+                        ,videoclub.getListadoSocios().get(posicionSocio));
                         return;
                     }
                 }
@@ -446,7 +445,6 @@ public class Exercici06 {
     }
     //Metodo para recoger los productos
     public void recogerMultimedia(){
-        int posicionSocio = 0;
         int idSocio = 0;
         do{
             System.out.print("Introduce el ID del socio: ");
@@ -463,10 +461,8 @@ public class Exercici06 {
         //comprovamos la id del socio.
         for (int i=0; i<videoclub.getListadoSocios().size(); i++){
             if (videoclub.getListadoSocios().get(i).getiD() == idSocio){
-                //guardo la posicion
-                posicionSocio = i;
                 //llamo al metodo de la clase viseoclub, el qual calculara el recargo
-                videoclub.recogerMultimedia(posicionSocio);
+                videoclub.recogerMultimedia(videoclub.getListadoSocios().get(i));
                 if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo() > 0){
                     System.out.println("Usted tiene un recargo de: " +
                     videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo()
