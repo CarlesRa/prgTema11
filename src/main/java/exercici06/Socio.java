@@ -63,7 +63,7 @@ public class Socio {
 
 
     public Alquiler getUltimoAlquiler(){
-            return alquilers.get(alquilers.size() - 1);
+        return alquilers.get(alquilers.size() - 1);
     }
 
     public  int calcularEdat(){

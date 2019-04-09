@@ -171,9 +171,9 @@ public class Exercici06 {
                         esCorrecto = false;
                     }
                 }while (!esCorrecto);
-                System.out.println("Introduce el Actor principal");
+                System.out.print("Introduce el Actor principal: ");
                 actorPrincipal = lec.nextLine();
-                System.out.println("Introduce la Actriz principal");
+                System.out.print("Introduce la Actriz principal: ");
                 actrizPrincipal = lec.nextLine();
                 multimedia = new Pelicula(titulo,autor,formats,anyo,duracion,actorPrincipal,actrizPrincipal);
                 videoclub.registrarMultimedia(multimedia);
@@ -345,6 +345,7 @@ public class Exercici06 {
         LocalDate fechaAlquiler;
         int eleccionAltas;
         do{
+            //pido la id del socio
             System.out.print("Introduce el ID del socio: ");
             try {
                 idSocio = Integer.parseInt(lec.nextLine());
@@ -364,6 +365,7 @@ public class Exercici06 {
             }
             //si esta en la base de datos.
             if (esCorrecto){
+                //pido la id del producto
                 esCorrecto = false;
                 System.out.print("Introduce la ID del Producto: ");
                 try {
@@ -395,6 +397,10 @@ public class Exercici06 {
                         if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()){
                             esCorrecto = false;
                         }
+                        else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo() > 0){
+                            System.out.println("El socio tiene recargo, no puede alquilar");
+                            return;
+                        }
                         else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
                                 && videoclub.getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
                                 System.out.println("\n\nEl producto esta alquilado por el socio: "
@@ -408,7 +414,7 @@ public class Exercici06 {
                         fechaAlquiler = LocalDate.now();
                         System.out.println("\n\nAlquilado correctamente al socio: ");
                         videoclub.alquilarMultimedia(fechaAlquiler, idProducto,posicionSocio);
-                        esCorrecto = true;
+                        return;
                     }
                 }
             }
@@ -465,7 +471,6 @@ public class Exercici06 {
                 }
                 else{
                     System.out.println("Sin recargos!!");
-                    videoclub.recogerMultimedia(posicionSocio);
                 }
             }
         }

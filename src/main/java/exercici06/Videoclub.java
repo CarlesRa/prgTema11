@@ -34,9 +34,10 @@ public class Videoclub {
     }
 
     public void recogerMultimedia(int  posicionSocio){
-        LocalDate fachaDevolucion = LocalDate.now();
+        LocalDate fachaDevolucion = LocalDate.of(2019,04,15);
         listadoSocios.get(posicionSocio).getUltimoAlquiler().setFechaDevolucion(fachaDevolucion);
         calcularRecargo(listadoSocios.get(posicionSocio));
+        listadoSocios.get(posicionSocio).getUltimoAlquiler().setRecargo(calcularRecargo(listadoSocios.get(posicionSocio)));
         System.out.println(listadoSocios.get(posicionSocio).toString());
     }
 
@@ -49,6 +50,7 @@ public class Videoclub {
     }
 
     public int calcularRecargo(Socio socio){
+        System.out.println("entra el recargo");
         int resultado = 0;
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaAlquiler = socio.getAlquilers().get(socio.getAlquilers().size()-1).getFechaAlquiler();
