@@ -4,8 +4,6 @@
 
 package exercici06;
 
-import utils.Lib;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -35,8 +33,11 @@ public class Videoclub {
         System.out.println(listadoSocios.get(posicionSocio).toString());
     }
 
-    public void recogerMultimedia(){
-
+    public void recogerMultimedia(int  posicionSocio){
+        LocalDate fachaDevolucion = LocalDate.now();
+        listadoSocios.get(posicionSocio).getUltimoAlquiler().setFechaDevolucion(fachaDevolucion);
+        calcularRecargo(listadoSocios.get(posicionSocio));
+        System.out.println(listadoSocios.get(posicionSocio).toString());
     }
 
     public ArrayList<Socio> getListadoSocios() {

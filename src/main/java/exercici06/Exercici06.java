@@ -54,6 +54,7 @@ public class Exercici06 {
                     break;
                 }
                 case 3:{
+                    recogerMultimedia();
                     break;
                 }
                 case 4:{
@@ -383,7 +384,7 @@ public class Exercici06 {
                     }
                 }
                 if (!esCorrecto){
-                    System.out.println("El producto no esta en la base de datos");
+                    System.out.println("\n\nEl producto no esta en la base de datos");
                     Lib.continuar();
                     return;
                 }
@@ -396,7 +397,7 @@ public class Exercici06 {
                         }
                         else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
                                 && videoclub.getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
-                                System.out.println("El producto esta alquilado por el socio: "
+                                System.out.println("\n\nEl producto esta alquilado por el socio: "
                                 + videoclub.getListadoSocios().get(i).toString());
                                 Lib.continuar();
                                 return;
@@ -433,6 +434,42 @@ public class Exercici06 {
                 }
             }
         }while (!esCorrecto);
+    }
+    //Metodo para recoger los productos
+    public void recogerMultimedia(){
+        int posicionSocio = 0;
+        int idSocio = 0;
+        do{
+            System.out.print("Introduce el ID del socio: ");
+            try {
+                idSocio = Integer.parseInt(lec.nextLine());
+                esCorrecto = true;
+            }
+            catch (NumberFormatException nfe4){
+                System.out.println("Solo se aceptan numeros");
+                Lib.continuar();
+                esCorrecto = false;
+            }
+        }while (!esCorrecto);
+        //comprovamos la id del socio.
+        for (int i=0; i<videoclub.getListadoSocios().size(); i++){
+            if (videoclub.getListadoSocios().get(i).getiD() == idSocio){
+                //guardo la posicion
+                posicionSocio = i;
+                //llamo al metodo de la clase viseoclub, el qual calculara el recargo
+                videoclub.recogerMultimedia(posicionSocio);
+                if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo() > 0){
+                    System.out.println("Usted tiene un recargo de: " +
+                    videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo()
+                    + " Euros");
+                }
+                else{
+                    System.out.println("Sin recargos!!");
+                    videoclub.recogerMultimedia(posicionSocio);
+                }
+            }
+        }
+
     }
 
     public  int calcularEdat(String fechaNacimiento){

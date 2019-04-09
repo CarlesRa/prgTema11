@@ -61,16 +61,9 @@ public class Socio {
         return alquilers;
     }
 
-    public int sizeAlquilers(){
-        return alquilers.size();
-    }
 
     public Alquiler getUltimoAlquiler(){
             return alquilers.get(alquilers.size() - 1);
-    }
-
-    public LocalDate getFechaDevolucion(int posicion){
-        return alquilers.get(posicion).getFechaDevolucion();
     }
 
     public  int calcularEdat(){
