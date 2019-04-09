@@ -34,6 +34,7 @@ public class Videoclub {
     }
 
     public void recogerMultimedia(int  posicionSocio){
+        //Fuerzo a que haya recargo
         LocalDate fachaDevolucion = LocalDate.of(2019,04,15);
         listadoSocios.get(posicionSocio).getUltimoAlquiler().setFechaDevolucion(fachaDevolucion);
         calcularRecargo(listadoSocios.get(posicionSocio));

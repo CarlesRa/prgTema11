@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a9af30c-2c67-4d9d-be32-96ef9fad33fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici06/Socio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici06/Socio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -51,8 +49,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="168">
-                  <caret line="443" column="25" selection-start-line="443" selection-start-column="25" selection-end-line="443" selection-end-column="25" />
+                <state relative-caret-position="810">
+                  <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -63,8 +61,12 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="600">
-                  <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+                <state relative-caret-position="705">
+                  <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+                  <folding>
+                    <element signature="e#1012#1013#0" expanded="true" />
+                    <element signature="e#1050#1051#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -76,10 +78,12 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="206">
-                  <caret line="39" column="72" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
+                <state relative-caret-position="366">
+                  <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#1561#1562#0" expanded="true" />
+                    <element signature="e#1660#1661#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -110,8 +114,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Socio.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="193">
-                  <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+                <state relative-caret-position="660">
+                  <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1363#1364#0" expanded="true" />
@@ -138,6 +142,8 @@
       <find>1</find>
       <find>add</find>
       <find>system</find>
+      <find>isEmp</find>
+      <find>recargo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,8 +194,8 @@
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Pelicula.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici06/Socio.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici06/Socio.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java" />
       </list>
     </option>
@@ -585,7 +591,21 @@
       <option name="project" value="LOCAL" />
       <updated>1554800506014</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fuerzo el recargo y lo calcula correctamente">
+      <created>1554803166609</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1554803166609</updated>
+    </task>
+    <task id="LOCAL-00041" summary="ya no alquila si hay recargos">
+      <created>1554803752850</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1554803752850</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -601,7 +621,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.504886" side_tool="true" weight="0.3659091" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36637932" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.66918105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3448276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -665,8 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="intentant fer el metode de añadir items" />
-    <MESSAGE value="creo el atributo pico para poder utilizarlo en los if" />
     <MESSAGE value="metodo additem semi fet" />
     <MESSAGE value="funciona pero no correctament" />
     <MESSAGE value="CASI FALTA HERROR AL INTRODUIR QUANTITAT DE MES DE 64 LA PRIMERA VEGADA" />
@@ -690,7 +708,9 @@
     <MESSAGE value="añado el metodo alquilar producto" />
     <MESSAGE value="alquiler producto correcto falta para los que tienen recargo" />
     <MESSAGE value="Devolver producto hecho a falta de setear el recargo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Devolver producto hecho a falta de setear el recargo" />
+    <MESSAGE value="Fuerzo el recargo y lo calcula correctamente" />
+    <MESSAGE value="ya no alquila si hay recargos" />
+    <option name="LAST_COMMIT_MESSAGE" value="ya no alquila si hay recargos" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici01/Punt.java">
@@ -1012,8 +1032,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+        <state relative-caret-position="705">
+          <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+          <folding>
+            <element signature="e#1012#1013#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1037,8 +1071,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Socio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+        <state relative-caret-position="660">
+          <caret line="65" column="51" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
@@ -1047,22 +1081,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="443" column="25" selection-start-line="443" selection-start-column="25" selection-end-line="443" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="39" column="72" selection-start-line="39" selection-start-column="72" selection-end-line="39" selection-end-column="72" />
+        <state relative-caret-position="366">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
           </folding>
         </state>
       </provider>
