@@ -360,6 +360,13 @@ public class Exercici06 {
             for (int i=0; i<videoclub.getListadoSocios().size(); i++){
                 if (videoclub.getListadoSocios().get(i).getiD() == idSocio){
                     posicionSocio = i;
+                    if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()){
+                        esCorrecto = false;
+                    }
+                    else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo() > 0){
+                        System.out.println("El socio tiene recargo, no puede alquilar");
+                        return;
+                    }
                     esCorrecto = true;
                 }
             }
@@ -396,10 +403,6 @@ public class Exercici06 {
                     for (int i=0; i<videoclub.getListadoSocios().size(); i++){
                         if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()){
                             esCorrecto = false;
-                        }
-                        else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getRecargo() > 0){
-                            System.out.println("El socio tiene recargo, no puede alquilar");
-                            return;
                         }
                         else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
                                 && videoclub.getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){

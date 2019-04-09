@@ -10,7 +10,7 @@ public class Alquiler {
     private int idProducto;
     private LocalDate fechaAlquiler;
     private LocalDate fechaDevolucion;
-    private float recargo;
+    private int recargo;
 
     public Alquiler(int idPelicula, LocalDate fechaAlquiler){
         this.idProducto = idPelicula;
@@ -31,7 +31,7 @@ public class Alquiler {
         return fechaDevolucion;
     }
 
-    public float getRecargo() {
+    public int getRecargo() {
         return recargo;
     }
 
@@ -43,7 +43,7 @@ public class Alquiler {
         this.fechaDevolucion = fechaDevolucion;
     }
 
-    public void setRecargo(float recargo) {
+    public void setRecargo(int recargo) {
         this.recargo = recargo;
     }
 
@@ -59,7 +59,7 @@ public class Alquiler {
                 "idProducto=" + idProducto +
                 ", fechaAlquiler=" + fechaAlquiler +
                 ", fechaDevolucion=" + fechaDevolucion +
-                ", recargo=" + recargo +
+                ", recargo=" + recargo + " Euros" +
                 '}';
     }
 }
