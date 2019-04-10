@@ -7,12 +7,13 @@ package exercici06;
 public abstract class Multimedia {
     protected static final int PRECIO_BASE = 4;
     protected static final int PRECIO_REDUCIDO = 3;
+    protected static final int ID_BASE = 0;
     protected String titol;
     protected String autor;
     protected Formats format;
     protected int any;
     protected int precioAlquiler;
-    protected static int autoId = 1;
+    protected static int autoId = ID_BASE;
     protected int id;
 
     public Multimedia(String titol, String autor, Formats format, int any) {

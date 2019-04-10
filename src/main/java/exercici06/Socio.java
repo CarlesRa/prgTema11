@@ -12,7 +12,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Socio {
-    private static int idSoci = 1;
+    private static final int ID_BASE = 0;
+    private static int idSoci = ID_BASE;
     private int iD;
     private String nif;
     private String nom;
