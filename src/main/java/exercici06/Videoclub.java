@@ -33,13 +33,14 @@ public class Videoclub {
         System.out.println(socio.toString());
     }
 
-    public void recogerMultimedia(Socio socio){
+    public void recogerMultimedia(Socio socio, int posicionAlquiler){
         //Fuerzo a que haya recargo
-        LocalDate fachaDevolucion = LocalDate.of(2019,04,15);
-        socio.getUltimoAlquiler().setFechaDevolucion(fachaDevolucion);
-        calcularRecargo(socio);
-        socio.getUltimoAlquiler().setRecargo(calcularRecargo(socio));
-        System.out.println(socio.toString());
+        if (socio.getAlquilers().get(posicionAlquiler).getFechaDevolucion() == null) {
+            LocalDate fachaDevolucion = LocalDate.of(2019, 04, 15);
+            socio.getAlquilers().get(posicionAlquiler).setFechaDevolucion(fachaDevolucion);
+            calcularRecargo(socio,posicionAlquiler);
+            socio.getAlquilers().get(posicionAlquiler).setRecargo(calcularRecargo(socio,posicionAlquiler));
+        }
     }
 
     public ArrayList<Socio> getListadoSocios() {
@@ -50,16 +51,19 @@ public class Videoclub {
         return listadoMultimedia;
     }
 
-    public int calcularRecargo(Socio socio){
-        System.out.println("entra el recargo");
+    public int calcularRecargo(Socio socio, int posicionAlquiler){
         int resultado = 0;
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate fechaAlquiler = socio.getAlquilers().get(socio.getAlquilers().size()-1).getFechaAlquiler();
-        LocalDate fechaDevolucion = socio.getAlquilers().get(socio.getAlquilers().size()-1).getFechaDevolucion();
+        LocalDate fechaAlquiler = socio.getAlquilers().get(posicionAlquiler).getFechaAlquiler();
+        LocalDate fechaDevolucion = socio.getAlquilers().get(posicionAlquiler).getFechaDevolucion();
         Period periodo = Period.between(fechaAlquiler, fechaDevolucion);
         if (periodo.getDays() > 3){
             resultado = (periodo.getDays() - 3) * 2;
         }
         return resultado;
+    }
+
+    public void pagarRecargo(Alquiler alquiler){
+        alquiler.setRecargo(0);
     }
 }
