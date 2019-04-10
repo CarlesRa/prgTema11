@@ -98,7 +98,10 @@ public class Exercici06 {
                         //compruebo si el socio tiene recargos
                         else if (videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
                             do {
-                                System.out.println("El socio tiene recargos y no puede alquilar");
+                                System.out.println("No puede alquilar tiene un recargo de: " +
+                                videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
+                                + " Euros," + " para el producto con id: "
+                                + videoclub.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
                                 //pregunto si desea pagarlo
                                 System.out.print("Desea pagarlo? selccione S o N: ");
                                 eleccion = lec.next().charAt(0);
@@ -157,9 +160,9 @@ public class Exercici06 {
                             esCorrecto = false;
                         }
                         else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
-                                && videoclub.getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
+                            && videoclub.getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
                             System.out.println("\n\nEl producto esta alquilado por el socio: "
-                                    + videoclub.getListadoSocios().get(i).toString());
+                            + videoclub.getListadoSocios().get(i).toString());
                             Lib.continuar();
                             return;
                         }
@@ -234,8 +237,8 @@ public class Exercici06 {
                     ,posicionAlquiler);
                     if (videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
                         System.out.println("Usted tiene un recargo de: " +
-                                videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
-                                + " Euros" + " para el producto con id: "
+                        videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
+                        + " Euros," + " para el producto con id: "
                         + videoclub.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
                         //pregunto si desea pagarlo
                         do {
