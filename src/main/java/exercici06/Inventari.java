@@ -73,16 +73,13 @@ public class Inventari {
         System.out.println(alquilers.toString());
     }
 
-    public void mostrarLloguersAmbRecarrec(){
-        ArrayList<Alquiler> alquilers = new ArrayList<>();
+    public void mostrarsocisAmbRecarrec(){
         for (int i=0; i<listadoSocios.size(); i++){
             for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
                 if (listadoSocios.get(i).getAlquilers().get(z).getRecargo() > 0) {
-                    alquilers.add(listadoSocios.get(i).getAlquilers().get(z));
+                    System.out.println(listadoSocios.get(i).toString());
                 }
             }
         }
-        Collections.sort(alquilers);
-        System.out.println(alquilers.toString());
     }
 }

@@ -48,12 +48,12 @@ public class Alquiler implements Comparable<Alquiler>{
 
     @Override
     public String toString() {
-        return "Alquiler{" +
-                "idProducto=" + idProducto +
+        return "Alquiler: " + "idSocio=" + idSocio+
+                ", idProducto=" + idProducto +
                 ", fechaAlquiler=" + fechaAlquiler +
                 ", fechaDevolucion=" + fechaDevolucion +
                 ", recargo=" + recargo + " Euros" +
-                '}' + "\n";
+                "\n";
     }
 
     @Override

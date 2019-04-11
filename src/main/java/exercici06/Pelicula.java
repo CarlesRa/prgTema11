@@ -33,11 +33,11 @@ public class Pelicula extends Multimedia {
     @Override
     public String toString() {
         return
-                "Pelicula{" + super.toString() +
+                "Pelicula: " + super.toString() +
                 "duracio=" + duracio +
-                ", actorPrincipal='" + actorPrincipal + '\'' +
-                ", actriuPrincipal='" + actriuPrincipal + '\'' +
-                '}' + "\n";
+                ", actorPrincipal='" + actorPrincipal +
+                ", actriuPrincipal='" + actriuPrincipal
+                + "\n";
     }
 
     @Override

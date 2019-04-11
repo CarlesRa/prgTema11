@@ -61,12 +61,11 @@ public abstract class Multimedia implements Comparable<Multimedia>{
 
     @Override
     public String toString() {
-        return "Multimedia{" + "id=" + id +
+        return " id=" + id +
                 ", titol='" + titol + '\'' +
                 ", autor='" + autor + '\'' +
                 ", format=" + format +
-                ", any=" + any +
-                '}';
+                ", any=" + any;
     }
 
     abstract int calcularPrecioAlquiler();

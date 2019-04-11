@@ -230,7 +230,9 @@ public class Exercici06 {
                     //llamo al metodo de la clase videoclub, el qual calculara el recargo
                     videoclub.recogerMultimedia(idProducto);
                     //miro si hay recargo
-                    if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
+                    if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto()
+                        == idProducto &&
+                        videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
                         System.out.println("Usted tiene un recargo de: " +
                         videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
                         + " Euros," + " para el producto con id: "
@@ -492,6 +494,7 @@ public class Exercici06 {
             System.out.println("5- listado de alquileres actuales");//ordenats per data de lloguer
             System.out.println("6- Listado de socios con recargos");
             System.out.println("0- Volver al menu principal");
+            System.out.print("Selecciona una opcion: ");
             try {
                 eleccio = Integer.parseInt(lec.nextLine());
             }catch (NumberFormatException nfe6){
@@ -530,7 +533,7 @@ public class Exercici06 {
                 break;
             }
             case 6:{
-                videoclub.getInventari().mostrarLloguersAmbRecarrec();
+                videoclub.getInventari().mostrarsocisAmbRecarrec();
                 break;
             }
         }
