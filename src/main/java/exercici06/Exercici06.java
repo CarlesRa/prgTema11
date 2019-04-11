@@ -227,40 +227,40 @@ public class Exercici06 {
                 esCorrecto = false;
             }
         }while (!esCorrecto);
+        //llamo al metodo de la clase videoclub, el qual calculara el recargo
+        videoclub.recogerMultimedia(idProducto);
         for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
             for (int z = 0; z<videoclub.getInventari().getListadoSocios().get(i).getZiceAlquilers(); z++) {
-                    //llamo al metodo de la clase videoclub, el qual calculara el recargo
-                    videoclub.recogerMultimedia(idProducto);
-                    //miro si hay recargo
-                    if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto()
-                        == idProducto &&
-                        videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
-                        System.out.println("Usted tiene un recargo de: " +
-                        videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
+                //miro si hay recargo
+                if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto()
+                    == idProducto
+                    && videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
+                    System.out.println("Usted tiene un recargo de: " +
+                            videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
                         + " Euros," + " para el producto con id: "
                         + videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
-                        //pregunto si desea pagarlo
-                        do {
-                            System.out.print("Desea pagarlo? selccione S o N: ");
-                            eleccion = lec.next().charAt(0);
-                            lec.nextLine();
-                            if (eleccion == 's' || eleccion == 'S') {
-                                videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
-                                System.out.println(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
-                                System.out.println("Recargo pagado con exito!!");
-                                Lib.continuar();
-                                esCorrecto = true;
-                            } else if (eleccion == 'n' || eleccion == 'N') {
-                                System.out.println("Volviendo al menu principal...");
-                                Lib.continuar();
-                                esCorrecto = true;
-                            } else {
-                                System.out.println("Solo se acepta S o N");
-                                Lib.continuar();
-                                esCorrecto = false;
-                            }
-                        }while (!esCorrecto);
-                    }
+                    //pregunto si desea pagarlo
+                    do {
+                        System.out.print("Desea pagarlo? selccione S o N: ");
+                        eleccion = lec.next().charAt(0);
+                        lec.nextLine();
+                        if (eleccion == 's' || eleccion == 'S') {
+                            videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
+                            System.out.println(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
+                            System.out.println("Recargo pagado con exito!!");
+                            Lib.continuar();
+                            esCorrecto = true;
+                        } else if (eleccion == 'n' || eleccion == 'N') {
+                            System.out.println("Volviendo al menu principal...");
+                            Lib.continuar();
+                            esCorrecto = true;
+                        } else {
+                            System.out.println("Solo se acepta S o N");
+                            Lib.continuar();
+                            esCorrecto = false;
+                        }
+                    }while (!esCorrecto);
+                }
             }
         }
     }
@@ -485,6 +485,10 @@ public class Exercici06 {
         }
     }
 
+    /**
+     * muestra el menu de listados
+     * @return
+     */
     public int menuListados(){
         int eleccio = 0;
         do {
@@ -511,6 +515,10 @@ public class Exercici06 {
         return eleccio;
     }
 
+    /**
+     * recoge la eleccion del menu listados y ejecuta la accion seleccionada
+     * @param eleccion
+     */
     public void seleccionListados(int eleccion){
         switch (eleccion){
             case 1: {

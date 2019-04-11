@@ -39,8 +39,4 @@ public class VideoJoc extends Multimedia{
         }
     }
 
-    @Override
-    public int compareTo(Multimedia multimedia) {
-        return this.any - multimedia.any;
-    }
 }

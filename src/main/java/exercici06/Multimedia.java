@@ -4,7 +4,9 @@
 
 package exercici06;
 
-public abstract class Multimedia implements Comparable<Multimedia>{
+import java.util.Comparator;
+
+public abstract class Multimedia{
     protected static final int PRECIO_BASE = 4;
     protected static final int PRECIO_REDUCIDO = 3;
     protected static final int ID_BASE = 0;
@@ -61,7 +63,7 @@ public abstract class Multimedia implements Comparable<Multimedia>{
 
     @Override
     public String toString() {
-        return " id=" + id +
+        return " id=" + id + "Precio de Alquiler=" + precioAlquiler +
                 ", titol='" + titol + '\'' +
                 ", autor='" + autor + '\'' +
                 ", format=" + format +
@@ -70,8 +72,18 @@ public abstract class Multimedia implements Comparable<Multimedia>{
 
     abstract int calcularPrecioAlquiler();
 
-    @Override
-    public abstract int compareTo(Multimedia multimedia);
+    public static class ComparatorFecha implements Comparator <Multimedia>{
+        @Override
+        public int compare(Multimedia multimedia, Multimedia t1) {
+            return multimedia.any - t1.any;
+        }
+    }
 
+    public static class ComparatorNombre implements Comparator <Multimedia>{
+        @Override
+        public int compare(Multimedia multimedia, Multimedia t1) {
+            return multimedia.titol.compareTo(t1.titol);
+        }
+    }
 
 }

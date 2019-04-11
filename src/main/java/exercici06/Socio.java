@@ -92,7 +92,7 @@ public class Socio {
     }
 
     public String mostrarSocio() {
-        return "Socio" +
+        return "Socio " +
                 "id=" + iD +
                 ", nif='" + nif + '\'' +
                 ", nom='" + nom + '\'' +
