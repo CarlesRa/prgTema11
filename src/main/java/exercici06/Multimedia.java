@@ -4,7 +4,7 @@
 
 package exercici06;
 
-public abstract class Multimedia {
+public abstract class Multimedia implements Comparable<Multimedia>{
     protected static final int PRECIO_BASE = 4;
     protected static final int PRECIO_REDUCIDO = 3;
     protected static final int ID_BASE = 0;
@@ -70,4 +70,9 @@ public abstract class Multimedia {
     }
 
     abstract int calcularPrecioAlquiler();
+
+    @Override
+    public abstract int compareTo(Multimedia multimedia);
+
+
 }

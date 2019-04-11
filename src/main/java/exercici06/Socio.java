@@ -62,6 +62,9 @@ public class Socio {
         return alquilers;
     }
 
+    public int getZiceAlquilers(){
+        return alquilers.size();
+    }
 
     public Alquiler getUltimoAlquiler(){
         return alquilers.get(alquilers.size() - 1);

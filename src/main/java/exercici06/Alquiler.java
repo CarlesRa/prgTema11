@@ -6,7 +6,8 @@ package exercici06;
 
 import java.time.LocalDate;
 
-public class Alquiler {
+public class Alquiler implements Comparable<Alquiler>{
+    private final int RECARGO_DEFECTO = 0;
     private int idProducto;
     private LocalDate fechaAlquiler;
     private LocalDate fechaDevolucion;
@@ -16,7 +17,7 @@ public class Alquiler {
         this.idProducto = idPelicula;
         this.fechaAlquiler = fechaAlquiler;
         fechaDevolucion = null;
-        recargo = 0;
+        recargo = RECARGO_DEFECTO;
     }
 
     public int getIdProducto() {
@@ -35,10 +36,6 @@ public class Alquiler {
         return recargo;
     }
 
-    public void setFechaAlquiler(LocalDate fechaAlquiler) {
-        this.fechaAlquiler = fechaAlquiler;
-    }
-
     public void setFechaDevolucion(LocalDate fechaDevolucion) {
         this.fechaDevolucion = fechaDevolucion;
     }
@@ -46,12 +43,6 @@ public class Alquiler {
     public void setRecargo(int recargo) {
         this.recargo = recargo;
     }
-
-    /*public float calcularRecargo(){
-        float recargo = 0;
-        return recargo;
-        //TODO calcular el recargo
-    }*/
 
     @Override
     public String toString() {
@@ -61,5 +52,10 @@ public class Alquiler {
                 ", fechaDevolucion=" + fechaDevolucion +
                 ", recargo=" + recargo + " Euros" +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Alquiler alquiler) {
+        return this.fechaAlquiler.compareTo(alquiler.fechaAlquiler);
     }
 }

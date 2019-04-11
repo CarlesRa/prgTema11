@@ -30,14 +30,15 @@ public class Exercici06 {
     private Faker f = new Faker(new Locale("es"));
     //Clase Controladora
     public Exercici06(){
-        int year = 1985;
+        int year;
         float durac = 120;
         lec = new Scanner(System.in);
         videoclub = new Videoclub();
-        for (int i=0; i<5; i++){
+        for (int i=0; i<20; i++){
+            year = Lib.random(1900,2019);
             videoclub.getListadoMultimedia().add(new Pelicula(f.name().fullName(),f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName()
             ,f.name().firstName()));
-            year +=2 ;
+            videoclub.getListadoMultimedia().add(new VideoJoc(f.name().username(),f.name().firstName(),Formats.BLU_RAY,year,Plataformas.PS4));
             videoclub.getListadoSocios().add(new Socio("53215474y",f.name().fullName(),new GregorianCalendar(),f.lordOfTheRings().location()));
         }
         do {
@@ -203,16 +204,15 @@ public class Exercici06 {
 
 
     /**
-     * Metodo que recoge los datos para devolver los productos
+     * Metodo que recoge los datos para devolver producto
      */
     public void recogerMultimedia(){
         char eleccion;
-        int idSocio = 0;
-        int posicionAlquiler = 0;
+        int idProducto = 0;
         do{
-            System.out.print("Introduce el ID del socio: ");
+            System.out.print("Introduce el ID del producto: ");
             try {
-                idSocio = Integer.parseInt(lec.nextLine());
+                idProducto = Integer.parseInt(lec.nextLine());
                 esCorrecto = true;
             }
             catch (NumberFormatException nfe4){
@@ -221,20 +221,11 @@ public class Exercici06 {
                 esCorrecto = false;
             }
         }while (!esCorrecto);
-        //comprovamos la id del socio.
         for (int i=0; i<videoclub.getListadoSocios().size(); i++){
-            for (int z=0; z<videoclub.getListadoSocios().get(i).getAlquilers().size(); z++) {
-                if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()) {
-                    esCorrecto = false;
-                }
-                else if (videoclub.getListadoSocios().get(i).getiD() == idSocio
-                        && videoclub.getListadoSocios().get(i).getAlquilers().get(z).getFechaDevolucion() != null){
-                }
-                else if (videoclub.getListadoSocios().get(i).getiD() == idSocio) {
-                    posicionAlquiler = z;
+            for (int z = 0; z<videoclub.getListadoSocios().get(i).getZiceAlquilers(); z++) {
                     //llamo al metodo de la clase videoclub, el qual calculara el recargo
-                    videoclub.recogerMultimedia(videoclub.getListadoSocios().get(i)
-                    ,posicionAlquiler);
+                    videoclub.recogerMultimedia(idProducto);
+                    //miro si hay recargo
                     if (videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
                         System.out.println("Usted tiene un recargo de: " +
                         videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
@@ -260,17 +251,9 @@ public class Exercici06 {
                                 esCorrecto = false;
                             }
                         }while (!esCorrecto);
-                    } else {
-                        System.out.println("Sin recargos!!");
-                        esCorrecto = true;
                     }
-                }
             }
         }
-        if (!esCorrecto){
-            System.out.println("El socio con id: " + idSocio + " No tiene ningun alquiler");
-        }
-
     }
 
 
@@ -493,13 +476,37 @@ public class Exercici06 {
         }
     }
 
-    public void menuListados(){
-        System.out.println("1- Listado de productos");
-        System.out.println("2- Listado de peliculas");
-        System.out.println("3- Listado de videojuegos");
-        System.out.println("4- Listado total de alquileres");
-        System.out.println("5- listado de alquileres actuales");
-        System.out.println("6- Listado de socios con recargos");
+    public int menuListados(){
+        int eleccio = 0;
+        do {
+            System.out.println("1- Listado de productos");
+            System.out.println("2- Listado de peliculas");//ordenades per titol
+            System.out.println("3- Listado de videojuegos");//ordenats per any
+            System.out.println("4- Listado total de alquileres");
+            System.out.println("5- listado de alquileres actuales");//ordenats per data de lloguer
+            System.out.println("6- Listado de socios con recargos");
+            System.out.println("0- Volver al menu principal");
+            try {
+                eleccio = Integer.parseInt(lec.nextLine());
+            }catch (NumberFormatException nfe6){
+                System.out.println("Solo se aceptan numeros del 0 al 6 ...");
+            }
+            if (eleccio >= 0 && eleccio <= 6){
+                esCorrecto = true;
+            }
+            else{
+                esCorrecto = false;
+            }
+        }while (!esCorrecto);
+        return eleccio;
+    }
+
+    public void seleccionListados(int eleccion){
+        switch (eleccion){
+            case 1: {
+
+            }
+        }
     }
 
     /**
@@ -551,6 +558,11 @@ public class Exercici06 {
         }
     }
 
+    /**
+     * calcula la edad del posible nuevo socio
+     * @param fechaNacimiento
+     * @return
+     */
     public  int calcularEdat(String fechaNacimiento){
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaNac = LocalDate.parse(fechaNacimiento, fmt);

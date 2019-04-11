@@ -38,4 +38,9 @@ public class VideoJoc extends Multimedia{
             return PRECIO_BASE;
         }
     }
+
+    @Override
+    public int compareTo(Multimedia multimedia) {
+        return this.any - multimedia.any;
+    }
 }
