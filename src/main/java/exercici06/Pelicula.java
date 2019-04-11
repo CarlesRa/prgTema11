@@ -49,9 +49,4 @@ public class Pelicula extends Multimedia {
             return PRECIO_BASE;
         }
     }
-
-    @Override
-    public int compareTo(Multimedia multimedia) {
-        return this.getTitol().compareTo(multimedia.getTitol());
-    }
 }

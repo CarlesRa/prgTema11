@@ -19,15 +19,12 @@ public class Exercici06 {
     private int eleccio;
     private Videoclub videoclub;
     private Multimedia multimedia;
-    private String titulo;
-    private String autor;
-    private Formats formats;
-    private int anyo;
-    private Calendar fechaActual;
-    private int anyoActual;
-    private boolean esCorrecto = false;
     private Socio socio;
     private Faker f = new Faker(new Locale("es"));
+    private String titulo;//Variable en comu per a tots els multimedia
+    private String autor;//Variable en comu per a tots els multimedia
+    private Formats formats;//Variable en comu per a tots els multimedia
+    private boolean esCorrecto = false;//variable compartida per tots els metodes
     //Clase Controladora
     public Exercici06(){
         int year;
@@ -75,33 +72,20 @@ public class Exercici06 {
      * Metodo que recoge los datos para alquilar producto
      */
     public void alquilarMultimedia(){
-        int idSocio = Integer.MAX_VALUE;
+        int idSocio;
         int idProducto = Integer.MAX_VALUE;
         int posicionSocio = 0;
         char eleccion;
         LocalDate fechaAlquiler;
         do{
             //pido la id del socio
-            System.out.print("Introduce el ID del socio: ");
-            try {
-                idSocio = Integer.parseInt(lec.nextLine());
-                esCorrecto = true;
-            }
-            catch (NumberFormatException nfe4){
-                System.out.println("Solo se aceptan numeros");
-                Lib.continuar();
-                esCorrecto = false;
-            }
-            esCorrecto = false;
+            idSocio = pedirIdSocio();
             for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
                 if (videoclub.getInventari().getListadoSocios().get(i).getiD() == idSocio){
                     posicionSocio = i;
                     for (int z=0; z<videoclub.getInventari().getListadoSocios().get(i).getAlquilers().size(); z++) {
-                        if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().isEmpty()) {
-                            esCorrecto = false;
-                        }
                         //compruebo si el socio tiene recargos
-                        else if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
+                        if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
                             do {
                                 System.out.println("No puede alquilar tiene un recargo de: " +
                                 videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
@@ -159,8 +143,7 @@ public class Exercici06 {
                     return;
                 }
                 if (esCorrecto){
-                    esCorrecto = false;
-                    //comprobamos si el producto esta alquilado y no ha sido devuelto
+                    //comprobamos si el producto esta alquilado
                     for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
                         if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().isEmpty()){
                             esCorrecto = false;
@@ -330,13 +313,15 @@ public class Exercici06 {
      * @param eleccioAltas
      */
     public void seleccionAltas(int eleccioAltas){
+        Calendar fechaActual = Calendar.getInstance();
+        int anyoActual = fechaActual.get(Calendar.YEAR);
+        float duracion = 0;
+        String actorPrincipal = "";
+        String actrizPrincipal = "";
+        Plataformas plataforma = Plataformas.PC;
+        int anyo = 0;
         switch (eleccioAltas){
             case 1:{
-                fechaActual = Calendar.getInstance();
-                anyoActual = fechaActual.get(Calendar.YEAR);
-                float duracion = 0;
-                String actorPrincipal = "";
-                String actrizPrincipal = "";
                 datosAltas();
                 do{
                     esCorrecto = false;
@@ -381,7 +366,6 @@ public class Exercici06 {
                 int eleccion = 0;
                 fechaActual = Calendar.getInstance();
                 anyoActual = fechaActual.get(Calendar.YEAR);
-                Plataformas plataforma = Plataformas.PC;
                 datosAltas();
                 do{
                     esCorrecto = false;
@@ -496,7 +480,7 @@ public class Exercici06 {
             System.out.println("2- Listado de peliculas");//ordenades per titol
             System.out.println("3- Listado de videojuegos");//ordenats per any
             System.out.println("4- Listado total de alquileres");
-            System.out.println("5- listado de alquileres actuales");//ordenats per data de lloguer
+            System.out.println("5- listado de alquileres actuales de un socio");//ordenats per data de lloguer
             System.out.println("6- Listado de socios con recargos");
             System.out.println("0- Volver al menu principal");
             System.out.print("Selecciona una opcion: ");
@@ -534,11 +518,11 @@ public class Exercici06 {
                 break;
             }
             case 4:{
-                videoclub.getInventari().mostrarLloguers();
+                videoclub.getInventari().mostrarLloguers(pedirIdSocio());
                 break;
             }
             case 5:{
-                videoclub.getInventari().mostrarLloguersActuals();
+                videoclub.getInventari().mostrarLloguersActuals(pedirIdSocio());
                 break;
             }
             case 6:{
@@ -608,5 +592,20 @@ public class Exercici06 {
         LocalDate ara = LocalDate.now();
         Period periodo = Period.between(fechaNac, ara);
         return periodo.getYears();
+    }
+
+    public int pedirIdSocio(){
+        int idSocio = 0;
+        do {
+            System.out.print("Introduce el id del socio: ");
+            try {
+                idSocio = Integer.parseInt(lec.nextLine());
+                esCorrecto = true;
+            }
+            catch (NumberFormatException nfe6){
+                System.out.println("solo se acepten numeros");
+            }
+        }while (!esCorrecto);
+        return idSocio;
     }
 }

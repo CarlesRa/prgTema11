@@ -49,20 +49,25 @@ public class Inventari implements IInventario{
 
     }
     @Override
-    public void mostrarLloguers(){
+    public void mostrarLloguers(int idSoci){
         for (int i=0; i<listadoSocios.size(); i++){
-            for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
-                System.out.println(listadoSocios.get(i).getAlquilers().get(z));
+            if (listadoSocios.get(i).getiD() == idSoci) {
+                for (int z = 0; z < listadoSocios.get(i).getAlquilers().size(); z++) {
+                    System.out.println(listadoSocios.get(i).getAlquilers().get(z));
+                }
             }
         }
     }
     @Override
-    public void mostrarLloguersActuals(){
+    public void mostrarLloguersActuals(int idSoci){
+        idSoci = 0;
         ArrayList<Alquiler> alquilers = new ArrayList<>();
         for (int i=0; i<listadoSocios.size(); i++){
-            for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
-                if (listadoSocios.get(i).getAlquilers().get(z).getFechaDevolucion() == null) {
-                    alquilers.add(listadoSocios.get(i).getAlquilers().get(z));
+            if (listadoSocios.get(i).getiD() == idSoci) {
+                for (int z = 0; z < listadoSocios.get(i).getAlquilers().size(); z++) {
+                    if (listadoSocios.get(i).getAlquilers().get(z).getFechaDevolucion() == null) {
+                        alquilers.add(listadoSocios.get(i).getAlquilers().get(z));
+                    }
                 }
             }
         }
@@ -79,4 +84,6 @@ public class Inventari implements IInventario{
             }
         }
     }
+
+
 }
