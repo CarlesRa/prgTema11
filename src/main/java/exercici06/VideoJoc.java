@@ -26,7 +26,7 @@ public class VideoJoc extends Multimedia{
     public String toString() {
         return "VideoJoc{" + super.toString() +
                 "plataformas=" + plataformas +
-                '}';
+                '}' + "\n";
     }
 
     @Override

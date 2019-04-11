@@ -4,8 +4,6 @@
 
 package exercici06;
 
-import utils.Lib;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -16,13 +14,9 @@ public class Videoclub {
     private final int RECARGO_POR_DIA = 2;
 
     private Inventari inventari;
-    /*private ArrayList <Multimedia> listadoMultimedia;
-    private ArrayList <Socio> listadoSocios;*/
 
     public Videoclub(){
         inventari = new Inventari();
-        /*listadoMultimedia = new ArrayList<>();
-        listadoSocios = new ArrayList<>();*/
     }
 
     public Inventari getInventari() {
@@ -39,7 +33,7 @@ public class Videoclub {
 
     public void alquilarMultimedia(LocalDate fechaAlquiler, int idMultimedia, Socio socio){
         Alquiler alquiler;
-        alquiler = new Alquiler(idMultimedia, fechaAlquiler);
+        alquiler = new Alquiler(idMultimedia, socio.getiD(), fechaAlquiler);
         socio.getAlquilers().add(alquiler);
         System.out.println(socio.toString());
     }
@@ -47,33 +41,19 @@ public class Videoclub {
     public void recogerMultimedia(int idMultimedia){
         //Fuerzo a que haya recargo
         int recargo = 0;
-        Boolean estaMultimedia = false;
-        for (int i=0; i< inventari.getListadoSocios().size() || estaMultimedia == true; i++){
-           for (int z = 0; z< inventari.getListadoSocios().get(i).getZiceAlquilers() || estaMultimedia == true; z++){
-               if ( inventari.getListadoSocios().get(i).getAlquilers() != null &&
-               inventari.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto() == idMultimedia
-               &&  inventari.getListadoSocios().get(i).getAlquilers().get(z).getFechaDevolucion() == null){
+        for (int i=0; i<inventari.getListadoSocios().size(); i++){
+           for (int z = 0; z<inventari.getListadoSocios().get(i).getAlquilers().size(); z++){
+               if (inventari.getListadoSocios().get(i).getAlquilers().get(z).getFechaDevolucion() == null &&
+                       inventari.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto() == idMultimedia) {
                    LocalDate fachaDevolucion = LocalDate.of(2019, 04, 15);
-                    inventari.getListadoSocios().get(i).getAlquilers().get(z).setFechaDevolucion(fachaDevolucion);
-                   recargo = calcularRecargo( inventari.getListadoSocios().get(i).getAlquilers().get(z));
-                    inventari.getListadoSocios().get(i).getAlquilers().get(z).setRecargo(recargo);
-                   estaMultimedia = true;
+                   inventari.getListadoSocios().get(i).getAlquilers().get(z).setFechaDevolucion(fachaDevolucion);
+                   recargo = calcularRecargo(inventari.getListadoSocios().get(i).getAlquilers().get(z));
+                   inventari.getListadoSocios().get(i).getAlquilers().get(z).setRecargo(recargo);
+                   return;
                }
            }
         }
-        if (!estaMultimedia){
-            System.out.println("El producto no esta alquilado");
-            Lib.continuar();
-        }
     }
-
-    /*public ArrayList<Socio> getListadoSocios() {
-        return listadoSocios;
-    }
-
-    public ArrayList<Multimedia> getListadoMultimedia() {
-        return listadoMultimedia;
-    }*/
 
     public int calcularRecargo(Alquiler alquiler){
         int resultado = 0;

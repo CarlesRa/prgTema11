@@ -9,12 +9,14 @@ import java.time.LocalDate;
 public class Alquiler implements Comparable<Alquiler>{
     private final int RECARGO_DEFECTO = 0;
     private int idProducto;
+    private int idSocio;
     private LocalDate fechaAlquiler;
     private LocalDate fechaDevolucion;
     private int recargo;
 
-    public Alquiler(int idPelicula, LocalDate fechaAlquiler){
+    public Alquiler(int idPelicula, int idSocio, LocalDate fechaAlquiler){
         this.idProducto = idPelicula;
+        this.idSocio = idSocio;
         this.fechaAlquiler = fechaAlquiler;
         fechaDevolucion = null;
         recargo = RECARGO_DEFECTO;
@@ -51,7 +53,7 @@ public class Alquiler implements Comparable<Alquiler>{
                 ", fechaAlquiler=" + fechaAlquiler +
                 ", fechaDevolucion=" + fechaDevolucion +
                 ", recargo=" + recargo + " Euros" +
-                '}';
+                '}' + "\n";
     }
 
     @Override

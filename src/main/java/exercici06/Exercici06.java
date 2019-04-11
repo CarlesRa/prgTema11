@@ -36,10 +36,13 @@ public class Exercici06 {
         videoclub = new Videoclub();
         for (int i=0; i<20; i++){
             year = Lib.random(1900,2019);
-            videoclub.getInventari().getListadoMultimedia().add(new Pelicula(f.name().fullName(),f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName()
+            videoclub.getInventari().getListadoMultimedia().add(new Pelicula(f.name().fullName()
+                    ,f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName()
             ,f.name().firstName()));
-            videoclub.getInventari().getListadoMultimedia().add(new VideoJoc(f.name().username(),f.name().firstName(),Formats.BLU_RAY,year,Plataformas.PS4));
-            videoclub.getInventari().getListadoSocios().add(new Socio("53215474y",f.name().fullName(),new GregorianCalendar(),f.lordOfTheRings().location()));
+            videoclub.getInventari().getListadoMultimedia().add(new VideoJoc(f.name().username()
+                    ,f.name().firstName(),Formats.BLU_RAY,year,Plataformas.PS4));
+            videoclub.getInventari().getListadoSocios().add(new Socio("53215474y",f.name().fullName()
+                    ,new GregorianCalendar(),f.lordOfTheRings().location()));
         }
         do {
             eleccio = mostrarMenuPri();
@@ -57,6 +60,7 @@ public class Exercici06 {
                     break;
                 }
                 case 4:{
+                    seleccionListados(menuListados());
                     break;
                 }
                 case 0:{
@@ -237,7 +241,9 @@ public class Exercici06 {
                             eleccion = lec.next().charAt(0);
                             lec.nextLine();
                             if (eleccion == 's' || eleccion == 'S') {
-                                videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
+                                //videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
+                                videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).setRecargo(0);
+                                System.out.println(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
                                 System.out.println("Recargo pagado con exito!!");
                                 Lib.continuar();
                                 esCorrecto = true;
@@ -504,7 +510,28 @@ public class Exercici06 {
     public void seleccionListados(int eleccion){
         switch (eleccion){
             case 1: {
-
+                videoclub.getInventari().mostrarMultimedias();
+                break;
+            }
+            case 2:{
+                videoclub.getInventari().mostrarPeliculesPerTitol();
+                break;
+            }
+            case 3:{
+                videoclub.getInventari().mostrarVideojocsPerAny();
+                break;
+            }
+            case 4:{
+                videoclub.getInventari().mostrarLloguers();
+                break;
+            }
+            case 5:{
+                videoclub.getInventari().mostrarLloguersActuals();
+                break;
+            }
+            case 6:{
+                videoclub.getInventari().mostrarLloguersAmbRecarrec();
+                break;
             }
         }
     }

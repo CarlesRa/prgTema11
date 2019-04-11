@@ -52,7 +52,37 @@ public class Inventari {
         System.out.println(pelicules.toString());
     }
 
-    public void mostrarLlogersPerData(){
+    public void mostrarLloguers(){
+        for (int i=0; i<listadoSocios.size(); i++){
+            for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
+                System.out.println(listadoSocios.get(i).getAlquilers().get(z));
+            }
+        }
+    }
 
+    public void mostrarLloguersActuals(){
+        ArrayList<Alquiler> alquilers = new ArrayList<>();
+        for (int i=0; i<listadoSocios.size(); i++){
+            for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
+                if (listadoSocios.get(i).getAlquilers().get(z).getFechaDevolucion() == null) {
+                    alquilers.add(listadoSocios.get(i).getAlquilers().get(z));
+                }
+            }
+        }
+        Collections.sort(alquilers);
+        System.out.println(alquilers.toString());
+    }
+
+    public void mostrarLloguersAmbRecarrec(){
+        ArrayList<Alquiler> alquilers = new ArrayList<>();
+        for (int i=0; i<listadoSocios.size(); i++){
+            for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
+                if (listadoSocios.get(i).getAlquilers().get(z).getRecargo() > 0) {
+                    alquilers.add(listadoSocios.get(i).getAlquilers().get(z));
+                }
+            }
+        }
+        Collections.sort(alquilers);
+        System.out.println(alquilers.toString());
     }
 }
