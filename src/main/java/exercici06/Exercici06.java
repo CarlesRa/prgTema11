@@ -36,10 +36,10 @@ public class Exercici06 {
         videoclub = new Videoclub();
         for (int i=0; i<20; i++){
             year = Lib.random(1900,2019);
-            videoclub.getListadoMultimedia().add(new Pelicula(f.name().fullName(),f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName()
+            videoclub.getInventari().getListadoMultimedia().add(new Pelicula(f.name().fullName(),f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName()
             ,f.name().firstName()));
-            videoclub.getListadoMultimedia().add(new VideoJoc(f.name().username(),f.name().firstName(),Formats.BLU_RAY,year,Plataformas.PS4));
-            videoclub.getListadoSocios().add(new Socio("53215474y",f.name().fullName(),new GregorianCalendar(),f.lordOfTheRings().location()));
+            videoclub.getInventari().getListadoMultimedia().add(new VideoJoc(f.name().username(),f.name().firstName(),Formats.BLU_RAY,year,Plataformas.PS4));
+            videoclub.getInventari().getListadoSocios().add(new Socio("53215474y",f.name().fullName(),new GregorianCalendar(),f.lordOfTheRings().location()));
         }
         do {
             eleccio = mostrarMenuPri();
@@ -89,26 +89,26 @@ public class Exercici06 {
                 esCorrecto = false;
             }
             esCorrecto = false;
-            for (int i=0; i<videoclub.getListadoSocios().size(); i++){
-                if (videoclub.getListadoSocios().get(i).getiD() == idSocio){
+            for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
+                if (videoclub.getInventari().getListadoSocios().get(i).getiD() == idSocio){
                     posicionSocio = i;
-                    for (int z=0; z<videoclub.getListadoSocios().get(i).getAlquilers().size(); z++) {
-                        if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()) {
+                    for (int z=0; z<videoclub.getInventari().getListadoSocios().get(i).getAlquilers().size(); z++) {
+                        if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().isEmpty()) {
                             esCorrecto = false;
                         }
                         //compruebo si el socio tiene recargos
-                        else if (videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
+                        else if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
                             do {
                                 System.out.println("No puede alquilar tiene un recargo de: " +
-                                videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
+                                videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
                                 + " Euros," + " para el producto con id: "
-                                + videoclub.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
+                                + videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
                                 //pregunto si desea pagarlo
                                 System.out.print("Desea pagarlo? selccione S o N: ");
                                 eleccion = lec.next().charAt(0);
                                 lec.nextLine();
                                 if (eleccion == 's' || eleccion == 'S') {
-                                    videoclub.pagarRecargo(videoclub.getListadoSocios().get(i).getAlquilers().get(z));
+                                    videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
                                     esCorrecto = true;
                                 } else if (eleccion == 'n' || eleccion == 'N') {
                                     System.out.println("Volviendo al menu principal...");
@@ -143,8 +143,8 @@ public class Exercici06 {
                 }
                 esCorrecto = false;
                 //comprobamos que el producto esta en la base de datos.
-                for (int i=0; i<videoclub.getListadoMultimedia().size(); i++){
-                    if (videoclub.getListadoMultimedia().get(i).getId() == idProducto){
+                for (int i=0; i<videoclub.getInventari().getListadoMultimedia().size(); i++){
+                    if (videoclub.getInventari().getListadoMultimedia().get(i).getId() == idProducto){
                         esCorrecto = true;
                     }
                 }
@@ -156,14 +156,14 @@ public class Exercici06 {
                 if (esCorrecto){
                     esCorrecto = false;
                     //comprobamos si el producto esta alquilado y no ha sido devuelto
-                    for (int i=0; i<videoclub.getListadoSocios().size(); i++){
-                        if (videoclub.getListadoSocios().get(i).getAlquilers().isEmpty()){
+                    for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
+                        if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().isEmpty()){
                             esCorrecto = false;
                         }
-                        else if (videoclub.getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
-                            && videoclub.getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
+                        else if (videoclub.getInventari().getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
+                            && videoclub.getInventari().getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
                             System.out.println("\n\nEl producto esta alquilado por el socio: "
-                            + videoclub.getListadoSocios().get(i).toString());
+                            + videoclub.getInventari().getListadoSocios().get(i).toString());
                             Lib.continuar();
                             return;
                         }
@@ -173,7 +173,7 @@ public class Exercici06 {
                         fechaAlquiler = LocalDate.now();
                         System.out.println("\n\nAlquilado correctamente al socio: ");
                         videoclub.alquilarMultimedia(fechaAlquiler, idProducto
-                                ,videoclub.getListadoSocios().get(posicionSocio));
+                                ,videoclub.getInventari().getListadoSocios().get(posicionSocio));
                         return;
                     }
                 }
@@ -221,23 +221,23 @@ public class Exercici06 {
                 esCorrecto = false;
             }
         }while (!esCorrecto);
-        for (int i=0; i<videoclub.getListadoSocios().size(); i++){
-            for (int z = 0; z<videoclub.getListadoSocios().get(i).getZiceAlquilers(); z++) {
+        for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
+            for (int z = 0; z<videoclub.getInventari().getListadoSocios().get(i).getZiceAlquilers(); z++) {
                     //llamo al metodo de la clase videoclub, el qual calculara el recargo
                     videoclub.recogerMultimedia(idProducto);
                     //miro si hay recargo
-                    if (videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
+                    if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
                         System.out.println("Usted tiene un recargo de: " +
-                        videoclub.getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
+                        videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
                         + " Euros," + " para el producto con id: "
-                        + videoclub.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
+                        + videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
                         //pregunto si desea pagarlo
                         do {
                             System.out.print("Desea pagarlo? selccione S o N: ");
                             eleccion = lec.next().charAt(0);
                             lec.nextLine();
                             if (eleccion == 's' || eleccion == 'S') {
-                                videoclub.pagarRecargo(videoclub.getListadoSocios().get(i).getAlquilers().get(z));
+                                videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
                                 System.out.println("Recargo pagado con exito!!");
                                 Lib.continuar();
                                 esCorrecto = true;

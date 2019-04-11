@@ -88,6 +88,6 @@ public class Socio {
                 +  dataNaiximent.get(Calendar.MONTH) + "-" +
                 + dataNaiximent.get(Calendar.YEAR) +
                 ", poblacio='" + poblacio + '\'' +
-                '}'+ alquilers.get(alquilers.size()-1).toString() +"\n";
+                '}'+ "\n" +alquilers.get(alquilers.size()-1).toString() +"\n";
     }
 }
