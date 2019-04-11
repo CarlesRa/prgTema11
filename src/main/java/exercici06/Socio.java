@@ -88,6 +88,18 @@ public class Socio {
                 +  dataNaiximent.get(Calendar.MONTH) + "-" +
                 + dataNaiximent.get(Calendar.YEAR) +
                 ", poblacio='" + poblacio + '\'' +
-                "\n" +alquilers.get(alquilers.size()-1).toString() +"\n";
+                "\n" +alquilers.toString()+"\n";
+    }
+
+    public String mostrarSocio() {
+        return "Socio" +
+                "id=" + iD +
+                ", nif='" + nif + '\'' +
+                ", nom='" + nom + '\'' +
+                ", dataNaiximent=" + dataNaiximent.get(Calendar.DAY_OF_MONTH)+ "-"
+                +  dataNaiximent.get(Calendar.MONTH) + "-" +
+                + dataNaiximent.get(Calendar.YEAR) +
+                ", poblacio='" + poblacio + '\'' +
+                "\n";
     }
 }

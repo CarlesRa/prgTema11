@@ -113,6 +113,7 @@ public class Exercici06 {
                                 lec.nextLine();
                                 if (eleccion == 's' || eleccion == 'S') {
                                     videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
+                                    alquilarMultimedia();
                                     esCorrecto = true;
                                 } else if (eleccion == 'n' || eleccion == 'N') {
                                     System.out.println("Volviendo al menu principal...");
@@ -175,9 +176,10 @@ public class Exercici06 {
                     //si esta disponible hacemos
                     if (!esCorrecto){
                         fechaAlquiler = LocalDate.now();
-                        System.out.println("\n\nAlquilado correctamente al socio: ");
                         videoclub.alquilarMultimedia(fechaAlquiler, idProducto
                                 ,videoclub.getInventari().getListadoSocios().get(posicionSocio));
+                        System.out.println("\n\nAlquilado correctamente al socio: ");
+                        System.out.println(videoclub.getInventari().getListadoSocios().get(posicionSocio).mostrarSocio());
                         return;
                     }
                 }
@@ -243,8 +245,7 @@ public class Exercici06 {
                             eleccion = lec.next().charAt(0);
                             lec.nextLine();
                             if (eleccion == 's' || eleccion == 'S') {
-                                //videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
-                                videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).setRecargo(0);
+                                videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
                                 System.out.println(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
                                 System.out.println("Recargo pagado con exito!!");
                                 Lib.continuar();

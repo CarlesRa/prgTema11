@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class Videoclub {
     private final int PERIODO_SIN_RECARGO = 3;
     private final int RECARGO_POR_DIA = 2;
+    private final int RECARGO_POR_DEFECTO = 0;
 
     private Inventari inventari;
 
@@ -35,7 +36,6 @@ public class Videoclub {
         Alquiler alquiler;
         alquiler = new Alquiler(idMultimedia, socio.getiD(), fechaAlquiler);
         socio.getAlquilers().add(alquiler);
-        System.out.println(socio.toString());
     }
 
     public void recogerMultimedia(int idMultimedia){
@@ -68,6 +68,6 @@ public class Videoclub {
     }
 
     public void pagarRecargo(Alquiler alquiler){
-        alquiler.setRecargo(0);
+        alquiler.setRecargo(RECARGO_POR_DEFECTO);
     }
 }
