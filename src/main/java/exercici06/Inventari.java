@@ -77,7 +77,7 @@ public class Inventari {
         for (int i=0; i<listadoSocios.size(); i++){
             for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
                 if (listadoSocios.get(i).getAlquilers().get(z).getRecargo() > 0) {
-                    System.out.println(listadoSocios.get(i).toString());
+                    System.out.println(listadoSocios.get(i).mostrarSocio());
                 }
             }
         }
