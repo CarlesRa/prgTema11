@@ -69,9 +69,9 @@ public abstract class Multimedia{
                 ", format=" + format +
                 ", any=" + any;
     }
-
+    //obligo a las sub-clases a utilizar el metodo
     abstract int calcularPrecioAlquiler();
-
+    //añado clases comparator para que se encarguen de ordenar las listas
     public static class ComparatorFecha implements Comparator <Multimedia>{
         @Override
         public int compare(Multimedia multimedia, Multimedia t1) {

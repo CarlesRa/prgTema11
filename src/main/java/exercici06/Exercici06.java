@@ -13,6 +13,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Exercici06 {
+
     private Scanner lec;
     private int eleccio;
     private Videoclub videoclub;
@@ -20,7 +21,7 @@ public class Exercici06 {
     private Socio socio;
     private Faker f = new Faker(new Locale("es"));
 
-    //Clase Controladora
+    //Clase "Main"
     public Exercici06(){
         int year;
         float durac = 120;
