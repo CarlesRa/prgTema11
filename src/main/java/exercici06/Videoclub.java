@@ -4,9 +4,10 @@
 
 package exercici06;
 
+import utils.Lib;
+
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
 
 //se encarga de guardar los productos y gestionar el alquiler/recogida de los mismos
 public class Videoclub implements IVideoclub{
@@ -23,30 +24,52 @@ public class Videoclub implements IVideoclub{
     public Inventari getInventari() {
         return inventari;
     }
+
+    /**
+     * registra los productos
+     * @param multimedia le pasamos los productos
+     */
     @Override
     public void registrarMultimedia(Multimedia multimedia){
         inventari.getListadoMultimedia().add(multimedia);
     }
+
+    /**
+     * registra los socios
+     * @param socio le pasamos el socio
+     */
     @Override
     public void registrarSocio(Socio socio){
         inventari.getListadoSocios().add(socio);
     }
+
+    /**
+     * metodo para alquilar productos
+     * @param fechaAlquiler
+     * @param idMultimedia
+     * @param socio
+     */
     @Override
     public void alquilarMultimedia(LocalDate fechaAlquiler, int idMultimedia, Socio socio){
         Alquiler alquiler;
         alquiler = new Alquiler(idMultimedia, socio.getiD(), fechaAlquiler);
         socio.getAlquilers().add(alquiler);
     }
+
+    /**
+     * metodo para recoger los productos traidos por los socios
+     * @param idMultimedia
+     */
     @Override
     public void recogerMultimedia(int idMultimedia){
-        //Fuerzo a que haya recargo
         int recargo = 0;
         boolean esta = false;
         for (int i=0; i<inventari.getListadoSocios().size(); i++){
            for (int z = 0; z<inventari.getListadoSocios().get(i).getAlquilers().size(); z++){
+               //compruebo que el id coincide y la fecha de devolucion es distinta a null
                if (inventari.getListadoSocios().get(i).getAlquilers().get(z).getFechaDevolucion() == null &&
-                       inventari.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto() == idMultimedia) {
-                   LocalDate fachaDevolucion = LocalDate.of(2019, 04, 16);
+                       inventari.getListadoSocios().get(i).getAlquilers().get(z).getIdProducto() == idMultimedia){
+                   LocalDate fachaDevolucion = LocalDate.now();
                    inventari.getListadoSocios().get(i).getAlquilers().get(z).setFechaDevolucion(fachaDevolucion);
                    recargo = calcularRecargo(inventari.getListadoSocios().get(i).getAlquilers().get(z));
                    inventari.getListadoSocios().get(i).getAlquilers().get(z).setRecargo(recargo);
@@ -54,14 +77,21 @@ public class Videoclub implements IVideoclub{
                }
            }
         }
+        //si el producto no se encuentra
         if (!esta){
             System.out.println("No se ha encontrado producto");
+            Lib.continuar();
         }
     }
+
+    /**
+     * calcula el recargo al devolver un producto
+     * @param alquiler
+     * @return el importe del recargo
+     */
     @Override
     public int calcularRecargo(Alquiler alquiler){
         int resultado = 0;
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaAlquiler = alquiler.getFechaAlquiler();
         LocalDate fechaDevolucion = alquiler.getFechaDevolucion();
         Period periodo = Period.between(fechaAlquiler, fechaDevolucion);
@@ -70,6 +100,11 @@ public class Videoclub implements IVideoclub{
         }
         return resultado;
     }
+
+    /**
+     * metodo para pagar el recargo
+     * @param alquiler le pasamos el alquiler que se devuelve
+     */
     @Override
     public void pagarRecargo(Alquiler alquiler){
         alquiler.setRecargo(RECARGO_POR_DEFECTO);

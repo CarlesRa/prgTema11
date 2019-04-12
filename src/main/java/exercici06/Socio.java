@@ -70,7 +70,11 @@ public class Socio {
         return alquilers.get(alquilers.size() - 1);
     }
 
-    public  int calcularEdat(){
+    /**
+     * calcula la edad del socio segun la fecha de nacimiento
+     * @return
+     */
+    private  int calcularEdat(){
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaNac = LocalDate.parse(dataNaiximent.toString(), fmt);
         LocalDate ara = LocalDate.now();
@@ -91,6 +95,10 @@ public class Socio {
                 "\n" +alquilers.toString()+"\n";
     }
 
+    /**
+     * metodo para imprimir solo el socio sin mostrar el alquiler
+     * @return
+     */
     public String mostrarSocio() {
         return "Socio " +
                 "id=" + iD +

@@ -4,6 +4,8 @@
 
 package exercici06;
 
+import utils.Lib;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -23,12 +25,17 @@ public class Inventari implements IInventario{
     public ArrayList<Socio> getListadoSocios() {
         return listadoSocios;
     }
+
+    /**
+     * muestra la lista de todos los productos
+     */
     @Override
     public void mostrarMultimedias(){
         for (Multimedia m : listadoMultimedia){
             System.out.println(m.toString());
         }
     }
+    //muestra los videojuegos ordenados por año
     @Override
     public void mostrarVideojocsPerAny(){
         listadoMultimedia.sort(new Multimedia.ComparatorFecha());
@@ -38,6 +45,10 @@ public class Inventari implements IInventario{
             }
         }
     }
+
+    /**
+     * muestra los videojuegos ordenados por titulo
+     */
     @Override
     public void mostrarPeliculesPerTitol(){
         listadoMultimedia.sort(new Multimedia.ComparatorNombre());
@@ -48,6 +59,11 @@ public class Inventari implements IInventario{
         }
 
     }
+
+    /**
+     * muestra el historico de alquileres de un socio
+     * @param idSoci le pasamos la id del socio
+     */
     @Override
     public void mostrarLloguers(int idSoci){
         for (int i=0; i<listadoSocios.size(); i++){
@@ -58,9 +74,13 @@ public class Inventari implements IInventario{
             }
         }
     }
+
+    /**
+     * muestra los alquileres actuales de un socio
+     * @param idSoci le pasamos la id del socio
+     */
     @Override
     public void mostrarLloguersActuals(int idSoci){
-        idSoci = 0;
         ArrayList<Alquiler> alquilers = new ArrayList<>();
         for (int i=0; i<listadoSocios.size(); i++){
             if (listadoSocios.get(i).getiD() == idSoci) {
@@ -74,16 +94,27 @@ public class Inventari implements IInventario{
         Collections.sort(alquilers);
         System.out.println(alquilers.toString());
     }
+
+    /**
+     * muestra todos los socios con recargos pendientes
+     */
     @Override
     public void mostrarsocisAmbRecarrec(){
+        boolean esCorrecto = false;
         for (int i=0; i<listadoSocios.size(); i++){
             for (int z=0; z<listadoSocios.get(i).getAlquilers().size(); z++){
                 if (listadoSocios.get(i).getAlquilers().get(z).getRecargo() > 0) {
                     System.out.println(listadoSocios.get(i).mostrarSocio());
+                    esCorrecto = true;
                 }
             }
         }
+        if (!esCorrecto){
+            System.out.println("Ningun recargo pendiente");
+            Lib.continuar();
+        }
     }
+
 
 
 }

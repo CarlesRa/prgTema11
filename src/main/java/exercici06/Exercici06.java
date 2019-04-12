@@ -7,8 +7,6 @@ package exercici06;
 import com.github.javafaker.Faker;
 import utils.Lib;
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -21,10 +19,7 @@ public class Exercici06 {
     private Multimedia multimedia;
     private Socio socio;
     private Faker f = new Faker(new Locale("es"));
-    private String titulo;//Variable en comu per a tots els multimedia
-    private String autor;//Variable en comu per a tots els multimedia
-    private Formats formats;//Variable en comu per a tots els multimedia
-    private boolean esCorrecto = false;//variable compartida per tots els metodes
+
     //Clase Controladora
     public Exercici06(){
         int year;
@@ -34,10 +29,9 @@ public class Exercici06 {
         for (int i=0; i<20; i++){
             year = Lib.random(1900,2019);
             videoclub.getInventari().getListadoMultimedia().add(new Pelicula(f.name().fullName()
-                    ,f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName()
-            ,f.name().firstName()));
+            ,f.artist().name(),Formats.BLU_RAY,year,durac,f.name().firstName(),f.name().firstName()));
             videoclub.getInventari().getListadoMultimedia().add(new VideoJoc(f.name().username()
-                    ,f.name().firstName(),Formats.BLU_RAY,year,Plataformas.PS4));
+            ,f.name().firstName(),Formats.BLU_RAY,year,Plataformas.PS4));
             videoclub.getInventari().getListadoSocios().add(new Socio("53215474y",f.name().fullName()
                     ,new GregorianCalendar(),f.lordOfTheRings().location()));
         }
@@ -73,122 +67,95 @@ public class Exercici06 {
      */
     public void alquilarMultimedia(){
         int idSocio;
-        int idProducto = Integer.MAX_VALUE;
+        int idProducto;
         int posicionSocio = 0;
         char eleccion;
         LocalDate fechaAlquiler;
-        do{
-            //pido la id del socio
-            idSocio = pedirIdSocio();
-            for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
-                if (videoclub.getInventari().getListadoSocios().get(i).getiD() == idSocio){
-                    posicionSocio = i;
-                    for (int z=0; z<videoclub.getInventari().getListadoSocios().get(i).getAlquilers().size(); z++) {
-                        //compruebo si el socio tiene recargos
-                        if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
-                            do {
-                                System.out.println("No puede alquilar tiene un recargo de: " +
-                                videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
-                                + " Euros," + " para el producto con id: "
-                                + videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
-                                //pregunto si desea pagarlo
-                                System.out.print("Desea pagarlo? selccione S o N: ");
-                                eleccion = lec.next().charAt(0);
-                                lec.nextLine();
-                                if (eleccion == 's' || eleccion == 'S') {
-                                    videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
-                                    alquilarMultimedia();
-                                    esCorrecto = true;
-                                } else if (eleccion == 'n' || eleccion == 'N') {
-                                    System.out.println("Volviendo al menu principal...");
-                                    Lib.continuar();
-                                    esCorrecto = true;
-                                } else {
-                                    System.out.println("Solo se acepta S o N");
-                                    Lib.continuar();
-                                    esCorrecto = false;
-                                }
-                            }while (!esCorrecto);
-
-                            return;
+        boolean esCorrecto = false;
+        //pido la id del socio
+        idSocio = Lib.pedirIdSocio();
+        for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
+            if (videoclub.getInventari().getListadoSocios().get(i).getiD() == idSocio){
+                posicionSocio = i;
+                esCorrecto = true;
+                for (int z=0; z<videoclub.getInventari().getListadoSocios().get(i).getAlquilers().size(); z++) {
+                    //compruebo si el socio tiene recargos
+                    if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
+                        System.out.println("No puede alquilar tiene un recargo de: " +
+                        videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() +
+                        " Euros," + " para el producto con id: " +
+                        videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
+                        //pregunto si desea pagarlo
+                        eleccion = Lib.pedirSiNo();
+                        lec.nextLine();
+                        esCorrecto = true;
+                        if (eleccion == 's' || eleccion == 'S') {
+                            videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
+                            alquilarMultimedia();
+                            esCorrecto = true;
                         }
                     }
+                }
+            }
+        }
+        //si esta en la base de datos y no tiene recargo.
+        if (esCorrecto){
+            //pido la id del producto
+            esCorrecto = false;
+            idProducto = Lib.pedirIdProducto();
+            //comprobamos que el producto esta en la base de datos.
+            for (int i=0; i<videoclub.getInventari().getListadoMultimedia().size(); i++){
+                if (videoclub.getInventari().getListadoMultimedia().get(i).getId() == idProducto){
                     esCorrecto = true;
                 }
             }
-            //si esta en la base de datos.
+            if (!esCorrecto){
+                System.out.println("\n\nEl producto no esta en la base de datos");
+                Lib.continuar();
+                return;
+            }
             if (esCorrecto){
-                //pido la id del producto
-                esCorrecto = false;
-                System.out.print("Introduce la ID del Producto: ");
-                try {
-                    idProducto = Integer.parseInt(lec.nextLine());
-                    esCorrecto = true;
-                }
-                catch (NumberFormatException nfe4){
-                    System.out.println("Solo se aceptan numeros");
-                    Lib.continuar();
-                    esCorrecto = false;
-                }
-                esCorrecto = false;
-                //comprobamos que el producto esta en la base de datos.
-                for (int i=0; i<videoclub.getInventari().getListadoMultimedia().size(); i++){
-                    if (videoclub.getInventari().getListadoMultimedia().get(i).getId() == idProducto){
-                        esCorrecto = true;
+                //comprobamos si el producto esta alquilado
+                for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
+                    if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().isEmpty()){
+                        esCorrecto = false;
                     }
-                }
-                if (!esCorrecto){
-                    System.out.println("\n\nEl producto no esta en la base de datos");
-                    Lib.continuar();
-                    return;
-                }
-                if (esCorrecto){
-                    //comprobamos si el producto esta alquilado
-                    for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
-                        if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().isEmpty()){
-                            esCorrecto = false;
-                        }
-                        else if (videoclub.getInventari().getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() == idProducto
-                            && videoclub.getInventari().getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion() == null){
-                            System.out.println("\n\nEl producto esta alquilado por el socio: "
-                            + videoclub.getInventari().getListadoSocios().get(i).toString());
-                            Lib.continuar();
-                            return;
-                        }
-                    }
-                    //si esta disponible hacemos
-                    if (!esCorrecto){
-                        fechaAlquiler = LocalDate.now();
-                        videoclub.alquilarMultimedia(fechaAlquiler, idProducto
-                                ,videoclub.getInventari().getListadoSocios().get(posicionSocio));
-                        System.out.println("\n\nAlquilado correctamente al socio: ");
-                        System.out.println(videoclub.getInventari().getListadoSocios().get(posicionSocio).mostrarSocio());
+                    else if (videoclub.getInventari().getListadoSocios().get(i).getUltimoAlquiler().getIdProducto() ==
+                            idProducto &&
+                            videoclub.getInventari().getListadoSocios().get(i).getUltimoAlquiler().getFechaDevolucion()
+                            == null){
+                        System.out.println("\n\nEl producto esta alquilado por el socio: " +
+                        videoclub.getInventari().getListadoSocios().get(i).toString());
+                        Lib.continuar();
                         return;
                     }
                 }
+                //si esta disponible hacemos
+                if (!esCorrecto){
+                    fechaAlquiler = LocalDate.of(2019,04,Lib.random(6,12));
+                    videoclub.alquilarMultimedia(fechaAlquiler, idProducto
+                                ,videoclub.getInventari().getListadoSocios().get(posicionSocio));
+                    System.out.println("\n\nAlquilado correctamente al socio: ");
+                    System.out.println(videoclub.getInventari().getListadoSocios().get(posicionSocio).mostrarSocio());
+                    Lib.continuar();
+                    return;
+                }
             }
-            //si no existe el socio en la base de datos.
-            else{
-                do {
-                    System.out.println("La persona no esta en la base de datos");
-                    System.out.print("Desea anyadirlo? selccione S o N: ");
-                    eleccion = lec.next().charAt(0);
-                    lec.nextLine();
-                    if (eleccion == 's' || eleccion == 'S') {
-                        seleccionAltas(menuAltas());
-                        esCorrecto = true;
-                    } else if (eleccion == 'n' || eleccion == 'N') {
-                        System.out.println("Volviendo al menu principal...");
-                        Lib.continuar();
-                        esCorrecto = true;
-                    } else {
-                        System.out.println("Solo se acepta S o N");
-                        Lib.continuar();
-                        esCorrecto = false;
-                    }
-                }while (!esCorrecto);
+        }
+        //si no existe el socio en la base de datos.
+        else{
+            System.out.println("La persona no esta en la base de datos");
+            System.out.println("Desea anyadirlo?");
+            eleccion = Lib.pedirSiNo();
+            lec.nextLine();
+            if (eleccion == 's' || eleccion == 'S') {
+                seleccionAltas(menuAltas());
             }
-        }while (!esCorrecto);
+            else if (eleccion == 'n' || eleccion == 'N') {
+                System.out.println("Volviendo al menu principal...");
+                Lib.continuar();
+            }
+        }
     }
 
 
@@ -197,19 +164,9 @@ public class Exercici06 {
      */
     public void recogerMultimedia(){
         char eleccion;
-        int idProducto = 0;
-        do{
-            System.out.print("Introduce el ID del producto: ");
-            try {
-                idProducto = Integer.parseInt(lec.nextLine());
-                esCorrecto = true;
-            }
-            catch (NumberFormatException nfe4){
-                System.out.println("Solo se aceptan numeros");
-                Lib.continuar();
-                esCorrecto = false;
-            }
-        }while (!esCorrecto);
+        int idProducto;
+        idProducto = Lib.pedirIdProducto();
+        boolean esCorrecto = true;
         //llamo al metodo de la clase videoclub, el qual calculara el recargo
         videoclub.recogerMultimedia(idProducto);
         for (int i=0; i<videoclub.getInventari().getListadoSocios().size(); i++){
@@ -218,42 +175,38 @@ public class Exercici06 {
                 if (videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto()
                     == idProducto
                     && videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo() > 0) {
+                    esCorrecto = false;
                     System.out.println("Usted tiene un recargo de: " +
                             videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getRecargo()
                         + " Euros," + " para el producto con id: "
                         + videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
                     //pregunto si desea pagarlo
-                    do {
-                        System.out.print("Desea pagarlo? selccione S o N: ");
-                        eleccion = lec.next().charAt(0);
-                        lec.nextLine();
-                        if (eleccion == 's' || eleccion == 'S') {
-                            videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
-                            System.out.println(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
-                            System.out.println("Recargo pagado con exito!!");
-                            Lib.continuar();
-                            esCorrecto = true;
-                        } else if (eleccion == 'n' || eleccion == 'N') {
-                            System.out.println("Volviendo al menu principal...");
-                            Lib.continuar();
-                            esCorrecto = true;
-                        } else {
-                            System.out.println("Solo se acepta S o N");
-                            Lib.continuar();
-                            esCorrecto = false;
-                        }
-                    }while (!esCorrecto);
+                    eleccion = Lib.pedirSiNo();
+                    if (eleccion == 's' || eleccion == 'S') {
+                        videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
+                        System.out.println("Recargo pagado con exito!!");
+                        Lib.continuar();
+                    }
+                    else if (eleccion == 'n' || eleccion == 'N') {
+                        System.out.println("Volviendo al menu principal...");
+                        Lib.continuar();
+                    }
+
                 }
             }
         }
+        if (esCorrecto){
+            System.out.println("Sin recargos!!");
+            Lib.continuar();
+        }
     }
-
 
     /**
      * muestra el menu principal
      * @return retorna la eleccion del menu
      */
     public int mostrarMenuPri(){
+        boolean esCorrecto = false;
         int eleccio = 0;
         do {
             System.out.println("*******VIDEOCLUB******");
@@ -285,6 +238,7 @@ public class Exercici06 {
      */
     public int menuAltas(){
         int eleccio = 0;
+        boolean esCorrecto = false;
         do {
             System.out.println("*********ALTAS********");
             System.out.println("**********************");
@@ -313,33 +267,41 @@ public class Exercici06 {
      * @param eleccioAltas
      */
     public void seleccionAltas(int eleccioAltas){
+        boolean esCorrecto = false;
         Calendar fechaActual = Calendar.getInstance();
         int anyoActual = fechaActual.get(Calendar.YEAR);
         float duracion = 0;
-        String actorPrincipal = "";
-        String actrizPrincipal = "";
+        String actorPrincipal;
+        String actrizPrincipal;
         Plataformas plataforma = Plataformas.PC;
-        int anyo = 0;
+        String titulo;
+        String autor;
+        int anyo;
+        int eleccion = 0;
+        Formats formats;
+        String fechaNacimiento;
+        GregorianCalendar gregorianFechaNac;
+        String nif;
+        String nombre;
+        String poblacion;
         switch (eleccioAltas){
+            //nueva pelicula
             case 1:{
-                datosAltas();
+                titulo = Lib.introducirTitulo();
+                autor = Lib.pedirAutor();
+                formats = Lib.pedirFormato();
                 do{
                     esCorrecto = false;
-                    System.out.print("Introduce el año: ");
-                    try{
-                        anyo = Integer.parseInt(lec.nextLine());
-                        esCorrecto = true;
-                    }
-                    catch (NumberFormatException nfe2){
-                        System.out.println("Solo se aceptan numeros...");
-                        Lib.continuar();
-                        esCorrecto = false;
-                    }
+                    anyo = Lib.introducirAno();
+                    //si el año es aterior al la primera pelicula o posterior al actual
                     if (anyo < 1895 || anyo > anyoActual){
                         System.out.println("El año tiene que ser posterior a 1884 " +
                                 " y anterior al año actual");
                         Lib.continuar();
                         esCorrecto = false;
+                    }
+                    else{
+                        esCorrecto = true;
                     }
                 }while (!esCorrecto);
                 do {
@@ -362,28 +324,23 @@ public class Exercici06 {
                 videoclub.registrarMultimedia(multimedia);
                 break;
             }
+            //nuevo videojuego
             case 2:{
-                int eleccion = 0;
                 fechaActual = Calendar.getInstance();
                 anyoActual = fechaActual.get(Calendar.YEAR);
-                datosAltas();
+                titulo = Lib.introducirTitulo();
+                autor = Lib.pedirAutor();
+                formats = Lib.pedirFormato();
                 do{
-                    esCorrecto = false;
-                    System.out.print("Introduce el año: ");
-                    try{
-                        anyo = Integer.parseInt(lec.nextLine());
-                        esCorrecto = true;
-                    }
-                    catch (NumberFormatException nfe2){
-                        System.out.println("Solo se aceptan numeros...");
-                        Lib.continuar();
-                        esCorrecto = false;
-                    }
+                    anyo = Lib.introducirAno();
                     if (anyo < 1912 || anyo > anyoActual){
                         System.out.println("El año tiene que ser posterior a 1911 " +
                                 " y anterior al año actual");
                         Lib.continuar();
                         esCorrecto = false;
+                    }
+                    else{
+                        esCorrecto = true;
                     }
                 }while (!esCorrecto);
                 do {
@@ -428,20 +385,14 @@ public class Exercici06 {
                 videoclub.registrarMultimedia(multimedia);
                 break;
             }
+            //nuevo socio
             case 3:{
-                String fechaNacimiento;
-                GregorianCalendar gregorianFechaNac;
-                String nif;
-                String nombre;
-                String poblacion;
-                do {
-                    System.out.print("Introduce la fecha de nacimiento (formato dd-MM-yyyy): ");
-                    fechaNacimiento = lec.nextLine();
-                }while (!Lib.validarFecha(fechaNacimiento));
-                if (calcularEdat(fechaNacimiento) < 18){
+                fechaNacimiento = Lib.introducirFecha();
+                if (Lib.calcularEdat(fechaNacimiento) < 18){
                     System.out.println("Solo se aceptan socios mayores de edad...");
                     Lib.continuar();
                 }
+
                 else{
                     gregorianFechaNac = Lib.convertStringToGregorian(fechaNacimiento);
                     do{
@@ -459,7 +410,7 @@ public class Exercici06 {
                     }while (!esCorrecto);
                     System.out.print("Introduce el nombre: ");
                     nombre = lec.nextLine();
-                    System.out.println("Introduce la poblacion: ");
+                    System.out.print("Introduce la poblacion: ");
                     poblacion = lec.nextLine();
                     socio = new Socio(nif,nombre,gregorianFechaNac,poblacion);
                     videoclub.registrarSocio(socio);
@@ -475,11 +426,12 @@ public class Exercici06 {
      */
     public int menuListados(){
         int eleccio = 0;
+        boolean esCorrecto = false;
         do {
             System.out.println("1- Listado de productos");
             System.out.println("2- Listado de peliculas");//ordenades per titol
             System.out.println("3- Listado de videojuegos");//ordenats per any
-            System.out.println("4- Listado total de alquileres");
+            System.out.println("4- Listado total de alquileres de un socio");
             System.out.println("5- listado de alquileres actuales de un socio");//ordenats per data de lloguer
             System.out.println("6- Listado de socios con recargos");
             System.out.println("0- Volver al menu principal");
@@ -487,12 +439,13 @@ public class Exercici06 {
             try {
                 eleccio = Integer.parseInt(lec.nextLine());
             }catch (NumberFormatException nfe6){
-                System.out.println("Solo se aceptan numeros del 0 al 6 ...");
+                esCorrecto = false;
             }
             if (eleccio >= 0 && eleccio <= 6){
                 esCorrecto = true;
             }
             else{
+                System.out.println("Solo se aceptan numeros del 0 al 6 ...");
                 esCorrecto = false;
             }
         }while (!esCorrecto);
@@ -518,11 +471,11 @@ public class Exercici06 {
                 break;
             }
             case 4:{
-                videoclub.getInventari().mostrarLloguers(pedirIdSocio());
+                videoclub.getInventari().mostrarLloguers(Lib.pedirIdSocio());
                 break;
             }
             case 5:{
-                videoclub.getInventari().mostrarLloguersActuals(pedirIdSocio());
+                videoclub.getInventari().mostrarLloguersActuals(Lib.pedirIdSocio());
                 break;
             }
             case 6:{
@@ -532,80 +485,4 @@ public class Exercici06 {
         }
     }
 
-    /**
-     * rellena los datos que tienen en comun los Multimedia
-     */
-    public void datosAltas(){
-        int eleccion = 0;
-        System.out.print("Introduce el Titulo: ");
-        titulo = lec.nextLine();
-        System.out.print("Introduce el Autor: ");
-        autor = lec.nextLine();
-        do {
-            System.out.println("Selecciona el formato: ");
-            System.out.println("1- CD");
-            System.out.println("2- DVD");
-            System.out.println("3- BLU-RAY");
-            System.out.println("4- ARCHIVO");
-            try {
-                eleccion = Integer.parseInt(lec.nextLine());
-                esCorrecto = true;
-            }
-            catch (NumberFormatException nfe1){
-                System.out.println("Eleccion Incorrecta...");
-                Lib.continuar();
-                esCorrecto = false;
-            }
-            if (eleccion < 1 || eleccion > 4){
-                System.out.println("Eleccion incorrecta...");
-                esCorrecto = false;
-            }
-        }while (!esCorrecto);
-        switch (eleccion){
-            case 1:{
-                formats = Formats.CD;
-                break;
-            }
-            case 2:{
-                formats = Formats.DVD;
-                break;
-            }
-            case 3:{
-                formats = Formats.BLU_RAY;
-                break;
-            }
-            case 4:{
-                formats = Formats.ARXIU;
-                break;
-            }
-        }
-    }
-
-    /**
-     * calcula la edad del posible nuevo socio
-     * @param fechaNacimiento
-     * @return
-     */
-    public  int calcularEdat(String fechaNacimiento){
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate fechaNac = LocalDate.parse(fechaNacimiento, fmt);
-        LocalDate ara = LocalDate.now();
-        Period periodo = Period.between(fechaNac, ara);
-        return periodo.getYears();
-    }
-
-    public int pedirIdSocio(){
-        int idSocio = 0;
-        do {
-            System.out.print("Introduce el id del socio: ");
-            try {
-                idSocio = Integer.parseInt(lec.nextLine());
-                esCorrecto = true;
-            }
-            catch (NumberFormatException nfe6){
-                System.out.println("solo se acepten numeros");
-            }
-        }while (!esCorrecto);
-        return idSocio;
-    }
 }

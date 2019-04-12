@@ -27,27 +27,27 @@ public abstract class Multimedia{
         precioAlquiler = calcularPrecioAlquiler();
     }
 
-    public String getTitol() {
+    protected String getTitol() {
         return titol;
     }
 
-    public String getAutor() {
+    protected String getAutor() {
         return autor;
     }
 
-    public Formats getFormat() {
+    protected Formats getFormat() {
         return format;
     }
 
-    public int getAny() {
+    protected int getAny() {
         return any;
     }
 
-    public int getId() {
+    protected int getId() {
         return id;
     }
 
-    public void setFormat(Formats format) {
+    protected void setFormat(Formats format) {
         this.format = format;
     }
 
@@ -63,7 +63,7 @@ public abstract class Multimedia{
 
     @Override
     public String toString() {
-        return " id=" + id + "Precio de Alquiler=" + precioAlquiler +
+        return " id=" + id + " Precio de Alquiler=" + precioAlquiler +
                 ", titol='" + titol + '\'' +
                 ", autor='" + autor + '\'' +
                 ", format=" + format +

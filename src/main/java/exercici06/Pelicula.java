@@ -34,7 +34,7 @@ public class Pelicula extends Multimedia {
     public String toString() {
         return
                 "Pelicula: " + super.toString() +
-                "duracio=" + duracio +
+                " duracio=" + duracio +
                 ", actorPrincipal='" + actorPrincipal +
                 ", actriuPrincipal='" + actriuPrincipal
                 + "\n";
