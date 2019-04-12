@@ -87,13 +87,15 @@ public class Exercici06 {
                         " Euros," + " para el producto con id: " +
                         videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
                         //pregunto si desea pagarlo
+                        System.out.println("Desea pagarlo?");
                         eleccion = Lib.pedirSiNo();
-                        lec.nextLine();
                         esCorrecto = true;
                         if (eleccion == 's' || eleccion == 'S') {
                             videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
-                            alquilarMultimedia();
                             esCorrecto = true;
+                        }
+                        else if (eleccion == 'n' || eleccion == 'N'){
+                            return;
                         }
                     }
                 }
@@ -128,6 +130,7 @@ public class Exercici06 {
                         System.out.println("\n\nEl producto esta alquilado por el socio: " +
                         videoclub.getInventari().getListadoSocios().get(i).toString());
                         Lib.continuar();
+                        esCorrecto = false;
                         return;
                     }
                 }
@@ -182,6 +185,7 @@ public class Exercici06 {
                         + " Euros," + " para el producto con id: "
                         + videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z).getIdProducto());
                     //pregunto si desea pagarlo
+                    System.out.println("Desea pagarlo");
                     eleccion = Lib.pedirSiNo();
                     if (eleccion == 's' || eleccion == 'S') {
                         videoclub.pagarRecargo(videoclub.getInventari().getListadoSocios().get(i).getAlquilers().get(z));
@@ -210,6 +214,7 @@ public class Exercici06 {
         boolean esCorrecto = false;
         int eleccio = 0;
         do {
+            Lib.limpiarPantalla();
             System.out.println("*******VIDEOCLUB******");
             System.out.println("**********************");
             System.out.println("1- Altas");
@@ -241,6 +246,7 @@ public class Exercici06 {
         int eleccio = 0;
         boolean esCorrecto = false;
         do {
+            Lib.limpiarPantalla();
             System.out.println("*********ALTAS********");
             System.out.println("**********************");
             System.out.println("1- Nueva película");
@@ -429,6 +435,7 @@ public class Exercici06 {
         int eleccio = 0;
         boolean esCorrecto = false;
         do {
+            Lib.limpiarPantalla();
             System.out.println("1- Listado de productos");
             System.out.println("2- Listado de peliculas");//ordenades per titol
             System.out.println("3- Listado de videojuegos");//ordenats per any

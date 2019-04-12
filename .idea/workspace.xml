@@ -4,7 +4,6 @@
     <list default="true" id="1a9af30c-2c67-4d9d-be32-96ef9fad33fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java" afterDir="false" />
     </list>
     <list id="f2a8c1e2-0c7e-4ada-895d-39c5f0610861" name="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;" comment="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;&#10;&#10;This reverts commit 3233d6a1" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -63,10 +62,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            <state relative-caret-position="324">
+              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
               <folding>
-                <element signature="method#alquilarMultimedia#0;class#Exercici06#0" />
                 <element signature="method#recogerMultimedia#0;class#Exercici06#0" />
                 <element signature="method#mostrarMenuPri#0;class#Exercici06#0" />
                 <element signature="method#menuAltas#0;class#Exercici06#0" />
@@ -93,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2086">
-              <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="58" />
+            <state relative-caret-position="249">
+              <caret line="188" column="32" lean-forward="true" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -182,6 +180,8 @@
       <find>fechaAc</find>
       <find>id</find>
       <find>devolver</find>
+      <find>sO</find>
+      <find>desea pagarlo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -232,12 +232,12 @@
         <option value="$PROJECT_DIR$/src/main/java/exercici06/IInventario.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Pelicula.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/VideoJoc.java" />
-        <option value="$PROJECT_DIR$/src/main/java/utils/Lib.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Inventari.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Socio.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/Lib.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" />
       </list>
     </option>
@@ -387,13 +387,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553426957594</updated>
-    </task>
-    <task id="LOCAL-00006" summary="flata fer metodes">
-      <created>1553533214551</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1553533214551</updated>
     </task>
     <task id="LOCAL-00007" summary="Fetisim falta comentar">
       <created>1553595141836</created>
@@ -731,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555062607477</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Fetisim llest per a entregarrrr!!">
+      <created>1555063027150</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1555063027151</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TodoView">
@@ -756,7 +756,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.504886" side_tool="true" weight="0.3659091" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6163793" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.49245688" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3448276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1277,8 +1277,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2086">
-          <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="58" />
+        <state relative-caret-position="249">
+          <caret line="188" column="32" lean-forward="true" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1287,10 +1287,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        <state relative-caret-position="324">
+          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
           <folding>
-            <element signature="method#alquilarMultimedia#0;class#Exercici06#0" />
             <element signature="method#recogerMultimedia#0;class#Exercici06#0" />
             <element signature="method#mostrarMenuPri#0;class#Exercici06#0" />
             <element signature="method#menuAltas#0;class#Exercici06#0" />
