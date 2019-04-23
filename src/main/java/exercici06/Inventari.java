@@ -47,7 +47,7 @@ public class Inventari implements IInventario{
     }
 
     /**
-     * muestra los videojuegos ordenados por titulo
+     * muestra los peliculas ordenados por titulo
      */
     @Override
     public void mostrarPeliculesPerTitol(){

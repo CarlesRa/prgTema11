@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Lib {
 
-    static Scanner lec = new Scanner(System.in);
+    public static Scanner lec = new Scanner(System.in);
 
     public static void limpiarPantalla() {
         System.out.print("\u001B[H\u001B[2J");
@@ -268,5 +268,17 @@ public class Lib {
             }
         }while (!esCorrecto);
         return idSocio;
+    }
+
+    public static int introduirEnter(){
+        int num = 0;
+        try {
+            num = Integer.parseInt(lec.nextLine());
+            return num;
+        }
+        catch (NumberFormatException nfe1){
+            System.out.println("Solo se aceptan números...");
+            return Integer.MIN_VALUE;
+        }
     }
 }

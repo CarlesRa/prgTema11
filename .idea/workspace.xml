@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a9af30c-2c67-4d9d-be32-96ef9fad33fb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/ENormal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/EVip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/Entrada.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/Estadi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/Partit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/Taquilla.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/TipusPartit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/Zona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/ZonaNormal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exercici07/ZonaVip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exercici06/Inventari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici06/Inventari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Lib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Lib.java" afterDir="false" />
     </list>
     <list id="f2a8c1e2-0c7e-4ada-895d-39c5f0610861" name="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;" comment="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;&#10;&#10;This reverts commit 3233d6a1" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -59,28 +74,58 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Entrada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+            <state relative-caret-position="195">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Estadi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding>
-                <element signature="method#recogerMultimedia#0;class#Exercici06#0" />
-                <element signature="method#mostrarMenuPri#0;class#Exercici06#0" />
-                <element signature="method#menuAltas#0;class#Exercici06#0" />
-                <element signature="method#seleccionAltas#0;class#Exercici06#0" />
-                <element signature="method#menuListados#0;class#Exercici06#0" />
-                <element signature="method#seleccionListados#0;class#Exercici06#0" />
+                <element signature="e#141#142#0" expanded="true" />
+                <element signature="e#175#176#0" expanded="true" />
+                <element signature="e#270#271#0" expanded="true" />
+                <element signature="e#308#309#0" expanded="true" />
+                <element signature="e#368#369#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Zona.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+              <folding>
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="871">
-              <caret line="105" column="61" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
+            <state relative-caret-position="192">
+              <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="188" column="32" lean-forward="true" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="32" />
+            <state relative-caret-position="1122">
+              <caret line="280" column="37" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,51 +146,45 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/ZonaNormal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="73" column="73" selection-start-line="73" selection-start-column="73" selection-end-line="73" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Pelicula.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/VideoJoc.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Socio.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="871">
-              <caret line="98" column="65" selection-start-line="98" selection-start-column="65" selection-end-line="98" selection-end-column="65" />
+            <state relative-caret-position="75">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1408#1409#0" expanded="true" />
-                <element signature="e#1447#1448#0" expanded="true" />
+                <element signature="e#153#154#0" expanded="true" />
+                <element signature="e#200#201#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/ZonaVip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="75">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#147#148#0" expanded="true" />
+                <element signature="e#194#195#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/EVip.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Taquilla.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -155,9 +194,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -190,16 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/exercici01/Punto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici01/Eercici01.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici01/Exercici01.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici01/Punt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici02/Poligon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici02/Exercici02.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici03/CotxeCanviManual.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici03/Marxa.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici03/Cotxe.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici03/Exercici03.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici03/CotxeCanviAutimatic.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici04/Electrodomestico.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici04/Lavadora.java" />
@@ -225,7 +254,6 @@
         <option value="$PROJECT_DIR$/src/main/java/exercici05/Exercici05.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Formats.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Plataformas.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/IComparable.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/IVideoclub.java" />
@@ -233,18 +261,31 @@
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Pelicula.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/VideoJoc.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici06/Inventari.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Socio.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java" />
-        <option value="$PROJECT_DIR$/src/main/java/utils/Lib.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici06/Inventari.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/TipusPartit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Partit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Taquilla.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Entrada.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/EntradaNormal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/EntradaVip.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Zones.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/Lib.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/ZonaNormal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/ZonaVip.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Estadi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Zona.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1680" />
-    <option name="y" value="229" />
+    <option name="x" value="6" />
+    <option name="y" value="64" />
     <option name="width" value="1016" />
     <option name="height" value="557" />
   </component>
@@ -256,7 +297,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,7 +328,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="exercici06" type="462c0819:PsiDirectoryNode" />
+              <item name="exercici07" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tema11" type="b2602c69:ProjectViewProjectNode" />
@@ -302,6 +342,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -387,13 +428,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553426957594</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fetisim falta comentar">
-      <created>1553595141836</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1553595141836</updated>
     </task>
     <task id="LOCAL-00008" summary="CAMVIE EL ENUM A VAL">
       <created>1553595328718</created>
@@ -731,7 +765,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555063027151</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="arregle detallets">
+      <created>1555064875668</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1555064875668</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TodoView">
@@ -744,10 +785,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="-2" width="1920" height="1082" extended-state="6" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.495114" weight="0.39807898" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.495114" visible="true" weight="0.3030303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -756,13 +797,13 @@
       <window_info id="Favorites" order="6" sideWeight="0.504886" side_tool="true" weight="0.3659091" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.49245688" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.67741936" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3448276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3293718" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.8726655" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.48706895" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.76740235" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.32899022" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32597622" />
@@ -852,7 +893,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fet falta comprovar la espasa i el pic" />
     <MESSAGE value="cambio los if añadiendo instancof" />
     <MESSAGE value="funcionando correctamente a falta de pruebas" />
     <MESSAGE value="elimino basurica" />
@@ -877,107 +917,10 @@
     <MESSAGE value="funciona pero intente arreglar errors" />
     <MESSAGE value="arregle la hubicacio de les variables" />
     <MESSAGE value="Fetisim llest per a entregarrrr!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fetisim llest per a entregarrrr!!" />
+    <MESSAGE value="arregle detallets" />
+    <option name="LAST_COMMIT_MESSAGE" value="arregle detallets" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici01/Punt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
-          <folding>
-            <element signature="e#256#257#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici02/Poligon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#191#192#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici02/Exercici02.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici03/Exercici03.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici03/Cotxe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-          <folding>
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici03/CotxeCanviManual.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici03/Marxa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici03/CotxeCanviAutimatic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/HashMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="43" column="54" lean-forward="true" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici04/Television.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici04/Lavadora.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici04/Exercici04.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1143,13 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Plataformas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/text/DateFormat.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1163,23 +1099,6 @@
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/ArrayList.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Formats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/IComparable.java" />
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/Objects.class">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1191,23 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/IVideoclub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/IInventario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/Collections.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1215,38 +1117,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Inventari.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Formats.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="98" column="55" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/IInventario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/IVideoclub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Socio.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Plataformas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
-          <caret line="98" column="65" selection-start-line="98" selection-start-column="65" selection-end-line="98" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1408#1409#0" expanded="true" />
-            <element signature="e#1447#1448#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Multimedia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
+        <state relative-caret-position="345">
           <caret line="73" column="73" selection-start-line="73" selection-start-column="73" selection-end-line="73" selection-end-column="73" />
         </state>
       </provider>
@@ -1258,16 +1159,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/VideoJoc.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Socio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="1635">
+          <caret line="111" column="5" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="e#1057#1058#0" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
+            <element signature="e#1115#1116#0" expanded="true" />
+            <element signature="e#1152#1153#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1251#1252#0" expanded="true" />
+            <element signature="e#1291#1292#0" expanded="true" />
+            <element signature="e#1340#1341#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1408#1409#0" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+            <element signature="e#1489#1490#0" expanded="true" />
+            <element signature="e#1547#1548#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Videoclub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
+        <state relative-caret-position="390">
           <caret line="105" column="61" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1275,27 +1199,174 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/VideoJoc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="188" column="32" lean-forward="true" selection-start-line="188" selection-start-column="32" selection-end-line="188" selection-end-column="32" />
+        <state relative-caret-position="315">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Alquiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1091#1092#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1562#1563#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Exercici06.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="97" column="35" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+        <state relative-caret-position="732">
+          <caret line="212" column="31" selection-start-line="212" selection-start-column="31" selection-end-line="212" selection-end-column="31" />
           <folding>
+            <element signature="method#alquilarMultimedia#0;class#Exercici06#0" />
             <element signature="method#recogerMultimedia#0;class#Exercici06#0" />
             <element signature="method#mostrarMenuPri#0;class#Exercici06#0" />
             <element signature="method#menuAltas#0;class#Exercici06#0" />
             <element signature="method#seleccionAltas#0;class#Exercici06#0" />
             <element signature="method#menuListados#0;class#Exercici06#0" />
             <element signature="method#seleccionListados#0;class#Exercici06#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici06/Inventari.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Partit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/TipusPartit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/ENormal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/EVip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Taquilla.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="280" column="37" selection-start-line="280" selection-start-column="37" selection-end-line="280" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/ZonaNormal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#153#154#0" expanded="true" />
+            <element signature="e#200#201#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/ZonaVip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#147#148#0" expanded="true" />
+            <element signature="e#194#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Entrada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Estadi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="e#141#142#0" expanded="true" />
+            <element signature="e#175#176#0" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Zona.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+          <folding>
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
           </folding>
         </state>
       </provider>
