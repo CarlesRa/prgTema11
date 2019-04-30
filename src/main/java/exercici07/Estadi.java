@@ -4,6 +4,7 @@
 
 package exercici07;
 
+
 public class Estadi {
     private Zona [] zones;
 
@@ -17,5 +18,19 @@ public class Estadi {
 
     public Zona[] getZones() {
         return zones;
+    }
+
+    public void mostrarEstadi(){
+        for (int i=0; i<zones.length; i++){
+            if (zones[i] instanceof ZonaNormal) {
+                System.out.println("Zona normal: " + i);
+                zones[i].mostrarZonas();
+            }
+
+            else{
+                System.out.println("Zona VIP: " + i);
+                zones[i].mostrarZonas();
+            }
+        }
     }
 }

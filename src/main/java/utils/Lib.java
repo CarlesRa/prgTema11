@@ -121,6 +121,12 @@ public class Lib {
         return cal;
     }
 
+    public static LocalDate convertToLocalDate(String s){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate lD = LocalDate.parse(s,formatter);
+        return lD;
+    }
+
     public static int calcularEdat(String fechaNacimiento) {
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate fechaNac = LocalDate.parse(fechaNacimiento, fmt);
@@ -278,7 +284,14 @@ public class Lib {
         }
         catch (NumberFormatException nfe1){
             System.out.println("Solo se aceptan números...");
-            return Integer.MIN_VALUE;
+            num = Integer.MIN_VALUE;
+            return num;
         }
+    }
+
+    public static String introduirString(){
+        String string;
+        string = lec.nextLine();
+        return string;
     }
 }

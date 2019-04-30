@@ -7,10 +7,12 @@ package exercici07;
 import java.util.Arrays;
 
 public abstract class Zona {
-    private String [][] zona;
+    private final int SEIENT_LLIURE = 0;
+    private final int SEIENT_OCUPAT = 1;
+    private int [][] zona;
     private int seientsLliures;
     public Zona(int numFiles, int seientsPerFila) {
-        zona = new String [numFiles][seientsPerFila];
+        zona = new int [numFiles][seientsPerFila];
         plenarZona();
         seientsLliures = numFiles * seientsPerFila;
     }
@@ -22,21 +24,25 @@ public abstract class Zona {
     public void plenarZona(){
         for (int i=0; i<zona.length; i++){
             for (int z=0; z<zona[i].length; z++){
-                zona [i][z] = "\u001B[42m ";
-                System.out.print("\u001B[0m ");
+                zona [i][z] = SEIENT_LLIURE;
             }
         }
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int i=0; i<zona.length; i++){
-            for (int z=0; z<zona[i].length; z++){
-                sb.append("|").append(zona [i][z]).append("|");
-            }
-            System.out.println();
+    public int[][] getZona() {
+        return zona;
+    }
+
+    public void setSeient(int fila, int seient){
+        zona [fila][seient] = SEIENT_OCUPAT;
+    }
+
+    public void mostrarZonas(){
+        for (int i=0; i < zona.length; i++){
+            for (int z=0; z < zona[i].length; z++)
+                System.out.print(" | F:" + i + ", S:" + z + ", D:" + zona[i][z]+ " | ");
+            System.out.println("\n----------------------------------------");
+
         }
-        return sb.toString();
     }
 }
