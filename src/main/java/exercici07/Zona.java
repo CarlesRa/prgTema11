@@ -4,8 +4,6 @@
 
 package exercici07;
 
-import java.util.Arrays;
-
 public abstract class Zona {
     private final int SEIENT_LLIURE = 0;
     private final int SEIENT_OCUPAT = 1;
@@ -15,10 +13,6 @@ public abstract class Zona {
         zona = new int [numFiles][seientsPerFila];
         plenarZona();
         seientsLliures = numFiles * seientsPerFila;
-    }
-
-    public int getSeientsLliures() {
-        return seientsLliures;
     }
 
     public void plenarZona(){
