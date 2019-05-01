@@ -281,7 +281,7 @@ public class Exercici07 {
                 do {
                     System.out.print("Selecciona la zona: ");
                     try {
-                        zona = Lib.introduirEnter();
+                        zona = Integer.parseInt(Lib.lec.nextLine());
                         esCorrecto2 = true;
                     }catch (NumberFormatException nfe1){
                         esCorrecto2 = false;
@@ -294,7 +294,7 @@ public class Exercici07 {
                 do {
                     System.out.print("Selecciona la fila: ");
                     try {
-                        fila = Lib.introduirEnter();
+                        fila = Integer.parseInt(Lib.lec.nextLine());
                         esCorrecto2 = true;
                     }catch (NumberFormatException nfe1){
                         esCorrecto2 = false;
@@ -308,7 +308,7 @@ public class Exercici07 {
                 do {
                     System.out.print("Selecciona el seient: ");
                     try {
-                        seient = Lib.introduirEnter();
+                        seient = Integer.parseInt(Lib.lec.nextLine());
                         esCorrecto2 = true;
                     }catch (NumberFormatException nfe1){
                         esCorrecto2 = false;
