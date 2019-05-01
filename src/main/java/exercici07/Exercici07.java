@@ -46,9 +46,11 @@ public class Exercici07 {
                                         break;
                                     }
                                     case 3:{
+                                        mostrarLocalitats();
                                         break;
                                     }
                                     case 4:{
+                                        mostrarRecaudacio();
                                         break;
                                     }
                                     case 0:{
@@ -340,7 +342,7 @@ public class Exercici07 {
                     partits.get(posicioPartit).getEntradesVenudes().add(entrada);
                     System.out.println("Entrada registrada amb exit!!");
                     System.out.println(entrada.toString());
-                    partits.get(posicioPartit).setRecaudacio(entrada.getPreuEntrada());
+                    partits.get(posicioPartit).sumarRecaudacio(entrada.getPreuEntrada());
                     partits.get(posicioPartit).descomptarEntrada();
                     esCorrecto2 = true;
                 } else {
@@ -385,12 +387,63 @@ public class Exercici07 {
         for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
             if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumEntrada() == numEntrada){
                 partits.get(posicioPartit).comptarEntrada();
+                partits.get(posicioPartit).restarRecaudacio(partits.get(posicioPartit).getEntradesVenudes().get(i)
+                .getPreuEntrada());
                 partits.get(posicioPartit).setSeientLliure(partits.get(posicioEntrada).getEntradesVenudes()
                 .get(i).getZona(), partits.get(posicioEntrada).getEntradesVenudes().get(i).getFila()
                 ,partits.get(posicioEntrada).getEntradesVenudes().get(i).getNumSeient());
                 partits.get(posicioPartit).getEntradesVenudes().remove(i);
             }
         }
+    }
+
+    public void mostrarLocalitats(){
+        int idPartit = 0;
+        int posicioPartit = 0;
+        boolean esCorrecto4 = false;
+        System.out.print("introduix el ID de partit: ");
+        try {
+            idPartit = Lib.introduirEnter();
+        }catch (NumberFormatException nfe4){
+            System.out.println("nomes es poden introduir nombres...");
+        }
+        //comprovem que existix el partit
+        for (int i=0; i<partits.size(); i++){
+            if (idPartit == partits.get(i).getIdPartit()){
+                posicioPartit = i;
+                esCorrecto4 = true;
+            }
+        }
+        if (!esCorrecto4){
+            System.out.println("Ningun partit amb eixa ID....");
+            return;
+        }
+        partits.get(posicioPartit).getGrada().mostrarEstadi();
+    }
+
+    public void mostrarRecaudacio(){
+        int idPartit = 0;
+        int posicioPartit = 0;
+        boolean esCorrecto4 = false;
+        System.out.print("introduix el ID de partit: ");
+        try {
+            idPartit = Lib.introduirEnter();
+        }catch (NumberFormatException nfe4){
+            System.out.println("nomes es poden introduir nombres...");
+        }
+        //comprovem que existix el partit
+        for (int i=0; i<partits.size(); i++){
+            if (idPartit == partits.get(i).getIdPartit()){
+                posicioPartit = i;
+                esCorrecto4 = true;
+            }
+        }
+        if (!esCorrecto4){
+            System.out.println("Ningun partit amb eixa ID....");
+            return;
+        }
+        System.out.println(partits.get(posicioPartit).toString() + "\n");
+        System.out.println("Hi ha una recaudació de: " + partits.get(posicioPartit).getRecaudacio() + "Euros");
     }
 
 }

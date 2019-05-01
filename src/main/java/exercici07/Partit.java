@@ -29,6 +29,7 @@ public class Partit {
         idPartit = ++idAutonumeric;
         this.entradesTotals = entradesTotals;
         entradesLliures = entradesTotals;
+        recaudacio = 0;
         entradesVenudes = new ArrayList<>();
     }
 
@@ -40,8 +41,12 @@ public class Partit {
         return idPartit;
     }
 
-    public void setRecaudacio(float recaudacio) {
+    public void sumarRecaudacio(float recaudacio) {
         this.recaudacio += recaudacio;
+    }
+
+    public void restarRecaudacio(float recaudacio){
+        this.recaudacio -= recaudacio;
     }
 
     public TipusPartit getTipus() {
@@ -76,30 +81,22 @@ public class Partit {
         return entradesTotals;
     }
 
+    public float getRecaudacio() {
+        return recaudacio;
+    }
+
     public Grada getGrada() {
         return grada;
     }
 
     public boolean setSeientOcupat(int zona, int fila, int seient){
-        try {
             grada.getZones()[zona].setSeientOcupat(fila, seient);
             return true;
-        }
-        catch (IndexOutOfBoundsException iobe){
-            System.out.println("Dades incorrectes, revise el planol de les grades");
-            return false;
-        }
     }
 
     public boolean setSeientLliure(int zona,int fila, int seient){
-        try {
             grada.getZones()[zona].setSeientLiure(fila, seient);
             return true;
-        }
-        catch (IndexOutOfBoundsException iobe){
-            System.out.println("Dades incorrectes, revise el planol de les grades");
-            return false;
-        }
     }
     @Override
     public String toString() {
