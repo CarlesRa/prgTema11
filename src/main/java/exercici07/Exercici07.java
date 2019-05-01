@@ -16,10 +16,8 @@ public class Exercici07 {
     private Zona zona;
     private int entradesTotals;
     private ArrayList<Partit> partits;
-    private ArrayList<Entrada> entradesVenudes;
     public Exercici07(){
         partits = new ArrayList<>();
-        entradesVenudes = new ArrayList<>();
         do{
             eleccio = mostrarMenu();
             if (eleccio < 0 || eleccio > 2){
@@ -44,6 +42,7 @@ public class Exercici07 {
                                         break;
                                     }
                                     case 2:{
+                                        tornarEntrada();
                                         break;
                                     }
                                     case 3:{
@@ -129,6 +128,10 @@ public class Exercici07 {
         return grada;
     }
 
+    /**
+     * mostra el menu principal
+     * @return retorna la elecció del menu
+     */
     public int mostrarMenu(){
         int eleccio = 0;
         System.out.println("** GESTI-FOOTBALL**");
@@ -142,6 +145,10 @@ public class Exercici07 {
         return eleccio;
     }
 
+    /**
+     * mostra el menu de gestió
+     * @return la elecció del menu
+     */
     public int menuGestio(){
         int eleccio = 0;
         System.out.println("** GESTIÓ D'ENTRADES **");
@@ -155,6 +162,9 @@ public class Exercici07 {
         return eleccio;
     }
 
+    /**
+     * demana les dades per introduir un nou partit
+     */
     public void nouPartit(){
         Partit partit;
         LocalDate dataPartit = LocalDate.now();
@@ -319,7 +329,7 @@ public class Exercici07 {
                     }
                 }while (!esCorrecto2);
                 if (partits.get(posicioPartit).getGrada().getZones()[zona].getZona()[fila][seient] == 0) {
-                    partits.get(posicioPartit).setSeient(zona, fila, seient);
+                    partits.get(posicioPartit).setSeientOcupat(zona, fila, seient);
                     partits.get(posicioPartit).getGrada().mostrarEstadi();
                     if (seleccio3 == 1){
                         entrada = new ENormal(partits.get(posicioPartit),zona,fila,seient);
@@ -327,7 +337,7 @@ public class Exercici07 {
                     else{
                         entrada = new EVip(partits.get(posicioPartit),zona,fila,seient);
                     }
-                    entradesVenudes.add(entrada);
+                    partits.get(posicioPartit).getEntradesVenudes().add(entrada);
                     System.out.println("Entrada registrada amb exit!!");
                     System.out.println(entrada.toString());
                     partits.get(posicioPartit).setRecaudacio(entrada.getPreuEntrada());
@@ -341,5 +351,46 @@ public class Exercici07 {
         }
     }
 
+    public void tornarEntrada(){
+        int idPartit = 0;
+        int numEntrada = 0;
+        int posicioPartit = 0;
+        int posicioEntrada = 0;
+        boolean esCorrecto3 = false;
+        System.out.print("introduix el ID de partit: ");
+        try {
+            idPartit = Lib.introduirEnter();
+        }catch (NumberFormatException nfe4){
+            System.out.println("nomes es poden introduir nombres...");
+        }
+        //comprovem que existix el partit
+        for (int i=0; i<partits.size(); i++){
+            if (idPartit == partits.get(i).getIdPartit()){
+                posicioPartit = i;
+                esCorrecto3 = true;
+            }
+        }
+        if (!esCorrecto3){
+            System.out.println("Ningun partit amb eixa ID....");
+            return;
+        }
+        System.out.println(partits.get(posicioPartit).toString());
+        System.out.println("Introduix el numero de entrada: ");
+        try{
+            numEntrada = Lib.introduirEnter();
+        }
+        catch (NumberFormatException nfe5){
+            System.out.println("Dades incorrectes....");
+        }
+        for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
+            if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumEntrada() == numEntrada){
+                partits.get(posicioPartit).comptarEntrada();
+                partits.get(posicioPartit).setSeientLliure(partits.get(posicioEntrada).getEntradesVenudes()
+                .get(i).getZona(), partits.get(posicioEntrada).getEntradesVenudes().get(i).getFila()
+                ,partits.get(posicioEntrada).getEntradesVenudes().get(i).getNumSeient());
+                partits.get(posicioPartit).getEntradesVenudes().remove(i);
+            }
+        }
+    }
 
 }

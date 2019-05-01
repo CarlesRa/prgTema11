@@ -27,6 +27,22 @@ public abstract class Entrada {
         return preuEntrada;
     }
 
+    public int getNumEntrada() {
+        return numEntrada;
+    }
+
+    public int getZona() {
+        return zona;
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public int getNumSeient() {
+        return numSeient;
+    }
+
     @Override
     public String toString() {
         return "Entrada{" +

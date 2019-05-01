@@ -33,8 +33,12 @@ public abstract class Zona {
         return zona;
     }
 
-    public void setSeient(int fila, int seient){
+    public void setSeientOcupat(int fila, int seient){
         zona [fila][seient] = SEIENT_OCUPAT;
+    }
+
+    public void setSeientLiure(int fila, int seient){
+        zona [fila][seient] = SEIENT_LLIURE;
     }
 
     public void mostrarZonas(){
