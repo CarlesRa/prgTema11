@@ -16,7 +16,7 @@ public class ENormal extends Entrada {
 
     @Override
     public float calcularPreuEntrada(Partit partit) {
-        float preu = 0;
+        float preu;
         if (partit.getTipus() == TipusPartit.ALTA_AFLUENCIA){
             preu = PREU_BASE * INCREMENT_ALTA_AFLUENCIA;
         }

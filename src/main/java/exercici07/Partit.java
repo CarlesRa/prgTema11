@@ -53,32 +53,12 @@ public class Partit {
         return tipus;
     }
 
-    public LocalDate getDataPartit() {
-        return dataPartit;
-    }
-
-    public String getEquipLocal() {
-        return equipLocal;
-    }
-
-    public String getEquipVisitant() {
-        return equipVisitant;
-    }
-
     public void descomptarEntrada() {
         entradesLliures--;
     }
 
     public void comptarEntrada() {
         entradesLliures++;
-    }
-
-    public int getEntradesLliures() {
-        return entradesLliures;
-    }
-
-    public int getEntradesTotals() {
-        return entradesTotals;
     }
 
     public float getRecaudacio() {

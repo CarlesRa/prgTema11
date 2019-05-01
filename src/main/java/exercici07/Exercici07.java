@@ -244,184 +244,160 @@ public class Exercici07 {
         int seient = 0;
         int seleccio3 = 0;
         boolean esCorrecto2 = false;
-        System.out.print("introduix el ID de partit: ");
-        idPartit = Lib.introduirEnter();
-        //comprovem que existix el partit
-        for (int i=0; i<partits.size(); i++){
-            if (idPartit == partits.get(i).getIdPartit()){
-                posicioPartit = i;
-                esCorrecto2 = true;
+        posicioPartit = introduirIdPartit();
+        if (posicioPartit >= 0) {
+            System.out.println(partits.get(posicioPartit).toString());
+            //demanem el nombre dentrades a vendre
+            System.out.print("Moltes entrades dessitja vendre?: ");
+            numEntrades = Lib.introduirEnter();
+            for (int i = 0; i < numEntrades; i++) {
+                do {
+                    System.out.println("Selecciona el tipus d'entrada: ");
+                    System.out.println("1-Normal");
+                    System.out.println("2-VIP");
+                    seleccio3 = Lib.introduirEnter();
+                    if (seleccio3 < 1 || seleccio3 > 2) {
+                        System.out.println("Selecció incorrecta....");
+                        esCorrecto2 = false;
+                    } else if (seleccio3 >= 1 || seleccio3 <= 2) {
+                        esCorrecto2 = true;
+                    }
+                } while (!esCorrecto2);
+                //imprimim les zones disponibles per al tipus dentrada seleccionat
+                switch (seleccio3) {
+                    case 1: {
+                        System.out.println("Zones normals: ");
+                        partits.get(posicioPartit).getGrada().mostrarZonesNormals();
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("Zones VIP: ");
+                        partits.get(posicioPartit).getGrada().mostrarZonesVip();
+                        break;
+                    }
+                }
+                //demanem les dades de lentrada i tractem les exepcions
+                do {
+                    do {
+                        System.out.print("Selecciona la zona: ");
+                        try {
+                            zona = Integer.parseInt(Lib.lec.nextLine());
+                            esCorrecto2 = true;
+                        } catch (NumberFormatException nfe1) {
+                            esCorrecto2 = false;
+                        }
+                        if (partits.get(posicioPartit).getGrada().getZones().length - 1 < zona) {
+                            System.out.println("Nombre de zona incorrecte...");
+                            esCorrecto2 = false;
+                        }
+                    } while (!esCorrecto2);
+                    do {
+                        System.out.print("Selecciona la fila: ");
+                        try {
+                            fila = Integer.parseInt(Lib.lec.nextLine());
+                            esCorrecto2 = true;
+                        } catch (NumberFormatException nfe1) {
+                            esCorrecto2 = false;
+                        }
+                        if (partits.get(posicioPartit).getGrada().getZones()[0].getZona().length - 1
+                                < fila) {
+                            System.out.println("Nombre de fila incorrecte...");
+                            esCorrecto2 = false;
+                        }
+                    } while (!esCorrecto2);
+                    do {
+                        System.out.print("Selecciona el seient: ");
+                        try {
+                            seient = Integer.parseInt(Lib.lec.nextLine());
+                            esCorrecto2 = true;
+                        } catch (NumberFormatException nfe1) {
+                            esCorrecto2 = false;
+                        }
+                        if (partits.get(posicioPartit).getGrada().getZones()[0].getZona()[0].length < seient) {
+                            System.out.println("Nombre de seient incorrecte...");
+                            esCorrecto2 = false;
+                        }
+                    } while (!esCorrecto2);
+                    if (partits.get(posicioPartit).getGrada().getZones()[zona].getZona()[fila][seient] == 0) {
+                        partits.get(posicioPartit).setSeientOcupat(zona, fila, seient);
+                        partits.get(posicioPartit).getGrada().mostrarEstadi();
+                        if (seleccio3 == 1) {
+                            entrada = new ENormal(partits.get(posicioPartit), zona, fila, seient);
+                        } else {
+                            entrada = new EVip(partits.get(posicioPartit), zona, fila, seient);
+                        }
+                        partits.get(posicioPartit).getEntradesVenudes().add(entrada);
+                        System.out.println("Entrada registrada amb exit!!");
+                        System.out.println(entrada.toString());
+                        partits.get(posicioPartit).sumarRecaudacio(entrada.getPreuEntrada());
+                        partits.get(posicioPartit).descomptarEntrada();
+                        esCorrecto2 = true;
+                    } else {
+                        System.out.println("El seinent esta ocupat...");
+                        esCorrecto2 = false;
+                    }
+                } while (!esCorrecto2);
             }
-        }
-        if (!esCorrecto2){
-            System.out.println("Ningun partit amb eixa ID....");
-            return;
-        }
-        System.out.println(partits.get(posicioPartit).toString());
-        //demanem el nombre dentrades a vendre
-        System.out.print("Moltes entrades dessitja vendre?: ");
-        numEntrades = Lib.introduirEnter();
-        for (int i=0; i<numEntrades; i++) {
-            do {
-                System.out.println("Selecciona el tipus d'entrada: ");
-                System.out.println("1-Normal");
-                System.out.println("2-VIP");
-                seleccio3 = Lib.introduirEnter();
-                if (seleccio3 < 1 || seleccio3 > 2) {
-                    System.out.println("Selecció incorrecta....");
-                    esCorrecto2 = false;
-                }
-                else if (seleccio3 >= 1 || seleccio3 <= 2){
-                    esCorrecto2 = true;
-                }
-            } while (!esCorrecto2);
-            //imprimim les zones disponibles per al tipus dentrada seleccionat
-            switch (seleccio3) {
-                case 1: {
-                    System.out.println("Zones normals: ");
-                    partits.get(posicioPartit).getGrada().mostrarZonesNormals();
-                    break;
-                }
-                case 2: {
-                    System.out.println("Zones VIP: ");
-                    partits.get(posicioPartit).getGrada().mostrarZonesVip();
-                    break;
-                }
-            }
-            //demanem les dades de lentrada i tractem les exepcions
-            do {
-                do {
-                    System.out.print("Selecciona la zona: ");
-                    try {
-                        zona = Integer.parseInt(Lib.lec.nextLine());
-                        esCorrecto2 = true;
-                    }catch (NumberFormatException nfe1){
-                        esCorrecto2 = false;
-                    }
-                    if (partits.get(posicioPartit).getGrada().getZones().length-1 < zona){
-                        System.out.println("Nombre de zona incorrecte...");
-                        esCorrecto2 = false;
-                    }
-                }while (!esCorrecto2);
-                do {
-                    System.out.print("Selecciona la fila: ");
-                    try {
-                        fila = Integer.parseInt(Lib.lec.nextLine());
-                        esCorrecto2 = true;
-                    }catch (NumberFormatException nfe1){
-                        esCorrecto2 = false;
-                    }
-                    if (partits.get(posicioPartit).getGrada().getZones()[0].getZona().length - 1
-                    < fila){
-                        System.out.println("Nombre de fila incorrecte...");
-                        esCorrecto2 = false;
-                    }
-                }while (!esCorrecto2 );
-                do {
-                    System.out.print("Selecciona el seient: ");
-                    try {
-                        seient = Integer.parseInt(Lib.lec.nextLine());
-                        esCorrecto2 = true;
-                    }catch (NumberFormatException nfe1){
-                        esCorrecto2 = false;
-                    }
-                    if (partits.get(posicioPartit).getGrada().getZones()[0].getZona()[0].length < seient){
-                        System.out.println("Nombre de seient incorrecte...");
-                        esCorrecto2 = false;
-                    }
-                }while (!esCorrecto2);
-                if (partits.get(posicioPartit).getGrada().getZones()[zona].getZona()[fila][seient] == 0) {
-                    partits.get(posicioPartit).setSeientOcupat(zona, fila, seient);
-                    partits.get(posicioPartit).getGrada().mostrarEstadi();
-                    if (seleccio3 == 1){
-                        entrada = new ENormal(partits.get(posicioPartit),zona,fila,seient);
-                    }
-                    else{
-                        entrada = new EVip(partits.get(posicioPartit),zona,fila,seient);
-                    }
-                    partits.get(posicioPartit).getEntradesVenudes().add(entrada);
-                    System.out.println("Entrada registrada amb exit!!");
-                    System.out.println(entrada.toString());
-                    partits.get(posicioPartit).sumarRecaudacio(entrada.getPreuEntrada());
-                    partits.get(posicioPartit).descomptarEntrada();
-                    esCorrecto2 = true;
-                } else {
-                    System.out.println("El seinent esta ocupat...");
-                    esCorrecto2 = false;
-                }
-            }while (!esCorrecto2);
         }
     }
 
+    /**
+     * metode per tornar entrades de un partit en concret
+     */
     public void tornarEntrada(){
-        int idPartit = 0;
         int numEntrada = 0;
-        int posicioPartit = 0;
-        int posicioEntrada = 0;
-        boolean esCorrecto3 = false;
-        System.out.print("introduix el ID de partit: ");
-        try {
-            idPartit = Lib.introduirEnter();
-        }catch (NumberFormatException nfe4){
-            System.out.println("nomes es poden introduir nombres...");
-        }
-        //comprovem que existix el partit
-        for (int i=0; i<partits.size(); i++){
-            if (idPartit == partits.get(i).getIdPartit()){
-                posicioPartit = i;
-                esCorrecto3 = true;
+        int posicioPartit;
+        posicioPartit = introduirIdPartit();
+        if (posicioPartit >= 0) {
+            System.out.println(partits.get(posicioPartit).toString());
+            System.out.println("Introduix el numero de entrada: ");
+            try {
+                numEntrada = Lib.introduirEnter();
+            } catch (NumberFormatException nfe5) {
+                System.out.println("Dades incorrectes....");
             }
-        }
-        if (!esCorrecto3){
-            System.out.println("Ningun partit amb eixa ID....");
-            return;
-        }
-        System.out.println(partits.get(posicioPartit).toString());
-        System.out.println("Introduix el numero de entrada: ");
-        try{
-            numEntrada = Lib.introduirEnter();
-        }
-        catch (NumberFormatException nfe5){
-            System.out.println("Dades incorrectes....");
-        }
-        for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
-            if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumEntrada() == numEntrada){
-                partits.get(posicioPartit).comptarEntrada();
-                partits.get(posicioPartit).restarRecaudacio(partits.get(posicioPartit).getEntradesVenudes().get(i)
-                .getPreuEntrada());
-                partits.get(posicioPartit).setSeientLliure(partits.get(posicioEntrada).getEntradesVenudes()
-                .get(i).getZona(), partits.get(posicioEntrada).getEntradesVenudes().get(i).getFila()
-                ,partits.get(posicioEntrada).getEntradesVenudes().get(i).getNumSeient());
-                partits.get(posicioPartit).getEntradesVenudes().remove(i);
+            for (int i = 0; i < partits.get(posicioPartit).getEntradesVenudes().size(); i++) {
+                if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumEntrada() == numEntrada) {
+                    partits.get(posicioPartit).comptarEntrada();
+                    partits.get(posicioPartit).restarRecaudacio(partits.get(posicioPartit).getEntradesVenudes().get(i)
+                            .getPreuEntrada());
+                    partits.get(posicioPartit).setSeientLliure(partits.get(posicioPartit).getEntradesVenudes()
+                                    .get(i).getZona(), partits.get(posicioPartit).getEntradesVenudes().get(i).getFila()
+                            , partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSeient());
+                    partits.get(posicioPartit).getEntradesVenudes().remove(i);
+                }
             }
         }
     }
 
+    /**
+     * Mostra les localits de un partit en concret
+     */
     public void mostrarLocalitats(){
         int idPartit = 0;
-        int posicioPartit = 0;
-        boolean esCorrecto4 = false;
-        System.out.print("introduix el ID de partit: ");
-        try {
-            idPartit = Lib.introduirEnter();
-        }catch (NumberFormatException nfe4){
-            System.out.println("nomes es poden introduir nombres...");
+        int posicioPartit;
+        posicioPartit = introduirIdPartit();
+        if (posicioPartit >= 0) {
+            partits.get(posicioPartit).getGrada().mostrarEstadi();
         }
-        //comprovem que existix el partit
-        for (int i=0; i<partits.size(); i++){
-            if (idPartit == partits.get(i).getIdPartit()){
-                posicioPartit = i;
-                esCorrecto4 = true;
-            }
-        }
-        if (!esCorrecto4){
-            System.out.println("Ningun partit amb eixa ID....");
-            return;
-        }
-        partits.get(posicioPartit).getGrada().mostrarEstadi();
     }
 
+    /**
+     * mostra la recaudacio de el partin solicitat
+     */
     public void mostrarRecaudacio(){
+        int posicioPartit;
+        posicioPartit = introduirIdPartit();
+        if (posicioPartit >= 0){
+            System.out.println("Hi ha una recaudació de: " + partits.get(posicioPartit).getRecaudacio() + "Euros");
+        }
+    }
+
+    /**
+     * comprava si existeix el partit
+     * @return retorna la posicio del partit
+     */
+    public int introduirIdPartit(){
         int idPartit = 0;
         int posicioPartit = 0;
         boolean esCorrecto4 = false;
@@ -440,10 +416,12 @@ public class Exercici07 {
         }
         if (!esCorrecto4){
             System.out.println("Ningun partit amb eixa ID....");
-            return;
+            return -1;
         }
-        System.out.println(partits.get(posicioPartit).toString() + "\n");
-        System.out.println("Hi ha una recaudació de: " + partits.get(posicioPartit).getRecaudacio() + "Euros");
+        else{
+            System.out.println(partits.get(posicioPartit).toString() + "\n");
+        }
+        return posicioPartit;
     }
 
 }
