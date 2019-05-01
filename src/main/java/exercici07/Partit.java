@@ -16,7 +16,6 @@ public class Partit {
     private String equipVisitant;
     private Grada grada;
     private int entradesLliures;
-    private int entradesTotals;
     private float recaudacio;
     private ArrayList<Entrada> entradesVenudes;
     public Partit(TipusPartit tipus, LocalDate dataPartit, String equipLocal, String equipVisitant, Grada grada
@@ -27,7 +26,6 @@ public class Partit {
         this.equipVisitant = equipVisitant;
         this.grada = grada;
         idPartit = ++idAutonumeric;
-        this.entradesTotals = entradesTotals;
         entradesLliures = entradesTotals;
         recaudacio = 0;
         entradesVenudes = new ArrayList<>();

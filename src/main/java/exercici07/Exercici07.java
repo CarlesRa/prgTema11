@@ -303,7 +303,7 @@ public class Exercici07 {
                             esCorrecto2 = false;
                         }
                         if (partits.get(posicioPartit).getGrada().getZones().length - 1 < zona) {
-                            System.out.println("Nombre de zona incorrecte...");
+                            System.out.println("No existix aquesta zona...");
                             esCorrecto2 = false;
                         }
                     } while (!esCorrecto2);
@@ -348,7 +348,8 @@ public class Exercici07 {
                         partits.get(posicioPartit).sumarRecaudacio(entrada.getPreuEntrada());
                         partits.get(posicioPartit).descomptarEntrada();
                         esCorrecto2 = true;
-                    } else {
+                    }
+                    else {
                         System.out.println("El seinent esta ocupat...");
                         esCorrecto2 = false;
                     }
@@ -386,7 +387,7 @@ public class Exercici07 {
     }
 
     /**
-     * Mostra les localits de un partit en concret
+     * Mostra les localitas de un partit en concret
      */
     public void mostrarLocalitats(){
         int idPartit = 0;
@@ -398,7 +399,7 @@ public class Exercici07 {
     }
 
     /**
-     * mostra la recaudacio de el partin solicitat
+     * mostra la recaudacio de el partit solicitat
      */
     public void mostrarRecaudacio(){
         int posicioPartit;
@@ -409,7 +410,7 @@ public class Exercici07 {
     }
 
     /**
-     * comprava si existeix el partit
+     * demana la id del partit i comprava si existeix
      * @return retorna la posicio del partit
      */
     public int introduirIdPartit(){
