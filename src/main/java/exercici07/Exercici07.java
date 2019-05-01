@@ -280,7 +280,25 @@ public class Exercici07 {
                         System.out.print("Selecciona la zona: ");
                         try {
                             zona = Integer.parseInt(Lib.lec.nextLine());
-                            esCorrecto2 = true;
+                            if (seleccio3 == 1 && partits.get(posicioPartit).getGrada().getZones()[zona]
+                                    instanceof ZonaNormal){
+                                esCorrecto2 = true;
+                            }
+                            else if (seleccio3 == 1 && partits.get(posicioPartit).getGrada().getZones()[zona]
+                                    instanceof ZonaVip){
+                                System.out.println("La zona no correspon al tipus d'entrada");
+                                esCorrecto2 = false;
+                            }
+                            else if (seleccio3 == 2 && partits.get(posicioPartit).getGrada().getZones()[zona]
+                                    instanceof ZonaVip){
+
+                                esCorrecto2 = true;
+                            }
+                            else if (seleccio3 == 2 && partits.get(posicioPartit).getGrada().getZones()[zona]
+                                    instanceof ZonaNormal){
+                                System.out.println("La zona no correspon al tipus d'entrada");
+                                esCorrecto2 = false;
+                            }
                         } catch (NumberFormatException nfe1) {
                             esCorrecto2 = false;
                         }
