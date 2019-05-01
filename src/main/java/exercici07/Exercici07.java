@@ -219,6 +219,9 @@ public class Exercici07 {
         partits.add(partit);
     }
 
+    /**
+     * Metode per vendre entrades per a un partit en concret
+     */
     public void vendaEntrades(){
         Entrada entrada;
         int numEntrades = 0;
@@ -231,6 +234,7 @@ public class Exercici07 {
         boolean esCorrecto2 = false;
         System.out.print("introduix el ID de partit: ");
         idPartit = Lib.introduirEnter();
+        //comprovem que existix el partit
         for (int i=0; i<partits.size(); i++){
             if (idPartit == partits.get(i).getIdPartit()){
                 posicioPartit = i;
@@ -242,6 +246,7 @@ public class Exercici07 {
             return;
         }
         System.out.println(partits.get(posicioPartit).toString());
+        //demanem el nombre dentrades a vendre
         System.out.print("Moltes entrades dessitja vendre?: ");
         numEntrades = Lib.introduirEnter();
         for (int i=0; i<numEntrades; i++) {
@@ -258,6 +263,7 @@ public class Exercici07 {
                     esCorrecto2 = true;
                 }
             } while (!esCorrecto2);
+            //imprimim les zones disponibles per al tipus dentrada seleccionat
             switch (seleccio3) {
                 case 1: {
                     System.out.println("Zones normals: ");
@@ -270,13 +276,48 @@ public class Exercici07 {
                     break;
                 }
             }
+            //demanem les dades de lentrada i tractem les exepcions
             do {
-                System.out.print("Selecciona la zona: ");
-                zona = Lib.introduirEnter();
-                System.out.print("Selecciona la fila: ");
-                fila = Lib.introduirEnter();
-                System.out.print("Selecciona el seient: ");
-                seient = Lib.introduirEnter();
+                do {
+                    System.out.print("Selecciona la zona: ");
+                    try {
+                        zona = Lib.introduirEnter();
+                        esCorrecto2 = true;
+                    }catch (NumberFormatException nfe1){
+                        esCorrecto2 = false;
+                    }
+                    if (partits.get(posicioPartit).getGrada().getZones().length-1 < zona){
+                        System.out.println("Nombre de zona incorrecte...");
+                        esCorrecto2 = false;
+                    }
+                }while (!esCorrecto2);
+                do {
+                    System.out.print("Selecciona la fila: ");
+                    try {
+                        fila = Lib.introduirEnter();
+                        esCorrecto2 = true;
+                    }catch (NumberFormatException nfe1){
+                        esCorrecto2 = false;
+                    }
+                    if (partits.get(posicioPartit).getGrada().getZones()[0].getZona().length - 1
+                    < fila){
+                        System.out.println("Nombre de fila incorrecte...");
+                        esCorrecto2 = false;
+                    }
+                }while (!esCorrecto2 );
+                do {
+                    System.out.print("Selecciona el seient: ");
+                    try {
+                        seient = Lib.introduirEnter();
+                        esCorrecto2 = true;
+                    }catch (NumberFormatException nfe1){
+                        esCorrecto2 = false;
+                    }
+                    if (partits.get(posicioPartit).getGrada().getZones()[0].getZona()[0].length < seient){
+                        System.out.println("Nombre de seient incorrecte...");
+                        esCorrecto2 = false;
+                    }
+                }while (!esCorrecto2);
                 if (partits.get(posicioPartit).getGrada().getZones()[zona].getZona()[fila][seient] == 0) {
                     partits.get(posicioPartit).setSeient(zona, fila, seient);
                     partits.get(posicioPartit).getGrada().mostrarEstadi();
@@ -290,7 +331,7 @@ public class Exercici07 {
                     System.out.println("Entrada registrada amb exit!!");
                     System.out.println(entrada.toString());
                     partits.get(posicioPartit).setRecaudacio(entrada.getPreuEntrada());
-                    partits.get(posicioPartit).setEntradesLliures();
+                    partits.get(posicioPartit).descomptarEntrada();
                     esCorrecto2 = true;
                 } else {
                     System.out.println("El seinent esta ocupat...");

@@ -55,8 +55,12 @@ public class Partit {
         return equipVisitant;
     }
 
-    public void setEntradesLliures() {
+    public void descomptarEntrada() {
         entradesLliures--;
+    }
+
+    public void comptarEntrada() {
+        entradesLliures++;
     }
 
     public int getEntradesLliures() {
@@ -90,7 +94,7 @@ public class Partit {
                 ", dataPartit=" + dataPartit +
                 ", equipLocal='" + equipLocal + '\'' +
                 ", equipVisitant='" + equipVisitant + '\'' +
-                 "entrades LLiures=" + entradesLliures + '}';
+                 ", entrades LLiures=" + entradesLliures + '}';
     }
 }
 
