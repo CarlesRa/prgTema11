@@ -81,7 +81,7 @@ public class Exercici07 {
         int seientsPerFila;
         Grada grada;
         do {
-            System.out.print("Indique les zones normals que te l´grada: ");
+            System.out.print("Indique les zones normals que te la grada: ");
             numZonesNormals = Lib.introduirEnter();
             if (numZonesNormals < 0 || numZonesNormals > MAX_ZONES){
                 System.out.println("hi ha un maxim de: " + MAX_ZONES);
@@ -89,7 +89,7 @@ public class Exercici07 {
         }while(numZonesNormals < 0 || numZonesNormals > MAX_ZONES);
 
         do {
-            System.out.print("Indique les zones VIP que te l´grada: ");
+            System.out.print("Indique les zones VIP que te la grada: ");
             numZonesVip = Lib.introduirEnter();
             if (numZonesNormals < 0 || numZonesNormals > MAX_ZONES_VIP){
                 System.out.println("hi ha un maxim de: " + MAX_ZONES_VIP);
@@ -123,6 +123,7 @@ public class Exercici07 {
                 grada.addZona(i, zona);
             }
         }
+        grada.mostrarEstadi();
         return grada;
     }
 
@@ -147,7 +148,7 @@ public class Exercici07 {
         System.out.println("3-Llistat de localitats");
         System.out.println("4-Mostrar recaudació del partit");
         System.out.println("0-Tornar al menu principal");
-        System.out.println("Selecciona una opció: ");
+        System.out.print("Selecciona una opció: ");
         eleccio = Lib.introduirEnter();
         return eleccio;
     }
@@ -212,6 +213,8 @@ public class Exercici07 {
             }
         }while (!esCorrecto);
         partit = new Partit(tipusPartit,dataPartit,local,visitant, gradaPartit);
+        System.out.println("Partit registrat amb exit!!!");
+        System.out.println(partit.toString() + "\n");
         partits.add(partit);
     }
 
@@ -247,6 +250,10 @@ public class Exercici07 {
                 seleccio3 = Lib.introduirEnter();
                 if (seleccio3 < 1 || seleccio3 > 2) {
                     System.out.println("Selecció incorrecta....");
+                    esCorrecto2 = false;
+                }
+                else if (seleccio3 >= 1 || seleccio3 <= 2){
+                    esCorrecto2 = true;
                 }
             } while (!esCorrecto2);
             switch (seleccio3) {
@@ -261,14 +268,22 @@ public class Exercici07 {
                     break;
                 }
             }
-            System.out.print("Selecciona la zona: ");
-            zona = Lib.introduirEnter();
-            System.out.print("Selecciona la fila: ");
-            fila = Lib.introduirEnter();
-            System.out.print("Selecciona el seient: ");
-            seient = Lib.introduirEnter();
-            partits.get(posicioPartit).setSeient(zona, fila, seient);
-            partits.get(posicioPartit).getGrada().mostrarEstadi();
+            do {
+                System.out.print("Selecciona la zona: ");
+                zona = Lib.introduirEnter();
+                System.out.print("Selecciona la fila: ");
+                fila = Lib.introduirEnter();
+                System.out.print("Selecciona el seient: ");
+                seient = Lib.introduirEnter();
+                if (partits.get(posicioPartit).getGrada().getZones()[zona].getZona()[fila][seient] == 0) {
+                    partits.get(posicioPartit).setSeient(zona, fila, seient);
+                    partits.get(posicioPartit).getGrada().mostrarEstadi();
+                    esCorrecto2 = true;
+                } else {
+                    System.out.println("El seinent esta ocupat...");
+                    esCorrecto2 = false;
+                }
+            }while (!esCorrecto2);
         }
     }
 

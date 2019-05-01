@@ -12,6 +12,7 @@ public class EVip extends Entrada {
     public EVip(Partit partit, char zona, int fila, int numSeient) {
         super(partit, zona, fila, numSeient);
         this.passWd = generarPassWord();
+        calcularPreuEntrada(partit);
     }
 
     @Override

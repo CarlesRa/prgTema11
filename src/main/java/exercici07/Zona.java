@@ -40,7 +40,12 @@ public abstract class Zona {
     public void mostrarZonas(){
         for (int i=0; i < zona.length; i++){
             for (int z=0; z < zona[i].length; z++)
-                System.out.print(" | F:" + i + ", S:" + z + ", D:" + zona[i][z]+ " | ");
+                if (zona[i][z] == 0) {
+                    System.out.print(" | F:" + i + ", S:" + z + ", D:" +"\u001B[32m" + zona[i][z] +"\u001B[0m" + " | ");
+                }
+                else{
+                    System.out.print(" | F:" + i + ", S:" + z + ", D:" +"\u001B[31m" + zona[i][z] +"\u001B[0m" + " | ");
+                }
             System.out.println("\n----------------------------------------");
 
         }
