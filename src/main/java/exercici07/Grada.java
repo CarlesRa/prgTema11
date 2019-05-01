@@ -7,7 +7,6 @@ package exercici07;
 
 public class Grada {
     private Zona [] zones;
-
     public Grada(int zonesNormals, int zonesVip) {
         zones = new Zona[zonesNormals + zonesVip];
     }

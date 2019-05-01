@@ -9,23 +9,25 @@ public class EVip extends Entrada {
     private final int PREU_BASE = 40;
     private String passWd;
 
-    public EVip(Partit partit, char zona, int fila, int numSeient) {
+    public EVip(Partit partit, int zona, int fila, int numSeient) {
         super(partit, zona, fila, numSeient);
         this.passWd = generarPassWord();
-        calcularPreuEntrada(partit);
+        preuEntrada = calcularPreuEntrada(partit);
     }
 
     @Override
-    public void calcularPreuEntrada(Partit partit) {
+    public float calcularPreuEntrada(Partit partit) {
+        float preu = 0;
         if (partit.getTipus() == TipusPartit.ALTA_AFLUENCIA){
-            preuEntrada = PREU_BASE * INCREMENT_ALTA_AFLUENCIA;
+            preu = PREU_BASE * INCREMENT_ALTA_AFLUENCIA;
         }
         else if (partit.getTipus() == TipusPartit.BAIXA_AFLUENCIA){
-            preuEntrada = PREU_BASE * INCREMENT_BAIXA_AFLUENCIA;
+            preu = PREU_BASE * DECREMENT_BAIXA_AFLUENCIA;
         }
         else{
-            preuEntrada = PREU_BASE;
+            preu = PREU_BASE;
         }
+        return preu;
     }
 
     public static String generarPassWord(){

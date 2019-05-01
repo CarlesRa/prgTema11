@@ -14,6 +14,7 @@ public class Exercici07 {
     private int eleccio2;
     private boolean esCorrecto;
     private Zona zona;
+    private int entradesTotals;
     private ArrayList<Partit> partits;
     private ArrayList<Entrada> entradesVenudes;
     public Exercici07(){
@@ -72,7 +73,7 @@ public class Exercici07 {
      */
     public Grada dadesGrades(){
         final int MAX_ZONES = 20;
-        final int MAX_ZONES_VIP = 20;
+        final int MAX_ZONES_VIP = 10;
         final int MAX_FILES = 100;
         final int MAX_SEIENTS = 200;
         int numZonesNormals;
@@ -123,6 +124,7 @@ public class Exercici07 {
                 grada.addZona(i, zona);
             }
         }
+        entradesTotals = (numZonesNormals + numZonesVip) * (files * seientsPerFila);
         grada.mostrarEstadi();
         return grada;
     }
@@ -160,7 +162,6 @@ public class Exercici07 {
         String local;
         String visitant;
         TipusPartit tipusPartit = TipusPartit.MITJA_AFLUENCIA;
-        System.out.println();
         Grada gradaPartit = dadesGrades();
         int seleccioTipus = 0;
         boolean esCorrecto = false;
@@ -183,7 +184,7 @@ public class Exercici07 {
         System.out.print("Equip visitant: ");
         visitant = Lib.introduirString();
 
-        System.out.print("introduix el tipus de partit: ");
+        System.out.println("introduix el tipus de partit: ");
         do {
             System.out.println("** TIPUS PARTIT **");
             System.out.println("1-Alta afluencia");
@@ -212,13 +213,14 @@ public class Exercici07 {
                 }
             }
         }while (!esCorrecto);
-        partit = new Partit(tipusPartit,dataPartit,local,visitant, gradaPartit);
+        partit = new Partit(tipusPartit,dataPartit,local,visitant, gradaPartit,entradesTotals);
         System.out.println("Partit registrat amb exit!!!");
         System.out.println(partit.toString() + "\n");
         partits.add(partit);
     }
 
     public void vendaEntrades(){
+        Entrada entrada;
         int numEntrades = 0;
         int idPartit = 0;
         int posicioPartit = 0;
@@ -278,6 +280,17 @@ public class Exercici07 {
                 if (partits.get(posicioPartit).getGrada().getZones()[zona].getZona()[fila][seient] == 0) {
                     partits.get(posicioPartit).setSeient(zona, fila, seient);
                     partits.get(posicioPartit).getGrada().mostrarEstadi();
+                    if (seleccio3 == 1){
+                        entrada = new ENormal(partits.get(posicioPartit),zona,fila,seient);
+                    }
+                    else{
+                        entrada = new EVip(partits.get(posicioPartit),zona,fila,seient);
+                    }
+                    entradesVenudes.add(entrada);
+                    System.out.println("Entrada registrada amb exit!!");
+                    System.out.println(entrada.toString());
+                    partits.get(posicioPartit).setRecaudacio(entrada.getPreuEntrada());
+                    partits.get(posicioPartit).setEntradesLliures();
                     esCorrecto2 = true;
                 } else {
                     System.out.println("El seinent esta ocupat...");

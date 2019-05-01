@@ -14,18 +14,29 @@ public class Partit {
     private String equipLocal;
     private String equipVisitant;
     private Grada grada;
+    private int entradesLliures;
+    private int entradesTotals;
+    private float recaudacio;
 
-    public Partit(TipusPartit tipus, LocalDate dataPartit, String equipLocal, String equipVisitant, Grada grada) {
+    public Partit(TipusPartit tipus, LocalDate dataPartit, String equipLocal, String equipVisitant, Grada grada
+    , int entradesTotals) {
         this.tipus = tipus;
         this.dataPartit = dataPartit;
         this.equipLocal = equipLocal;
         this.equipVisitant = equipVisitant;
         this.grada = grada;
         idPartit = ++idAutonumeric;
+        this.entradesTotals = entradesTotals;
+        entradesLliures = entradesTotals;
+
     }
 
     public int getIdPartit() {
         return idPartit;
+    }
+
+    public void setRecaudacio(float recaudacio) {
+        this.recaudacio += recaudacio;
     }
 
     public TipusPartit getTipus() {
@@ -42,6 +53,18 @@ public class Partit {
 
     public String getEquipVisitant() {
         return equipVisitant;
+    }
+
+    public void setEntradesLliures() {
+        entradesLliures--;
+    }
+
+    public int getEntradesLliures() {
+        return entradesLliures;
+    }
+
+    public int getEntradesTotals() {
+        return entradesTotals;
     }
 
     public Grada getGrada() {
@@ -67,7 +90,7 @@ public class Partit {
                 ", dataPartit=" + dataPartit +
                 ", equipLocal='" + equipLocal + '\'' +
                 ", equipVisitant='" + equipVisitant + '\'' +
-                '}';
+                 "entrades LLiures=" + entradesLliures + '}';
     }
 }
 
