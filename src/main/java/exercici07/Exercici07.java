@@ -347,7 +347,7 @@ public class Exercici07 {
         int posicioPartit;
         posicioPartit = introduirIdPartit();
         if (posicioPartit >= 0) {
-            System.out.println("Introduix el numero de entrada: ");
+            System.out.print("Introduix el numero de entrada: ");
             try {
                 numEntrada = Lib.introduirEnter();
             } catch (NumberFormatException nfe5) {
