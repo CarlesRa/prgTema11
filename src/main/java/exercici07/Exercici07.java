@@ -347,7 +347,6 @@ public class Exercici07 {
         int posicioPartit;
         posicioPartit = introduirIdPartit();
         if (posicioPartit >= 0) {
-            System.out.println(partits.get(posicioPartit).toString());
             System.out.println("Introduix el numero de entrada: ");
             try {
                 numEntrada = Lib.introduirEnter();

@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1a9af30c-2c67-4d9d-be32-96ef9fad33fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici07/ENormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici07/ENormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici07/EVip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici07/EVip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici07/Partit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici07/Partit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Lib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Lib.java" afterDir="false" />
     </list>
     <list id="f2a8c1e2-0c7e-4ada-895d-39c5f0610861" name="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;" comment="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;&#10;&#10;This reverts commit 3233d6a1" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -68,15 +64,14 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+                <state relative-caret-position="-174">
+                  <caret line="236" column="31" lean-forward="true" selection-start-line="236" selection-start-column="31" selection-end-line="236" selection-end-column="31" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#dadesGrades#0;class#Exercici07#0" />
                     <element signature="method#mostrarMenu#0;class#Exercici07#0" />
                     <element signature="method#menuGestio#0;class#Exercici07#0" />
                     <element signature="method#nouPartit#0;class#Exercici07#0" />
-                    <element signature="method#vendaEntrades#0;class#Exercici07#0" />
                     <element signature="method#tornarEntrada#0;class#Exercici07#0" />
                     <element signature="method#mostrarLocalitats#0;class#Exercici07#0" />
                     <element signature="method#mostrarRecaudacio#0;class#Exercici07#0" />
@@ -273,10 +268,10 @@
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Zona.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Entrada.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/Lib.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Partit.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/ENormal.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/EVip.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" />
       </list>
     </option>
   </component>
@@ -425,20 +420,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553426957594</updated>
-    </task>
-    <task id="LOCAL-00016" summary="creo el atributo pico para poder utilizarlo en los if">
-      <created>1554031358243</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1554031358243</updated>
-    </task>
-    <task id="LOCAL-00017" summary="metodo additem semi fet">
-      <created>1554046356632</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1554046356632</updated>
     </task>
     <task id="LOCAL-00018" summary="funciona pero no correctament">
       <created>1554058990669</created>
@@ -769,7 +750,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556725430638</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="intente fer metode per demanar la id del partit i netetge el codig">
+      <created>1556727311841</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1556727311841</updated>
+    </task>
+    <task id="LOCAL-00066" summary="repare errors">
+      <created>1556727644084</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1556727644084</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TodoView">
@@ -890,8 +885,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Devolver producto hecho a falta de setear el recargo" />
-    <MESSAGE value="Fuerzo el recargo y lo calcula correctamente" />
     <MESSAGE value="ya no alquila si hay recargos" />
     <MESSAGE value="Falta testear cuando quiere devolver un socio que no ha alquilado" />
     <MESSAGE value="apaño la entrada de datos de los metodos" />
@@ -915,7 +908,9 @@
     <MESSAGE value="tracte les exepcions de la venda dentrades" />
     <MESSAGE value="tornar entrades commennsa a funcionar" />
     <MESSAGE value="fins a mostrar recaudacio a falta de proves" />
-    <option name="LAST_COMMIT_MESSAGE" value="fins a mostrar recaudacio a falta de proves" />
+    <MESSAGE value="intente fer metode per demanar la id del partit i netetge el codig" />
+    <MESSAGE value="repare errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="repare errors" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici04/Electrodomestico.java">
@@ -1370,15 +1365,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        <state relative-caret-position="-174">
+          <caret line="236" column="31" lean-forward="true" selection-start-line="236" selection-start-column="31" selection-end-line="236" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#dadesGrades#0;class#Exercici07#0" />
             <element signature="method#mostrarMenu#0;class#Exercici07#0" />
             <element signature="method#menuGestio#0;class#Exercici07#0" />
             <element signature="method#nouPartit#0;class#Exercici07#0" />
-            <element signature="method#vendaEntrades#0;class#Exercici07#0" />
             <element signature="method#tornarEntrada#0;class#Exercici07#0" />
             <element signature="method#mostrarLocalitats#0;class#Exercici07#0" />
             <element signature="method#mostrarRecaudacio#0;class#Exercici07#0" />
