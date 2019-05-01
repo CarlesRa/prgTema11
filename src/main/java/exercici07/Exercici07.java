@@ -10,26 +10,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Exercici07 {
-    private static final int MAX_ZONES = 20;
-    private static final int MAX_ZONES_VIP = 20;
-    private static final int MAX_FILES = 100;
-    private static final int MAX_SEIENTS = 200;
-    private int numZonesNormals;
-    private int numZonesVip;
-    private int files;
-    private int seientsPerFila;
     private int eleccio;
     private int eleccio2;
     private boolean esCorrecto;
-    private Estadi estadi;
     private Zona zona;
-    private ArrayList<Partit>partits;
+    private ArrayList<Partit> partits;
+    private ArrayList<Entrada> entradesVenudes;
     public Exercici07(){
         partits = new ArrayList<>();
-        //utilitzem el metode per demanar les grades del estadi
-        dadesGrades();
-        System.out.println("Estadi completat amb exit!!\n");
-        estadi.mostrarEstadi();
+        entradesVenudes = new ArrayList<>();
         do{
             eleccio = mostrarMenu();
             if (eleccio < 0 || eleccio > 2){
@@ -81,9 +70,18 @@ public class Exercici07 {
     /**
      * metode per demanar les dades de les grades
      */
-    public void dadesGrades(){
+    public Grada dadesGrades(){
+        final int MAX_ZONES = 20;
+        final int MAX_ZONES_VIP = 20;
+        final int MAX_FILES = 100;
+        final int MAX_SEIENTS = 200;
+        int numZonesNormals;
+        int numZonesVip;
+        int files;
+        int seientsPerFila;
+        Grada grada;
         do {
-            System.out.print("Indique les zones normals que te l´estadi: ");
+            System.out.print("Indique les zones normals que te l´grada: ");
             numZonesNormals = Lib.introduirEnter();
             if (numZonesNormals < 0 || numZonesNormals > MAX_ZONES){
                 System.out.println("hi ha un maxim de: " + MAX_ZONES);
@@ -91,7 +89,7 @@ public class Exercici07 {
         }while(numZonesNormals < 0 || numZonesNormals > MAX_ZONES);
 
         do {
-            System.out.print("Indique les zones VIP que te l´estadi: ");
+            System.out.print("Indique les zones VIP que te l´grada: ");
             numZonesVip = Lib.introduirEnter();
             if (numZonesNormals < 0 || numZonesNormals > MAX_ZONES_VIP){
                 System.out.println("hi ha un maxim de: " + MAX_ZONES_VIP);
@@ -114,18 +112,18 @@ public class Exercici07 {
             }
         }while(files < 0 || files > MAX_SEIENTS);
 
-        estadi = new Estadi(numZonesNormals, numZonesVip);
+        grada = new Grada(numZonesNormals, numZonesVip);
         for (int i=0; i<(numZonesNormals + numZonesVip); i++){
             if (i < numZonesNormals){
                 zona = new ZonaNormal(files,seientsPerFila);
-                estadi.addZona(i, zona);
+                grada.addZona(i, zona);
             }
             else{
                 zona = new ZonaVip(files,seientsPerFila);
-                estadi.addZona(i, zona);
+                grada.addZona(i, zona);
             }
         }
-
+        return grada;
     }
 
     public int mostrarMenu(){
@@ -161,6 +159,8 @@ public class Exercici07 {
         String local;
         String visitant;
         TipusPartit tipusPartit = TipusPartit.MITJA_AFLUENCIA;
+        System.out.println();
+        Grada gradaPartit = dadesGrades();
         int seleccioTipus = 0;
         boolean esCorrecto = false;
         do{
@@ -199,9 +199,11 @@ public class Exercici07 {
                 switch (seleccioTipus){
                     case 1:{
                         tipusPartit = TipusPartit.ALTA_AFLUENCIA;
+                        break;
                     }
                     case 2:{
                         tipusPartit = TipusPartit.MITJA_AFLUENCIA;
+                        break;
                     }
                     case 3:{
                         tipusPartit = TipusPartit.BAIXA_AFLUENCIA;
@@ -209,7 +211,7 @@ public class Exercici07 {
                 }
             }
         }while (!esCorrecto);
-        partit = new Partit(tipusPartit,dataPartit,local,visitant,estadi);
+        partit = new Partit(tipusPartit,dataPartit,local,visitant, gradaPartit);
         partits.add(partit);
     }
 
@@ -220,6 +222,7 @@ public class Exercici07 {
         int zona = 0;
         int fila = 0;
         int seient = 0;
+        int seleccio3 = 0;
         boolean esCorrecto2 = false;
         System.out.print("introduix el ID de partit: ");
         idPartit = Lib.introduirEnter();
@@ -234,15 +237,40 @@ public class Exercici07 {
             return;
         }
         System.out.println(partits.get(posicioPartit).toString());
-        System.out.print("Selecciona la zona: ");
-        zona = Lib.introduirEnter();
-        System.out.print("Selecciona la fila: ");
-        fila = Lib.introduirEnter();
-        System.out.print("Selecciona el seient: ");
-        seient = Lib.introduirEnter();
-        partits.get(posicioPartit).setEntrades(zona,fila,seient);
-        /*System.out.print("Moltes entrades dessitja vendre?: ");
-        numEntrades = Lib.introduirEnter();*/
-        partits.get(posicioPartit).getEstadi().mostrarEstadi();
+        System.out.print("Moltes entrades dessitja vendre?: ");
+        numEntrades = Lib.introduirEnter();
+        for (int i=0; i<numEntrades; i++) {
+            do {
+                System.out.println("Selecciona el tipus d'entrada: ");
+                System.out.println("1-Normal");
+                System.out.println("2-VIP");
+                seleccio3 = Lib.introduirEnter();
+                if (seleccio3 < 1 || seleccio3 > 2) {
+                    System.out.println("Selecció incorrecta....");
+                }
+            } while (!esCorrecto2);
+            switch (seleccio3) {
+                case 1: {
+                    System.out.println("Zones normals: ");
+                    partits.get(posicioPartit).getGrada().mostrarZonesNormals();
+                    break;
+                }
+                case 2: {
+                    System.out.println("Zones VIP: ");
+                    partits.get(posicioPartit).getGrada().mostrarZonesVip();
+                    break;
+                }
+            }
+            System.out.print("Selecciona la zona: ");
+            zona = Lib.introduirEnter();
+            System.out.print("Selecciona la fila: ");
+            fila = Lib.introduirEnter();
+            System.out.print("Selecciona el seient: ");
+            seient = Lib.introduirEnter();
+            partits.get(posicioPartit).setSeient(zona, fila, seient);
+            partits.get(posicioPartit).getGrada().mostrarEstadi();
+        }
     }
+
+
 }

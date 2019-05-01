@@ -5,10 +5,10 @@
 package exercici07;
 
 
-public class Estadi {
+public class Grada {
     private Zona [] zones;
 
-    public Estadi(int zonesNormals, int zonesVip) {
+    public Grada(int zonesNormals, int zonesVip) {
         zones = new Zona[zonesNormals + zonesVip];
     }
 
@@ -33,4 +33,23 @@ public class Estadi {
             }
         }
     }
+
+    public void mostrarZonesVip(){
+        for (int i=0; i<zones.length; i++){
+            if (zones[i] instanceof ZonaVip) {
+                System.out.println("Zona VIP: " + i);
+                zones[i].mostrarZonas();
+            }
+        }
+    }
+
+    public void mostrarZonesNormals(){
+        for (int i=0; i<zones.length; i++){
+            if (zones[i] instanceof ZonaNormal) {
+                System.out.println("Zona Normal: " + i);
+                zones[i].mostrarZonas();
+            }
+        }
+    }
+
 }

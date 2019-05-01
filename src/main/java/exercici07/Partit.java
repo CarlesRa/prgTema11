@@ -13,14 +13,14 @@ public class Partit {
     private LocalDate dataPartit;
     private String equipLocal;
     private String equipVisitant;
-    private Estadi estadi;
+    private Grada grada;
 
-    public Partit(TipusPartit tipus, LocalDate dataPartit, String equipLocal, String equipVisitant, Estadi estadi) {
+    public Partit(TipusPartit tipus, LocalDate dataPartit, String equipLocal, String equipVisitant, Grada grada) {
         this.tipus = tipus;
         this.dataPartit = dataPartit;
         this.equipLocal = equipLocal;
         this.equipVisitant = equipVisitant;
-        this.estadi = estadi;
+        this.grada = grada;
         idPartit = ++idAutonumeric;
     }
 
@@ -44,12 +44,19 @@ public class Partit {
         return equipVisitant;
     }
 
-    public Estadi getEstadi() {
-        return estadi;
+    public Grada getGrada() {
+        return grada;
     }
 
-    public void setEntrades(int zona, int fila, int seient){
-        estadi.getZones()[zona].setSeient(fila,seient);
+    public boolean setSeient(int zona, int fila, int seient){
+        try {
+            grada.getZones()[zona].setSeient(fila, seient);
+            return true;
+        }
+        catch (IndexOutOfBoundsException iobe){
+            System.out.println("Dades incorrectes, revise el planol de les grades");
+            return false;
+        }
     }
 
     @Override
