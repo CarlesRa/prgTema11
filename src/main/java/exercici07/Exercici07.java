@@ -236,17 +236,15 @@ public class Exercici07 {
      */
     public void vendaEntrades(){
         Entrada entrada;
-        int numEntrades = 0;
-        int idPartit = 0;
-        int posicioPartit = 0;
+        int numEntrades;
+        int posicioPartit;
         int zona = 0;
         int fila = 0;
         int seient = 0;
-        int seleccio3 = 0;
+        int seleccio3;
         boolean esCorrecto2 = false;
         posicioPartit = introduirIdPartit();
         if (posicioPartit >= 0) {
-            System.out.println(partits.get(posicioPartit).toString());
             //demanem el nombre dentrades a vendre
             System.out.print("Moltes entrades dessitja vendre?: ");
             numEntrades = Lib.introduirEnter();
