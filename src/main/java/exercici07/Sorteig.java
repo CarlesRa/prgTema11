@@ -17,10 +17,6 @@ public class Sorteig {
         plenarBombos(numLocalitats);
     }
 
-    public ArrayList<Integer> getNombresSorteigEntrada() {
-        return nombresSorteigEntrada;
-    }
-
     public void addnombresSorteigEntrada(int numSorteig) {
         nombresSorteigEntrada.add(numSorteig);
     }
@@ -39,7 +35,7 @@ public class Sorteig {
         return numSorteig;
     }
 
-    public int generarSorteig(){
+    public int generarSorteig(Partit partit){
         return nombresSorteig.get(Lib.random(0,nombresSorteig.size()-1));
     }
 }

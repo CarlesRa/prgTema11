@@ -153,7 +153,7 @@ public class Exercici07 {
      */
     public int menuGestio(){
         int eleccio = 0;
-        System.out.println("** GESTIÓ D'ENTRADES **");
+        System.out.println("** GESTIÓ D'ENTRADES I RECAUDACIÓ **");
         System.out.println("1-Venda entrades");
         System.out.println("2-Tornar entrada");
         System.out.println("3-Llistat de localitats");
@@ -399,13 +399,13 @@ public class Exercici07 {
                     partits.get(posicioPartit).setSeientLliure(partits.get(posicioPartit).getEntradesVenudes()
                     .get(i).getZona(), partits.get(posicioPartit).getEntradesVenudes().get(i).getFila()
                     , partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSeient());
-                    //llevem lentrada de la llista de les entrades venudes
-                    partits.get(posicioPartit).getEntradesVenudes().remove(i);
                     //en cas de entrada normal tornem a ficar el numero de sorteig al bombo
                     if (partits.get(posicioPartit).getEntradesVenudes().get(i) instanceof ENormal) {
                         partits.get(posicioPartit).getSorteig().addnombresSorteigEntrada(partits.get(posicioPartit)
                                 .getEntradesVenudes().get(i).getNumSorteig());
                     }
+                    //llevem lentrada de la llista de les entrades venudes
+                    partits.get(posicioPartit).getEntradesVenudes().remove(i);
                 }
             }
         }

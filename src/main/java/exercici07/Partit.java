@@ -88,7 +88,7 @@ public class Partit {
                 "idPartit=" + idPartit +
                 ", tipus=" + tipus +
                 ", data Partit=" + dataPartit +
-                ", equi pLocal='" + equipLocal + '\'' +
+                ", equip Local='" + equipLocal + '\'' +
                 ", equip Visitant='" + equipVisitant + '\'' +
                  ", entrades LLiures=" + entradesLliures + '}';
     }
