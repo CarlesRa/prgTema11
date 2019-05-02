@@ -374,14 +374,19 @@ public class Exercici07 {
     public void tornarEntrada(){
         int numEntrada = 0;
         int posicioPartit;
+        boolean esCorrecto4 = false;
         posicioPartit = introduirIdPartit();
         if (posicioPartit >= 0) {
-            System.out.print("Introduix el numero de entrada: ");
-            try {
-                numEntrada = Lib.introduirEnter();
-            } catch (NumberFormatException nfe5) {
-                System.out.println("Dades incorrectes....");
-            }
+            do {
+                System.out.print("Introduix el numero d'entrada: ");
+                try {
+                    numEntrada = Lib.introduirEnter();
+                    esCorrecto4 = true;
+                } catch (NumberFormatException nfe5) {
+                    System.out.println("Dades incorrectes....");
+                    esCorrecto4 = false;
+                }
+            }while (!esCorrecto4);
             for (int i = 0; i < partits.get(posicioPartit).getEntradesVenudes().size(); i++) {
                 //comprovem que la entrada existix
                 if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumEntrada() == numEntrada) {
