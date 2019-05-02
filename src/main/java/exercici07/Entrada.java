@@ -22,6 +22,7 @@ public abstract class Entrada{
         this.fila = fila;
         this.numSeient = numSeient;
         idPartit = partit.getIdPartit();
+        numSorteig = Integer.MIN_VALUE;
     }
 
     public float getPreuEntrada() {

@@ -32,7 +32,7 @@ public class Exercici07 {
                     case 2: {
                         do {
                             eleccio2 = menuGestio();
-                            if (eleccio2 < 0 || eleccio2 > 4) {
+                            if (eleccio2 < 0 || eleccio2 > 5) {
                                 System.out.println("Selecció Incorrecta...");
                             }
                             else{
@@ -53,12 +53,16 @@ public class Exercici07 {
                                         mostrarRecaudacio();
                                         break;
                                     }
+                                    case 5:{
+                                        generarSorteig();
+                                        break;
+                                    }
                                     case 0:{
                                         esCorrecto = false;
                                     }
                                 }
                             }
-                        } while (eleccio2 < 0 || eleccio2 > 4);
+                        } while (eleccio2 < 0 || eleccio2 > 5);
                         break;
                     }
                     case 0:{
@@ -158,6 +162,7 @@ public class Exercici07 {
         System.out.println("2-Tornar entrada");
         System.out.println("3-Llistat de localitats");
         System.out.println("4-Mostrar recaudació del partit");
+        System.out.println("5-Fer el sorteig del partit");
         System.out.println("0-Tornar al menu principal");
         System.out.print("Selecciona una opció: ");
         eleccio = Lib.introduirEnter();
@@ -465,4 +470,20 @@ public class Exercici07 {
         return posicioPartit;
     }
 
+    public void generarSorteig(){
+        int posicioPartit;
+        int numSorteig = 0;
+        posicioPartit = introduirIdPartit();
+        if (posicioPartit >= 0){
+            numSorteig = partits.get(posicioPartit).getSorteig().generarSorteig();
+            for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
+                if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSorteig() == numSorteig){
+                    System.out.println("La entrada guanyadora per al nombre " + numSorteig
+                    + " Es:");
+                    System.out.println(partits.get(posicioPartit).getEntradesVenudes().get(i).toString());
+                }
+            }
+        }
+
+    }
 }

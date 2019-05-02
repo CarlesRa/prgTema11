@@ -35,7 +35,7 @@ public class Sorteig {
         return numSorteig;
     }
 
-    public int generarSorteig(Partit partit){
+    public int generarSorteig(){
         return nombresSorteig.get(Lib.random(0,nombresSorteig.size()-1));
     }
 }
