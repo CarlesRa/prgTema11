@@ -97,26 +97,26 @@ public class Exercici07 {
         do {
             System.out.print("Indique les zones VIP que te la grada: ");
             numZonesVip = Lib.introduirEnter();
-            if (numZonesNormals < 0 || numZonesNormals > MAX_ZONES_VIP){
+            if (numZonesNormals <= 0 || numZonesNormals > MAX_ZONES_VIP){
                 System.out.println("hi ha un maxim de: " + MAX_ZONES_VIP);
             }
-        }while(numZonesVip < 0 || numZonesVip > MAX_ZONES_VIP);
+        }while(numZonesVip <= 0 || numZonesVip > MAX_ZONES_VIP);
 
         do {
             System.out.print("Indique les files que hi ha per zona: ");
             files = Lib.introduirEnter();
-            if (files < 0 || files > MAX_FILES){
+            if (files <= 0 || files > MAX_FILES){
                 System.out.println("hi ha un maxim de: " + MAX_FILES);
             }
-        }while(files < 0 || files > MAX_FILES);
+        }while(files <= 0 || files > MAX_FILES);
 
         do {
             System.out.print("Indique els seients que hi ha per fila: ");
             seientsPerFila = Lib.introduirEnter();
-            if (files < 0 || seientsPerFila > MAX_SEIENTS){
+            if (seientsPerFila <= 0 || seientsPerFila > MAX_SEIENTS){
                 System.out.println("hi ha un maxim de: " + MAX_SEIENTS);
             }
-        }while(files < 0 || files > MAX_SEIENTS);
+        }while(seientsPerFila <= 0 || seientsPerFila > MAX_SEIENTS);
 
         grada = new Grada(numZonesNormals, numZonesVip);
         for (int i=0; i<(numZonesNormals + numZonesVip); i++){
@@ -473,6 +473,7 @@ public class Exercici07 {
     public void generarSorteig(){
         int posicioPartit;
         int numSorteig = 0;
+        boolean esCorrecte = false;
         posicioPartit = introduirIdPartit();
         if (posicioPartit >= 0){
             numSorteig = partits.get(posicioPartit).getSorteig().generarSorteig();
@@ -481,7 +482,12 @@ public class Exercici07 {
                     System.out.println("La entrada guanyadora per al nombre " + numSorteig
                     + " Es:");
                     System.out.println(partits.get(posicioPartit).getEntradesVenudes().get(i).toString());
+                    System.out.println("ENORABONA!!!!");
+                    esCorrecte = true;
                 }
+            }
+            if (!esCorrecte){
+                System.out.println("Ninguna entrada premiada....");
             }
         }
 
