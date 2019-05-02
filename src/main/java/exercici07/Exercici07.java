@@ -143,7 +143,7 @@ public class Exercici07 {
         System.out.println("** GESTI-FOOTBALL**");
         System.out.println("*******************");
         System.out.println("1-Nou partit");
-        System.out.println("2-Gestio d'entrades");
+        System.out.println("2-Gestio de partit");
         System.out.println("0-Eixir...");
         System.out.println("*******************");
         System.out.print("Seleccione una opció: ");
@@ -157,7 +157,7 @@ public class Exercici07 {
      */
     public int menuGestio(){
         int eleccio = 0;
-        System.out.println("** GESTIÓ D'ENTRADES I RECAUDACIÓ **");
+        System.out.println("** GESTIÓ DE PARTIT **");
         System.out.println("1-Venda entrades");
         System.out.println("2-Tornar entrada");
         System.out.println("3-Llistat de localitats");
