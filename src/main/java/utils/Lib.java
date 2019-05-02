@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class Lib {
@@ -123,7 +124,12 @@ public class Lib {
 
     public static LocalDate convertToLocalDate(String s){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate lD = LocalDate.parse(s,formatter);
+        LocalDate lD = LocalDate.MIN;
+        try {
+             lD = LocalDate.parse(s, formatter);
+        }catch (DateTimeParseException dtpe){
+            System.out.println("Data incorrecta");
+        }
         return lD;
     }
 

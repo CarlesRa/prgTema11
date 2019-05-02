@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a9af30c-2c67-4d9d-be32-96ef9fad33fb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exercici07/Sorteig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exercici07/Sorteig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Lib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Lib.java" afterDir="false" />
     </list>
     <list id="f2a8c1e2-0c7e-4ada-895d-39c5f0610861" name="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;" comment="Revert &quot;cree la clase inventari, pero dona out of bounds el tornar la pelicula&quot;&#10;&#10;This reverts commit 3233d6a1" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -61,21 +61,32 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
-                  <caret line="398" column="91" selection-start-line="398" selection-start-column="91" selection-end-line="398" selection-end-column="91" />
+                <state relative-caret-position="82">
+                  <caret line="157" column="47" lean-forward="true" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#dadesGrades#0;class#Exercici07#0" />
                     <element signature="method#mostrarMenu#0;class#Exercici07#0" />
-                    <element signature="method#menuGestio#0;class#Exercici07#0" />
                     <element signature="method#nouPartit#0;class#Exercici07#0" />
                     <element signature="method#vendaEntrades#0;class#Exercici07#0" />
                     <element signature="method#mostrarLocalitats#0;class#Exercici07#0" />
                     <element signature="method#mostrarRecaudacio#0;class#Exercici07#0" />
                     <element signature="method#introduirIdPartit#0;class#Exercici07#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="166">
+                  <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -111,10 +122,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Partit.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="71" column="33" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
+                <state relative-caret-position="1050">
+                  <caret line="90" column="25" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#1732#1733#0" expanded="true" />
                     <element signature="e#1762#1763#0" expanded="true" />
                   </folding>
                 </state>
@@ -157,7 +169,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/ENormal.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="75">
@@ -166,15 +178,13 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Sorteig.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+                <state relative-caret-position="128">
+                  <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#422#423#0" expanded="true" />
-                    <element signature="e#466#467#0" expanded="true" />
                     <element signature="e#414#415#0" expanded="true" />
                     <element signature="e#480#481#0" expanded="true" />
                   </folding>
@@ -281,14 +291,14 @@
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Estadi.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Taquilla.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Grada.java" />
-        <option value="$PROJECT_DIR$/src/main/java/utils/Lib.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/EVip.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Zona.java" />
-        <option value="$PROJECT_DIR$/src/main/java/exercici07/Partit.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Entrada.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/ENormal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/exercici07/Partit.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Sorteig.java" />
         <option value="$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java" />
+        <option value="$PROJECT_DIR$/src/main/java/utils/Lib.java" />
       </list>
     </option>
   </component>
@@ -429,27 +439,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553426957594</updated>
-    </task>
-    <task id="LOCAL-00024" summary="intente reparar els  items apilable low">
-      <created>1554201539697</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1554201539697</updated>
-    </task>
-    <task id="LOCAL-00025" summary="solucionade items apilable low">
-      <created>1554202581975</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1554202581975</updated>
-    </task>
-    <task id="LOCAL-00026" summary="apilar complet falta el desapilar i mostrar el menu">
-      <created>1554204188399</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1554204188399</updated>
     </task>
     <task id="LOCAL-00027" summary="desapilar madera parece que funciona">
       <created>1554213779851</created>
@@ -773,7 +762,28 @@
       <option name="project" value="LOCAL" />
       <updated>1556785314769</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="repare que al tornar entrada nomes fique el numero de bombo en cas &#10;dentrada normal">
+      <created>1556785789351</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1556785789351</updated>
+    </task>
+    <task id="LOCAL-00074" summary="repare que al tornar entrada nomes fique el numero de bombo en cas &#10;dentrada normal">
+      <created>1556785910430</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1556785910430</updated>
+    </task>
+    <task id="LOCAL-00075" summary="pareix que esta fer a falta de proves">
+      <created>1556787059452</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1556787059452</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TodoView">
@@ -798,7 +808,7 @@
       <window_info id="Favorites" order="6" sideWeight="0.504886" side_tool="true" weight="0.3659091" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.67672414" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.67672414" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3448276" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -894,8 +904,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="intento que se puedan alquilar varios productos Hecho&#10;(Por ahora) a falta de implementar que ppueda devolver &#10;el producto que desee" />
-    <MESSAGE value="Retoco el codigo evitando redundancias, falta le eleccion de si desea pagar o no el recargo" />
     <MESSAGE value="preix que funcione tot" />
     <MESSAGE value="falla la impresio del client amb recarrec, perque mostra la pelicula que no es &#10;encara que fa be la funcio" />
     <MESSAGE value="fetisim a falta de retocar les imopresions" />
@@ -919,7 +927,9 @@
     <MESSAGE value="arregle la seleccio de zones al vendre una entrada&#10;&#10;falta el numero del sorteig de les entrades normals" />
     <MESSAGE value="arregle la seleccio de zones al vendre una entrada&#10;&#10;falta el numero del sorteig de les entrades normals&#10;&quot;Arregle un poquet el codig&quot;" />
     <MESSAGE value="modifique el nombre del sorteig, a falta de proves" />
-    <option name="LAST_COMMIT_MESSAGE" value="modifique el nombre del sorteig, a falta de proves" />
+    <MESSAGE value="repare que al tornar entrada nomes fique el numero de bombo en cas &#10;dentrada normal" />
+    <MESSAGE value="pareix que esta fer a falta de proves" />
+    <option name="LAST_COMMIT_MESSAGE" value="pareix que esta fer a falta de proves" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici05/Personaje.java">
@@ -1254,32 +1264,11 @@
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/time/format/DateTimeFormatter.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4350">
-          <caret line="296" selection-start-line="296" selection-end-line="296" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Taquilla.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/ZonaVip.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Grada.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding>
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1294,31 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Partit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="71" column="33" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1762#1763#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Sorteig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#422#423#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1357,20 +1321,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Partit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="90" column="25" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1732#1733#0" expanded="true" />
+            <element signature="e#1762#1763#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Grada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+          <folding>
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Sorteig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/exercici07/Exercici07.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="398" column="91" selection-start-line="398" selection-start-column="91" selection-end-line="398" selection-end-column="91" />
+        <state relative-caret-position="82">
+          <caret line="157" column="47" lean-forward="true" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#dadesGrades#0;class#Exercici07#0" />
             <element signature="method#mostrarMenu#0;class#Exercici07#0" />
-            <element signature="method#menuGestio#0;class#Exercici07#0" />
             <element signature="method#nouPartit#0;class#Exercici07#0" />
             <element signature="method#vendaEntrades#0;class#Exercici07#0" />
             <element signature="method#mostrarLocalitats#0;class#Exercici07#0" />
             <element signature="method#mostrarRecaudacio#0;class#Exercici07#0" />
             <element signature="method#introduirIdPartit#0;class#Exercici07#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Lib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="131" column="9" selection-start-line="131" selection-start-column="9" selection-end-line="131" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
