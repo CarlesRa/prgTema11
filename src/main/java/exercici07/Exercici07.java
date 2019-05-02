@@ -396,9 +396,11 @@ public class Exercici07 {
                     , partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSeient());
                     //llevem lentrada de la llista de les entrades venudes
                     partits.get(posicioPartit).getEntradesVenudes().remove(i);
-                    //tornem a ficar el numero de sorteig per poder ser agafat per una entrada nova
-                    partits.get(posicioPartit).getSorteig().addnombresSorteigEntrada(partits.get(posicioPartit)
-                    .getEntradesVenudes().get(i).getNumSorteig());
+                    //en cas de entrada normal tornem a ficar el numero de sorteig al bombo
+                    if (partits.get(posicioPartit).getEntradesVenudes().get(i) instanceof ENormal) {
+                        partits.get(posicioPartit).getSorteig().addnombresSorteigEntrada(partits.get(posicioPartit)
+                                .getEntradesVenudes().get(i).getNumSorteig());
+                    }
                 }
             }
         }

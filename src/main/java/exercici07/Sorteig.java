@@ -13,6 +13,7 @@ public class Sorteig {
     private ArrayList<Integer> nombresSorteig;
     public Sorteig(int numLocalitats){
         nombresSorteigEntrada = new ArrayList<>();
+        nombresSorteig = new ArrayList<>();
         plenarBombos(numLocalitats);
     }
 
