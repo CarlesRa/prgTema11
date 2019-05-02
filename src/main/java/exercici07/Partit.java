@@ -17,6 +17,7 @@ public class Partit {
     private Grada grada;
     private int entradesLliures;
     private float recaudacio;
+    private Sorteig sorteig;
     private ArrayList<Entrada> entradesVenudes;
     public Partit(TipusPartit tipus, LocalDate dataPartit, String equipLocal, String equipVisitant, Grada grada
     , int entradesTotals) {
@@ -29,6 +30,7 @@ public class Partit {
         entradesLliures = entradesTotals;
         recaudacio = 0;
         entradesVenudes = new ArrayList<>();
+        sorteig = new Sorteig(entradesLliures);
     }
 
     public ArrayList<Entrada> getEntradesVenudes() {
@@ -65,6 +67,10 @@ public class Partit {
 
     public Grada getGrada() {
         return grada;
+    }
+
+    public Sorteig getSorteig() {
+        return sorteig;
     }
 
     public boolean setSeientOcupat(int zona, int fila, int seient){

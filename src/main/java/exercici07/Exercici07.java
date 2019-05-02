@@ -334,21 +334,31 @@ public class Exercici07 {
                             esCorrecto2 = false;
                         }
                     } while (!esCorrecto2);
+                    // si tot es correcte comprovem si el seient esta lliure
                     if (partits.get(posicioPartit).getGrada().getZones()[zona].getZona()[fila][seient] == 0) {
+                        //marquem el seient com a ocupat
                         partits.get(posicioPartit).setSeientOcupat(zona, fila, seient);
+                        //mostrem les grades
                         partits.get(posicioPartit).getGrada().mostrarEstadi();
+                        //filtrem segons la eleccio, per a que es pugurn seleccionar les zones correctes
                         if (seleccio3 == 1) {
-                            entrada = new ENormal(partits.get(posicioPartit), zona, fila, seient);
+                            entrada = new ENormal(partits.get(posicioPartit), zona, fila, seient
+                            , partits.get(posicioPartit).getSorteig().numeroSorteigEntrada());
                         } else {
                             entrada = new EVip(partits.get(posicioPartit), zona, fila, seient);
                         }
+                        //anyadim la entrada a la llista dentrades venudes
                         partits.get(posicioPartit).getEntradesVenudes().add(entrada);
                         System.out.println("Entrada registrada amb exit!!");
+                        //mostrem lentrada
                         System.out.println(entrada.toString());
+                        // sumem la recaudacio
                         partits.get(posicioPartit).sumarRecaudacio(entrada.getPreuEntrada());
+                        // descomptem la entrada de les entrades lliures del partit
                         partits.get(posicioPartit).descomptarEntrada();
                         esCorrecto2 = true;
                     }
+                    //informem en cas que el seient estiga ocupat
                     else {
                         System.out.println("El seinent esta ocupat...");
                         esCorrecto2 = false;
@@ -373,14 +383,22 @@ public class Exercici07 {
                 System.out.println("Dades incorrectes....");
             }
             for (int i = 0; i < partits.get(posicioPartit).getEntradesVenudes().size(); i++) {
+                //comprovem que la entrada existix
                 if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumEntrada() == numEntrada) {
+                    //pujem el compte dentrades venudes
                     partits.get(posicioPartit).comptarEntrada();
+                    //decrementem la recaudacio
                     partits.get(posicioPartit).restarRecaudacio(partits.get(posicioPartit).getEntradesVenudes().get(i)
-                            .getPreuEntrada());
+                    .getPreuEntrada());
+                    //marquem el seient com a lliure
                     partits.get(posicioPartit).setSeientLliure(partits.get(posicioPartit).getEntradesVenudes()
-                                    .get(i).getZona(), partits.get(posicioPartit).getEntradesVenudes().get(i).getFila()
-                            , partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSeient());
+                    .get(i).getZona(), partits.get(posicioPartit).getEntradesVenudes().get(i).getFila()
+                    , partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSeient());
+                    //llevem lentrada de la llista de les entrades venudes
                     partits.get(posicioPartit).getEntradesVenudes().remove(i);
+                    //tornem a ficar el numero de sorteig per poder ser agafat per una entrada nova
+                    partits.get(posicioPartit).getSorteig().addnombresSorteigEntrada(partits.get(posicioPartit)
+                    .getEntradesVenudes().get(i).getNumSorteig());
                 }
             }
         }

@@ -6,12 +6,10 @@ package exercici07;
 
 public class ENormal extends Entrada {
     private final int PREU_BASE = 30;
-    private int numSorteig;
-
-    public ENormal(Partit partit, int zona, int fila, int numSeient) {
+    public ENormal(Partit partit, int zona, int fila, int numSeient, int numSorteig) {
         super(partit, zona, fila, numSeient);
         preuEntrada = calcularPreuEntrada(partit);
-        numSorteig = numEntrada;
+        this.numSorteig = numSorteig;
     }
 
     @Override

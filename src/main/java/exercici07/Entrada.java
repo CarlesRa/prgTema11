@@ -4,7 +4,7 @@
 
 package exercici07;
 
-public abstract class Entrada {
+public abstract class Entrada{
     protected static final float INCREMENT_ALTA_AFLUENCIA = 1.3f;
     protected static final float DECREMENT_BAIXA_AFLUENCIA = 0.75f;
     protected static int numAuto;
@@ -13,6 +13,7 @@ public abstract class Entrada {
     protected int zona;
     protected int fila;
     protected int numSeient;
+    protected int numSorteig;
     protected float preuEntrada;
 
     public Entrada(Partit partit, int zona, int fila, int numSeient) {
@@ -43,6 +44,9 @@ public abstract class Entrada {
         return numSeient;
     }
 
+    public int getNumSorteig() {
+        return numSorteig;
+    }
     @Override
     public String toString() {
         return "Entrada{" +
