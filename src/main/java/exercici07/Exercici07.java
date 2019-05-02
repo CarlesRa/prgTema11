@@ -487,7 +487,7 @@ public class Exercici07 {
                 }
             }
             if (!esCorrecte){
-                System.out.println("Ninguna entrada premiada....");
+                System.out.println(Lib.letraRoja() + "Ninguna entrada premiada...." + Lib.reiniciarColorLetra());
             }
         }
 
