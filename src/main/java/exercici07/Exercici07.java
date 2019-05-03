@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Exercici07 {
     private int eleccio;
     private int eleccio2;
-    private int idPartit;
+    private int posicioPartit;
     private boolean esCorrecto;
     private Zona zona;
     private ArrayList<Partit> partits;
@@ -31,7 +31,7 @@ public class Exercici07 {
                         break;
                     }
                     case 2: {
-                        idPartit = mostrarLlistaPartits();
+                        posicioPartit = mostrarLlistaPartits();
                         do {
                             eleccio2 = menuGestio();
                             if (eleccio2 < 0 || eleccio2 > 5) {
@@ -79,8 +79,8 @@ public class Exercici07 {
      * mostra el menu principal
      * @return retorna la elecció del menu
      */
-    public int mostrarMenu(){
-        int eleccio = 0;
+    private int mostrarMenu(){
+        int eleccio;
         System.out.println("** GESTI-FOOTBALL**");
         System.out.println("*******************");
         System.out.println("1-Nou partit");
@@ -92,48 +92,10 @@ public class Exercici07 {
         return eleccio;
     }
 
-    public int mostrarLlistaPartits(){
-        boolean esCorrecte;
-        int idParit;
-        for (int i=0; i<partits.size(); i++){
-            if (partits.get(i).getDataPartit().isAfter(LocalDate.now())){
-                System.out.println(partits.get(i).toString());
-            }
-        }
-        do {
-            System.out.print("Seleccione la id del partit del que desitja gestionar: ");
-                idParit = Lib.introduirEnter();
-                esCorrecte = true;
-                if (idParit < 0){
-                    esCorrecte = false;
-                }
-
-        }while (!esCorrecte);
-        return idParit;
-    }
-
-    /**
-     * mostra el menu de gestió
-     * @return la elecció del menu
-     */
-    public int menuGestio(){
-        int eleccio = 0;
-        System.out.println("** GESTIÓ DE PARTIT **");
-        System.out.println("1-Venda entrades");
-        System.out.println("2-Tornar entrada");
-        System.out.println("3-Llistat de localitats");
-        System.out.println("4-Mostrar recaudació del partit");
-        System.out.println("5-Fer el sorteig del partit");
-        System.out.println("0-Tornar al menu principal");
-        System.out.print("Selecciona una opció: ");
-        eleccio = Lib.introduirEnter();
-        return eleccio;
-    }
-
     /**
      * demana les dades per introduir un nou partit
      */
-    public void nouPartit(){
+    private void nouPartit(){
         Partit partit;
         LocalDate dataPartit = LocalDate.now();
         String demanarData;
@@ -141,7 +103,7 @@ public class Exercici07 {
         String visitant;
         TipusPartit tipusPartit = TipusPartit.MITJA_AFLUENCIA;
         Grada gradaPartit = dadesGrades();
-        int seleccioTipus = 0;
+        int seleccioTipus;
         boolean esCorrecto = false;
         do{
             System.out.print("Introduix la data del partit: ");
@@ -198,18 +160,54 @@ public class Exercici07 {
     }
 
     /**
+     * mostra el partirs no jugats
+     * @return retorna la posicio del partit seleccionat
+     */
+    private int mostrarLlistaPartits(){
+        boolean esCorrecte;
+        int posicioPartit;
+        for (int i=0; i<partits.size(); i++){
+            if (partits.get(i).getDataPartit().isAfter(LocalDate.now())){
+                System.out.println(partits.get(i).toString());
+            }
+        }
+        do {
+            System.out.print("Seleccione la id del partit del que desitja gestionar: ");
+                posicioPartit = localitzarPartit(Lib.introduirEnter());
+                esCorrecte = true;
+        }while (!esCorrecte);
+        return posicioPartit;
+    }
+
+    /**
+     * mostra el menu de gestió
+     * @return la elecció del menu
+     */
+    private int menuGestio(){
+        int eleccio;
+        System.out.println("** GESTIÓ DE PARTIT **");
+        System.out.println("1-Venda entrades");
+        System.out.println("2-Tornar entrada");
+        System.out.println("3-Llistat de localitats");
+        System.out.println("4-Mostrar recaudació del partit");
+        System.out.println("5-Fer el sorteig del partit");
+        System.out.println("0-Tornar al menu principal");
+        System.out.print("Selecciona una opció: ");
+        eleccio = Lib.introduirEnter();
+        return eleccio;
+    }
+
+    /**
      * Metode per vendre entrades per a un partit en concret
      */
-    public void vendaEntrades(){
+    private void vendaEntrades(){
         Entrada entrada;
         int numEntrades;
-        int posicioPartit;
         int zona = 0;
         int fila = 0;
         int seient = 0;
         int seleccio3;
-        boolean esCorrecto2 = false;
-        posicioPartit = localitzarPartit(idPartit);
+        boolean esCorrecto2;
         if (posicioPartit >= 0) {
             //demanem el nombre dentrades a vendre
             System.out.print("Moltes entrades dessitja vendre?: ");
@@ -220,14 +218,13 @@ public class Exercici07 {
                     System.out.println("1-Normal");
                     System.out.println("2-VIP");
                     seleccio3 = Lib.introduirEnter();
+                    esCorrecto2 = true;
                     if (seleccio3 < 1 || seleccio3 > 2) {
                         System.out.println("Selecció incorrecta....");
                         esCorrecto2 = false;
-                    } else if (seleccio3 >= 1 || seleccio3 <= 2) {
-                        esCorrecto2 = true;
                     }
                 } while (!esCorrecto2);
-                //imprimim les zones disponibles per al tipus dentrada seleccionat
+                //mostrem les zones disponibles per al tipus dentrada seleccionat
                 switch (seleccio3) {
                     case 1: {
                         System.out.println("Zones normals: ");
@@ -337,11 +334,9 @@ public class Exercici07 {
     /**
      * metode per tornar entrades de un partit en concret
      */
-    public void tornarEntrada(){
+    private void tornarEntrada(){
         int numEntrada = 0;
-        int posicioPartit;
-        boolean esCorrecto4 = false;
-        posicioPartit = localitzarPartit(idPartit);
+        boolean esCorrecto4;
         if (posicioPartit >= 0) {
             do {
                 System.out.print("Introduix el numero d'entrada: ");
@@ -380,10 +375,7 @@ public class Exercici07 {
     /**
      * Mostra les localitas de un partit en concret
      */
-    public void mostrarLocalitats(){
-        int idPartit = 0;
-        int posicioPartit;
-        posicioPartit = localitzarPartit(idPartit);
+    private void mostrarLocalitats(){
         if (posicioPartit >= 0) {
             partits.get(posicioPartit).getGrada().mostarGrada();
         }
@@ -392,9 +384,7 @@ public class Exercici07 {
     /**
      * mostra la recaudacio de el partit solicitat
      */
-    public void mostrarRecaudacio(){
-        int posicioPartit;
-        posicioPartit = localitzarPartit(idPartit);
+    private void mostrarRecaudacio(){
         if (posicioPartit >= 0){
             System.out.println("Hi ha una recaudació de: " + partits.get(posicioPartit).getRecaudacio() + "Euros");
         }
@@ -403,11 +393,11 @@ public class Exercici07 {
     /**
      * genera el sorteig del partit que li demanem, mostra el premiat
      */
-    public void generarSorteig(){
+    private void generarSorteig(){
         int posicioPartit;
-        int numSorteig = 0;
+        int numSorteig;
         boolean esCorrecte = false;
-        posicioPartit = localitzarPartit(idPartit);
+        posicioPartit = localitzarPartit(this.posicioPartit);
         if (posicioPartit >= 0){
             numSorteig = partits.get(posicioPartit).getSorteig().generarSorteig();
             for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
@@ -429,7 +419,7 @@ public class Exercici07 {
     /**
      * metode per demanar les dades de les grades
      */
-    public Grada dadesGrades(){
+    private Grada dadesGrades(){
         final int MAX_ZONES = 20;
         final int MAX_ZONES_VIP = 10;
         final int MAX_FILES = 100;
@@ -492,7 +482,7 @@ public class Exercici07 {
      * localitza el partit i comprobva si existeix
      * @return retorna la posicio del partit
      */
-    public int localitzarPartit(int idPartit){
+    private int localitzarPartit(int idPartit){
         boolean esCorrecto4 = false;
         int posicioPartit = 0;
         //comprovem que existix el partit
