@@ -14,8 +14,8 @@ public class Exercici07 {
     private int eleccio2;
     private boolean esCorrecto;
     private Zona zona;
-    private int entradesTotals;
     private ArrayList<Partit> partits;
+
     public Exercici07(){
         partits = new ArrayList<>();
         do{
@@ -71,67 +71,6 @@ public class Exercici07 {
                 }
             }
         }while (!esCorrecto);
-    }
-
-    /**
-     * metode per demanar les dades de les grades
-     */
-    public Grada dadesGrades(){
-        final int MAX_ZONES = 20;
-        final int MAX_ZONES_VIP = 10;
-        final int MAX_FILES = 100;
-        final int MAX_SEIENTS = 200;
-        int numZonesNormals;
-        int numZonesVip;
-        int files;
-        int seientsPerFila;
-        Grada grada;
-        do {
-            System.out.print("Indique les zones normals que te la grada: ");
-            numZonesNormals = Lib.introduirEnter();
-            if (numZonesNormals < 0 || numZonesNormals > MAX_ZONES){
-                System.out.println("hi ha un maxim de: " + MAX_ZONES);
-            }
-        }while(numZonesNormals < 0 || numZonesNormals > MAX_ZONES);
-
-        do {
-            System.out.print("Indique les zones VIP que te la grada: ");
-            numZonesVip = Lib.introduirEnter();
-            if (numZonesNormals <= 0 || numZonesNormals > MAX_ZONES_VIP){
-                System.out.println("hi ha un maxim de: " + MAX_ZONES_VIP);
-            }
-        }while(numZonesVip <= 0 || numZonesVip > MAX_ZONES_VIP);
-
-        do {
-            System.out.print("Indique les files que hi ha per zona: ");
-            files = Lib.introduirEnter();
-            if (files <= 0 || files > MAX_FILES){
-                System.out.println("hi ha un maxim de: " + MAX_FILES);
-            }
-        }while(files <= 0 || files > MAX_FILES);
-
-        do {
-            System.out.print("Indique els seients que hi ha per fila: ");
-            seientsPerFila = Lib.introduirEnter();
-            if (seientsPerFila <= 0 || seientsPerFila > MAX_SEIENTS){
-                System.out.println("hi ha un maxim de: " + MAX_SEIENTS);
-            }
-        }while(seientsPerFila <= 0 || seientsPerFila > MAX_SEIENTS);
-
-        grada = new Grada(numZonesNormals, numZonesVip);
-        for (int i=0; i<(numZonesNormals + numZonesVip); i++){
-            if (i < numZonesNormals){
-                zona = new ZonaNormal(files,seientsPerFila);
-                grada.addZona(i, zona);
-            }
-            else{
-                zona = new ZonaVip(files,seientsPerFila);
-                grada.addZona(i, zona);
-            }
-        }
-        entradesTotals = (numZonesNormals + numZonesVip) * (files * seientsPerFila);
-        grada.mostrarEstadi();
-        return grada;
     }
 
     /**
@@ -230,7 +169,7 @@ public class Exercici07 {
                 }
             }
         }while (!esCorrecto);
-        partit = new Partit(tipusPartit,dataPartit,local,visitant, gradaPartit,entradesTotals);
+        partit = new Partit(tipusPartit,dataPartit,local,visitant, gradaPartit,gradaPartit.getEntradesTotals());
         System.out.println("Partit registrat amb exit!!!");
         System.out.println(partit.toString() + "\n");
         partits.add(partit);
@@ -344,7 +283,7 @@ public class Exercici07 {
                         //marquem el seient com a ocupat
                         partits.get(posicioPartit).setSeientOcupat(zona, fila, seient);
                         //mostrem les grades
-                        partits.get(posicioPartit).getGrada().mostrarEstadi();
+                        partits.get(posicioPartit).getGrada().mostarGrada();
                         //filtrem segons la eleccio, per a que es pugurn seleccionar les zones correctes
                         if (seleccio3 == 1) {
                             entrada = new ENormal(partits.get(posicioPartit), zona, fila, seient
@@ -424,7 +363,7 @@ public class Exercici07 {
         int posicioPartit;
         posicioPartit = introduirIdPartit();
         if (posicioPartit >= 0) {
-            partits.get(posicioPartit).getGrada().mostrarEstadi();
+            partits.get(posicioPartit).getGrada().mostarGrada();
         }
     }
 
@@ -437,6 +376,94 @@ public class Exercici07 {
         if (posicioPartit >= 0){
             System.out.println("Hi ha una recaudació de: " + partits.get(posicioPartit).getRecaudacio() + "Euros");
         }
+    }
+
+    /**
+     * genera el sorteig del partit que li demanem, mostra el premiat
+     */
+    public void generarSorteig(){
+        int posicioPartit;
+        int numSorteig = 0;
+        boolean esCorrecte = false;
+        posicioPartit = introduirIdPartit();
+        if (posicioPartit >= 0){
+            numSorteig = partits.get(posicioPartit).getSorteig().generarSorteig();
+            for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
+                if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSorteig() == numSorteig){
+                    System.out.println("La entrada guanyadora per al nombre " + numSorteig
+                            + " Es:");
+                    System.out.println(partits.get(posicioPartit).getEntradesVenudes().get(i).toString());
+                    System.out.println("ENORABONA!!!!");
+                    esCorrecte = true;
+                }
+            }
+            if (!esCorrecte){
+                System.out.println(Lib.letraRoja() + "Ninguna entrada premiada...." + Lib.reiniciarColorLetra());
+            }
+        }
+
+    }
+
+    /**
+     * metode per demanar les dades de les grades
+     */
+    public Grada dadesGrades(){
+        final int MAX_ZONES = 20;
+        final int MAX_ZONES_VIP = 10;
+        final int MAX_FILES = 100;
+        final int MAX_SEIENTS = 200;
+        int numZonesNormals;
+        int numZonesVip;
+        int files;
+        int seientsPerFila;
+        int entradesTotals;
+        Grada grada;
+        do {
+            System.out.print("Indique les zones normals que te la grada: ");
+            numZonesNormals = Lib.introduirEnter();
+            if (numZonesNormals < 0 || numZonesNormals > MAX_ZONES){
+                System.out.println("hi ha un maxim de: " + MAX_ZONES);
+            }
+        }while(numZonesNormals < 0 || numZonesNormals > MAX_ZONES);
+
+        do {
+            System.out.print("Indique les zones VIP que te la grada: ");
+            numZonesVip = Lib.introduirEnter();
+            if (numZonesNormals <= 0 || numZonesNormals > MAX_ZONES_VIP){
+                System.out.println("hi ha un maxim de: " + MAX_ZONES_VIP);
+            }
+        }while(numZonesVip <= 0 || numZonesVip > MAX_ZONES_VIP);
+
+        do {
+            System.out.print("Indique les files que hi ha per zona: ");
+            files = Lib.introduirEnter();
+            if (files <= 0 || files > MAX_FILES){
+                System.out.println("hi ha un maxim de: " + MAX_FILES);
+            }
+        }while(files <= 0 || files > MAX_FILES);
+
+        do {
+            System.out.print("Indique els seients que hi ha per fila: ");
+            seientsPerFila = Lib.introduirEnter();
+            if (seientsPerFila <= 0 || seientsPerFila > MAX_SEIENTS){
+                System.out.println("hi ha un maxim de: " + MAX_SEIENTS);
+            }
+        }while(seientsPerFila <= 0 || seientsPerFila > MAX_SEIENTS);
+        //calcule les entrades totals que es poden vendre
+        entradesTotals = (numZonesNormals + numZonesVip) * (files * seientsPerFila);
+        grada = new Grada(numZonesNormals, numZonesVip, entradesTotals);
+        for (int i=0; i<(numZonesNormals + numZonesVip); i++){
+            if (i < numZonesNormals){
+                zona = new ZonaNormal(files,seientsPerFila);
+                grada.addZona(i, zona);
+            }
+            else{
+                zona = new ZonaVip(files,seientsPerFila);
+                grada.addZona(i, zona);
+            }
+        }
+        grada.mostarGrada();
+        return grada;
     }
 
     /**
@@ -470,26 +497,5 @@ public class Exercici07 {
         return posicioPartit;
     }
 
-    public void generarSorteig(){
-        int posicioPartit;
-        int numSorteig = 0;
-        boolean esCorrecte = false;
-        posicioPartit = introduirIdPartit();
-        if (posicioPartit >= 0){
-            numSorteig = partits.get(posicioPartit).getSorteig().generarSorteig();
-            for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
-                if (partits.get(posicioPartit).getEntradesVenudes().get(i).getNumSorteig() == numSorteig){
-                    System.out.println("La entrada guanyadora per al nombre " + numSorteig
-                    + " Es:");
-                    System.out.println(partits.get(posicioPartit).getEntradesVenudes().get(i).toString());
-                    System.out.println("ENORABONA!!!!");
-                    esCorrecte = true;
-                }
-            }
-            if (!esCorrecte){
-                System.out.println(Lib.letraRoja() + "Ninguna entrada premiada...." + Lib.reiniciarColorLetra());
-            }
-        }
 
-    }
 }

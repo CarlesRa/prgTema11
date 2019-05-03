@@ -7,8 +7,10 @@ package exercici07;
 
 public class Grada {
     private Zona [] zones;
-    public Grada(int zonesNormals, int zonesVip) {
+    private int entradesTotals;
+    public Grada(int zonesNormals, int zonesVip, int entradesTotals) {
         zones = new Zona[zonesNormals + zonesVip];
+        this.entradesTotals = entradesTotals;
     }
 
     public void addZona(int posicio, Zona zona){
@@ -19,7 +21,11 @@ public class Grada {
         return zones;
     }
 
-    public void mostrarEstadi(){
+    public int getEntradesTotals() {
+        return entradesTotals;
+    }
+
+    public void mostarGrada(){
         for (int i=0; i<zones.length; i++){
             if (zones[i] instanceof ZonaNormal) {
                 System.out.println("Zona normal: " + i);
