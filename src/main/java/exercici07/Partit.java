@@ -86,6 +86,12 @@ public class Partit {
             grada.getZones()[zona].setSeientLiure(fila, seient);
             return true;
     }
+
+    public void mostrarEntradesVenudes(){
+        for (Entrada entrada : entradesVenudes){
+            System.out.println(entrada.toString());
+        }
+    }
     @Override
     public String toString() {
         return "Partit{" +

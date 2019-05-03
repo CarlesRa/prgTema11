@@ -81,6 +81,7 @@ public class Exercici07 {
      */
     private int mostrarMenu(){
         int eleccio;
+        Lib.limpiarPantalla();
         System.out.println("** GESTI-FOOTBALL**");
         System.out.println("*******************");
         System.out.println("1-Nou partit");
@@ -153,7 +154,8 @@ public class Exercici07 {
                 }
             }
         }while (!esCorrecto);
-        partit = new Partit(tipusPartit,dataPartit,local,visitant, gradaPartit,gradaPartit.getEntradesTotals());
+        partit = new Partit(tipusPartit,dataPartit,local.toUpperCase()
+        ,visitant.toUpperCase(), gradaPartit,gradaPartit.getEntradesTotals());
         System.out.println("Partit registrat amb exit!!!");
         System.out.println(partit.toString() + "\n");
         partits.add(partit);
@@ -165,16 +167,31 @@ public class Exercici07 {
      */
     private int mostrarLlistaPartits(){
         boolean esCorrecte;
-        int posicioPartit;
+        int idPartit;
+        int posicioPartit = 0;
+        //imprimim els partits
         for (int i=0; i<partits.size(); i++){
-            if (partits.get(i).getDataPartit().isAfter(LocalDate.now())){
+            if (partits.get(i).getDataPartit().isAfter(LocalDate.now())
+            || partits.get(i).getDataPartit().isEqual(LocalDate.now())){
                 System.out.println(partits.get(i).toString());
             }
         }
         do {
-            System.out.print("Seleccione la id del partit del que desitja gestionar: ");
-                posicioPartit = localitzarPartit(Lib.introduirEnter());
-                esCorrecte = true;
+            System.out.print("Seleccione la id del partit que desitja gestionar: ");
+            //posicioPartit = localitzarPartit(Lib.introduirEnter());
+            idPartit = Lib.introduirEnter();
+            esCorrecte = true;
+            //comprovem que existix el partit
+            for (int i=0; i<partits.size(); i++){
+                if (idPartit == partits.get(i).getIdPartit()){
+                    posicioPartit = i;
+                    esCorrecte = true;
+                }
+            }
+            if (!esCorrecte){
+                System.out.println("Ningun partit amb eixa ID....");
+                return -1;
+            }
         }while (!esCorrecte);
         return posicioPartit;
     }
@@ -185,6 +202,7 @@ public class Exercici07 {
      */
     private int menuGestio(){
         int eleccio;
+        Lib.limpiarPantalla();
         System.out.println("** GESTIÓ DE PARTIT **");
         System.out.println("1-Venda entrades");
         System.out.println("2-Tornar entrada");
@@ -319,11 +337,13 @@ public class Exercici07 {
                         partits.get(posicioPartit).sumarRecaudacio(entrada.getPreuEntrada());
                         // descomptem la entrada de les entrades lliures del partit
                         partits.get(posicioPartit).descomptarEntrada();
+                        Lib.continuar();
                         esCorrecto2 = true;
                     }
                     //informem en cas que el seient estiga ocupat
                     else {
                         System.out.println("El seinent esta ocupat...");
+                        Lib.continuar();
                         esCorrecto2 = false;
                     }
                 } while (!esCorrecto2);
@@ -338,6 +358,7 @@ public class Exercici07 {
         int numEntrada = 0;
         boolean esCorrecto4;
         if (posicioPartit >= 0) {
+            partits.get(posicioPartit).mostrarEntradesVenudes();
             do {
                 System.out.print("Introduix el numero d'entrada: ");
                 try {
@@ -369,6 +390,8 @@ public class Exercici07 {
                     partits.get(posicioPartit).getEntradesVenudes().remove(i);
                 }
             }
+            System.out.println("Entrada tornada amb exirt!!");
+            Lib.continuar();
         }
     }
 
@@ -378,6 +401,7 @@ public class Exercici07 {
     private void mostrarLocalitats(){
         if (posicioPartit >= 0) {
             partits.get(posicioPartit).getGrada().mostarGrada();
+            Lib.continuar();
         }
     }
 
@@ -386,7 +410,9 @@ public class Exercici07 {
      */
     private void mostrarRecaudacio(){
         if (posicioPartit >= 0){
+            System.out.println(partits.get(posicioPartit).toString());
             System.out.println("Hi ha una recaudació de: " + partits.get(posicioPartit).getRecaudacio() + "Euros");
+            Lib.continuar();
         }
     }
 
@@ -394,10 +420,8 @@ public class Exercici07 {
      * genera el sorteig del partit que li demanem, mostra el premiat
      */
     private void generarSorteig(){
-        int posicioPartit;
         int numSorteig;
         boolean esCorrecte = false;
-        posicioPartit = localitzarPartit(this.posicioPartit);
         if (posicioPartit >= 0){
             numSorteig = partits.get(posicioPartit).getSorteig().generarSorteig();
             for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
@@ -406,11 +430,13 @@ public class Exercici07 {
                             + " Es:");
                     System.out.println(partits.get(posicioPartit).getEntradesVenudes().get(i).toString());
                     System.out.println("ENORABONA!!!!");
+                    Lib.continuar();
                     esCorrecte = true;
                 }
             }
             if (!esCorrecte){
                 System.out.println(Lib.letraRoja() + "Ninguna entrada premiada...." + Lib.reiniciarColorLetra());
+                Lib.continuar();
             }
         }
 
@@ -482,25 +508,5 @@ public class Exercici07 {
      * localitza el partit i comprobva si existeix
      * @return retorna la posicio del partit
      */
-    private int localitzarPartit(int idPartit){
-        boolean esCorrecto4 = false;
-        int posicioPartit = 0;
-        //comprovem que existix el partit
-        for (int i=0; i<partits.size(); i++){
-            if (idPartit == partits.get(i).getIdPartit()){
-                posicioPartit = i;
-                esCorrecto4 = true;
-            }
-        }
-        if (!esCorrecto4){
-            System.out.println("Ningun partit amb eixa ID....");
-            return -1;
-        }
-        else{
-            System.out.println(partits.get(posicioPartit).toString() + "\n");
-        }
-        return posicioPartit;
-    }
-
 
 }
