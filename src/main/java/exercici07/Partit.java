@@ -41,6 +41,10 @@ public class Partit {
         return idPartit;
     }
 
+    public LocalDate getDataPartit() {
+        return dataPartit;
+    }
+
     public void sumarRecaudacio(float recaudacio) {
         this.recaudacio += recaudacio;
     }

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Exercici07 {
     private int eleccio;
     private int eleccio2;
+    private int idPartit;
     private boolean esCorrecto;
     private Zona zona;
     private ArrayList<Partit> partits;
@@ -30,6 +31,7 @@ public class Exercici07 {
                         break;
                     }
                     case 2: {
+                        idPartit = mostrarLlistaPartits();
                         do {
                             eleccio2 = menuGestio();
                             if (eleccio2 < 0 || eleccio2 > 5) {
@@ -88,6 +90,26 @@ public class Exercici07 {
         System.out.print("Seleccione una opció: ");
         eleccio = Lib.introduirEnter();
         return eleccio;
+    }
+
+    public int mostrarLlistaPartits(){
+        boolean esCorrecte;
+        int idParit;
+        for (int i=0; i<partits.size(); i++){
+            if (partits.get(i).getDataPartit().isAfter(LocalDate.now())){
+                System.out.println(partits.get(i).toString());
+            }
+        }
+        do {
+            System.out.print("Seleccione la id del partit del que desitja gestionar: ");
+                idParit = Lib.introduirEnter();
+                esCorrecte = true;
+                if (idParit < 0){
+                    esCorrecte = false;
+                }
+
+        }while (!esCorrecte);
+        return idParit;
     }
 
     /**
@@ -187,7 +209,7 @@ public class Exercici07 {
         int seient = 0;
         int seleccio3;
         boolean esCorrecto2 = false;
-        posicioPartit = introduirIdPartit();
+        posicioPartit = localitzarPartit(idPartit);
         if (posicioPartit >= 0) {
             //demanem el nombre dentrades a vendre
             System.out.print("Moltes entrades dessitja vendre?: ");
@@ -319,7 +341,7 @@ public class Exercici07 {
         int numEntrada = 0;
         int posicioPartit;
         boolean esCorrecto4 = false;
-        posicioPartit = introduirIdPartit();
+        posicioPartit = localitzarPartit(idPartit);
         if (posicioPartit >= 0) {
             do {
                 System.out.print("Introduix el numero d'entrada: ");
@@ -361,7 +383,7 @@ public class Exercici07 {
     public void mostrarLocalitats(){
         int idPartit = 0;
         int posicioPartit;
-        posicioPartit = introduirIdPartit();
+        posicioPartit = localitzarPartit(idPartit);
         if (posicioPartit >= 0) {
             partits.get(posicioPartit).getGrada().mostarGrada();
         }
@@ -372,7 +394,7 @@ public class Exercici07 {
      */
     public void mostrarRecaudacio(){
         int posicioPartit;
-        posicioPartit = introduirIdPartit();
+        posicioPartit = localitzarPartit(idPartit);
         if (posicioPartit >= 0){
             System.out.println("Hi ha una recaudació de: " + partits.get(posicioPartit).getRecaudacio() + "Euros");
         }
@@ -385,7 +407,7 @@ public class Exercici07 {
         int posicioPartit;
         int numSorteig = 0;
         boolean esCorrecte = false;
-        posicioPartit = introduirIdPartit();
+        posicioPartit = localitzarPartit(idPartit);
         if (posicioPartit >= 0){
             numSorteig = partits.get(posicioPartit).getSorteig().generarSorteig();
             for (int i=0; i<partits.get(posicioPartit).getEntradesVenudes().size(); i++){
@@ -467,19 +489,12 @@ public class Exercici07 {
     }
 
     /**
-     * demana la id del partit i comprava si existeix
+     * localitza el partit i comprobva si existeix
      * @return retorna la posicio del partit
      */
-    public int introduirIdPartit(){
-        int idPartit = 0;
-        int posicioPartit = 0;
+    public int localitzarPartit(int idPartit){
         boolean esCorrecto4 = false;
-        System.out.print("introduix el ID de partit: ");
-        try {
-            idPartit = Lib.introduirEnter();
-        }catch (NumberFormatException nfe4){
-            System.out.println("nomes es poden introduir nombres...");
-        }
+        int posicioPartit = 0;
         //comprovem que existix el partit
         for (int i=0; i<partits.size(); i++){
             if (idPartit == partits.get(i).getIdPartit()){
