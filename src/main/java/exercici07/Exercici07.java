@@ -167,7 +167,7 @@ public class Exercici07 {
      * @return retorna la posicio del partit seleccionat
      */
     private int mostrarLlistaPartits(){
-        boolean esCorrecte = false;
+        boolean esCorrecte;
         int idPartit;
         int posicioPartit = 0;
         //imprimim els partits
