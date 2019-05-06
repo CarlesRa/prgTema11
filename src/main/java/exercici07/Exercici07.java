@@ -32,39 +32,40 @@ public class Exercici07 {
                     }
                     case 2: {
                         posicioPartit = mostrarLlistaPartits();
-                        do {
-                            eleccio2 = menuGestio();
-                            if (eleccio2 < 0 || eleccio2 > 5) {
-                                System.out.println("Selecció Incorrecta...");
-                            }
-                            else{
-                                switch (eleccio2){
-                                    case 1:{
-                                        vendaEntrades();
-                                        break;
-                                    }
-                                    case 2:{
-                                        tornarEntrada();
-                                        break;
-                                    }
-                                    case 3:{
-                                        mostrarLocalitats();
-                                        break;
-                                    }
-                                    case 4:{
-                                        mostrarRecaudacio();
-                                        break;
-                                    }
-                                    case 5:{
-                                        generarSorteig();
-                                        break;
-                                    }
-                                    case 0:{
-                                        esCorrecto = false;
+                        if (posicioPartit >= 0) {
+                            do {
+                                eleccio2 = menuGestio();
+                                if (eleccio2 < 0 || eleccio2 > 5) {
+                                    System.out.println("Selecció Incorrecta...");
+                                } else {
+                                    switch (eleccio2) {
+                                        case 1: {
+                                            vendaEntrades();
+                                            break;
+                                        }
+                                        case 2: {
+                                            tornarEntrada();
+                                            break;
+                                        }
+                                        case 3: {
+                                            mostrarLocalitats();
+                                            break;
+                                        }
+                                        case 4: {
+                                            mostrarRecaudacio();
+                                            break;
+                                        }
+                                        case 5: {
+                                            generarSorteig();
+                                            break;
+                                        }
+                                        case 0: {
+                                            esCorrecto = false;
+                                        }
                                     }
                                 }
-                            }
-                        } while (eleccio2 < 0 || eleccio2 > 5);
+                            } while (eleccio2 < 0 || eleccio2 > 5);
+                        }
                         break;
                     }
                     case 0:{
@@ -166,7 +167,7 @@ public class Exercici07 {
      * @return retorna la posicio del partit seleccionat
      */
     private int mostrarLlistaPartits(){
-        boolean esCorrecte;
+        boolean esCorrecte = false;
         int idPartit;
         int posicioPartit = 0;
         //imprimim els partits
@@ -180,7 +181,7 @@ public class Exercici07 {
             System.out.print("Seleccione la id del partit que desitja gestionar: ");
             //posicioPartit = localitzarPartit(Lib.introduirEnter());
             idPartit = Lib.introduirEnter();
-            esCorrecte = true;
+            esCorrecte = false;
             //comprovem que existix el partit
             for (int i=0; i<partits.size(); i++){
                 if (idPartit == partits.get(i).getIdPartit()){
